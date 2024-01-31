@@ -1,0 +1,49 @@
+{% extends 'base-sms.html' %}
+
+{% block content %}
+
+    <h5> Witaj, {{ user }}! 👋 </h5>
+    <hr>
+
+{#    <a class="btn btn-outline-primary btn-sm" href="{% url 'create_telefony' %}">Dodaj Kontrahenta &nbsp; <i#}
+{#            class="fa fa-plus-circle"#}
+{#            aria-hidden="true"></i></a>#}
+    <hr>
+    <br><br>
+    <table class="table  table-bordered" id="sample_data">
+        <thead class="table-light">
+        <tr>
+            <th scope="col"> ID</th>
+            <th scope="col"> Indeks</th>
+            <th scope="col"> Nazwa</th>
+            <th scope="col"> Adres</th>
+            <th scope="col"> Telefon</th>
+            <th scope="col"> Szczegóły</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if searched %}
+            {% for record in my_records %}
+                <tr>
+                <tr>
+                    <td> {{ record.id }} </td>
+                    <td> {{ record.indeks }} </td>
+                    <td> {{ record.nazwa }}</td>
+                    <td> {{ record.adres }} </td>
+                    <td> {{ record.telefon }} </td>
+                    <td><a class="btn btn-outline-primary btn-sm" href="{% url 'sms-view' record.id %}">
+                        <i class="fa fa-comment" aria-hidden="true"></i> </a></td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+
+        </tbody>
+    </table>
+    <br><br>
+    <hr>
+
+    <a class="btn btn-outline-primary" href="{% url 'dashboard_sms' %}">Powrót &nbsp; <i class="fa fa-arrow-left"
+                                                                                              aria-hidden="true"></i>
+    </a>
+
+{% endblock %}

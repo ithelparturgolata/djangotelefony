@@ -1,0 +1,21 @@
+kontrahent = Sójkowska-Zydel Danuta
+Telefon = 502786937
+Zgoda = brak
+Data:2024-01-29
+Dokonal aktualizacji = golataa
+Godzina: 07:30:36
+-----------
+kontrahent = Sójkowska-Zydel Danute
+Telefon = 502786937
+Zgoda = nie
+Data:2024-01-29
+Dokonal aktualizacji = golataa
+Godzina: 07:30:47
+-----------
+kontrahent = Go³ata Artur
+Telefon = 601521657
+Zgoda = tak
+Data:2024-01-29
+Dokonal aktualizacji = golataa
+Godzina: 18:30:13
+-----------

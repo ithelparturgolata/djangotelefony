@@ -1,0 +1,44 @@
+{% extends 'base-sms.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>
+                        Blok:&nbsp;&nbsp;&nbsp;{{ record.indeks_blok|upper }}
+                        {#                {{record.dotyczy}}#}
+                    </strong>
+                    <hr>
+                    <p><strong> ID: </strong> {{ my_records_blok.id }} </p>
+                    <p><strong> Indeks: </strong> {{ my_records_blok.indeks_blok }} </p>
+                    <p><strong> Adres: </strong> {{ my_records_blok.adres_blok }} </p>
+                    <p><strong> Administracja: </strong> {{ my_records_blok.osiedle_blok }} </p>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>
+                        Wykonaj:
+                    </strong>
+                    <hr>
+
+                    <a href="{% url 'dashboard-sms-blok' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+                            class="fa fa-arrow-left"></i> </a>
+                    <a href="{% url 'sms-sms-blok' my_records_blok.id %}" class="btn btn-outline-primary"> SMS &nbsp; <i
+                            class="fa fa-comment"></i> </a>
+
+                </div>
+            </div>
+
+        </div>
+        <br>
+    </div>
+
+{% endblock %}

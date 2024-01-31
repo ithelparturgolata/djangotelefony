@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
+    <hr>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Baza telefonów</h5>
+                    <hr>
+                    <p class="card-text">Mieszkańcy, Wspólnoty, Kontrahenci<br><br></p>
+                    <a href="{% url 'dashboard_telefony' %}" class="btn btn-primary">Otwórz</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Panel SMS</h5>
+                    <hr>
+                    <p class="card-text">Wysyłka sms<br><br></p>
+                    <a href="{% url 'dashboard_sms' %}" class="btn btn-primary">Otwórz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    <hr>
+
+    {{ redirect_to_login_immediately }}
+{% endblock %}

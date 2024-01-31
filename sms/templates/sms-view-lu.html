@@ -1,0 +1,48 @@
+{% extends 'base-sms.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>
+                        Kontrahent:&nbsp;&nbsp;&nbsp;{{ record.nazwa|upper }}
+                        {#                {{record.dotyczy}}#}
+                    </strong>
+                    <hr>
+                    <p><strong> ID: </strong> {{ record.id }} </p>
+                    <p><strong> Indeks: </strong> {{ record.indeks }} </p>
+                    <p><strong> Nazwa: </strong> {{ record.nazwa }} </p>
+                    <p><strong> Adres: </strong> {{ record.adres }} </p>
+                    <p><strong> Klatka: </strong> {{ record.klatka }} </p>
+                    <p><strong> Telefon: </strong> {{ record.telefon }} </p>
+                    <p><strong> Zgoda: </strong> {{ record.zgoda }} </p>
+                    <p><strong> Administracja: </strong> {{ record.administracja }} </p>
+                    <p><strong> Data utworzenia: </strong> {{ record.data_utworzenia }} </p>
+                </div>
+            </div>
+
+        </div>
+
+    <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>
+                        Wykonaj:
+                    </strong>
+                    <hr>
+
+                    <a href="{% url 'dashboard-sms-kontrahent' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+            class="fa fa-arrow-left"></i> </a>
+    <a href="{% url 'sms-sms' record.id %}" class="btn btn-outline-primary"> SMS &nbsp; <i
+            class="fa fa-comment"></i> </a>
+    {{ my_record }}
+                </div>
+            </div>
+
+        </div>
+    <br>
+    </div>
+{% endblock %}
+

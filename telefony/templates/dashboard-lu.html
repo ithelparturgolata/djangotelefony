@@ -1,0 +1,72 @@
+{% extends 'base-telefony.html' %}
+{% block content %}
+    <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
+    <hr>
+    Filtr:
+    <a class="btn btn-outline-primary" href="{% url 'dashboard-ce' %}">Administracja Centrum &nbsp;<i
+            class="fa fa-filter"
+            aria-hidden="true"></i> </a>
+    <a class="btn btn-outline-primary" href="{% url 'dashboard-nw' %}">Administracja Na Wyżynach &nbsp;<i
+            class="fa fa-filter"
+            aria-hidden="true"></i> </a>
+    <a class="btn btn-outline-primary" href="{% url 'dashboard-ns' %}">Administracja Na Skarpie&nbsp;<i
+            class="fa fa-filter"
+            aria-hidden="true"></i> </a>
+    <a class="btn btn-primary" href="{% url 'dashboard-lu' %}">Lokale użytkowe&nbsp;<i
+            class="fa fa-filter"
+            aria-hidden="true"></i> </a>
+    <a class="btn btn-outline-primary" href="{% url 'dashboard-w' %}">Wspólnoty&nbsp;<i
+            class="fa fa-filter"
+            aria-hidden="true"></i> </a>
+    <hr>
+    <br><br>
+    <table class="table  table-bordered" id="sample_data">
+        <thead class="table-light">
+        <tr>
+            <th scope="col"> ID</th>
+            <th scope="col"> Indeks</th>
+            <th scope="col"> Nazwa</th>
+            <th scope="col"> Adres</th>
+            <th scope="col"> Telefon</th>
+            <th scope="col"> Administracja</th>
+            <th scope="col"> Szczegóły</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for record in my_record %}
+            <tr>
+                <td> {{ record.id }} </td>
+                <td> {{ record.indeks }} </td>
+                <td> {{ record.nazwa }}</td>
+                <td> {{ record.adres }} </td>
+                <td> {{ record.telefon }} </td>
+                <td> {{ record.administracja }} </td>
+                <td><a class="btn btn-outline-primary btn-sm" href="{% url 'view_telefony' record.id %}">
+                    <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <br><br>
+    <hr>
+
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if my_record.has_previous %}
+                <li class="page-item"><a class="page-link"
+                                         href="?page={{ my_record.previous_page_number }}">Poprzednia</a></li>
+                {#                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>#}
+            {% endif %}
+            {% if my_record.has_next %}
+                {#                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>#}
+                {#                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>#}
+                <li class="page-item"><a class="page-link" href="?page={{ my_record.next_page_number }}">Następna</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {{ redirect_to_login_immediately }}
+{% endblock %}

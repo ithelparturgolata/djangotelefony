@@ -1,0 +1,90 @@
+{% extends 'base-sms.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <body>
+    <div class="container bg-light shadow-md p-5 form-layout-add">
+        <h3> Wyślij sms </h3>
+        <hr>
+        <br>
+        <form method="POST" autocomplete="off">
+            <p><strong> Kontrahent: </strong> {{ record.nazwa }} </p>
+            <p><strong> Telefon: </strong> {{ record.telefon }} </p>
+            {% csrf_token %}
+            <div class="mb-3">
+                    <label for="phone" class="form-label">Telefon:</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder=""
+                           value="{{ record.telefon }}" maxlength="9" autocomplete="off">
+                </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">Treść:</label>
+                    <textarea class="form-control" id="content" name="content" maxlength="160" rows="3"></textarea>
+                </div>
+            <a href="{% url 'dashboard_sms' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+                    class="fa fa-arrow-left"></i> </a>
+
+            <button type="submit" class="btn btn-outline-primary">Wyślij</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </form>
+    </div>
+    <br>
+    </body>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#{% extends 'base-sms.html' %}#}
+{#{% load crispy_forms_filters %}#}
+{#{% load static %}#}
+{##}
+{#{% block content %}#}
+{#    <body>#}
+{##}
+{#    <div class="container bg-light shadow-md p-5 form-layout-add">#}
+{#        <h3> Wyślij sms </h3>#}
+{#        <hr>#}
+{#        <br>#}
+{#        <form method="POST" autocomplete="off">#}
+{#            <p><strong> Kontrahent: </strong> {{ record.nazwa }} </p>#}
+{#            <p><strong> Adres: </strong> {{ record.adres }} </p>#}
+{#            <p><strong> Telefon: </strong> {{ record.telefon }} </p>#}
+{#            {% csrf_token %}#}
+{##}
+{#            <form class="form-layout-add">#}
+{#                <div class="mb-3">#}
+{#                    <label for="phone" class="form-label">Telefon</label>#}
+{#                    <input type="text" class="form-control" id="phone" name="phone" placeholder=""#}
+{#                           value="{{ record.telefon }}" maxlength="9" autocomplete="off">#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label for="content" class="form-label">Tresc</label>#}
+{#                    <textarea class="form-control" id="content" name="content" maxlength="160" rows="3"></textarea>#}
+{#                </div>#}
+{#            </form>#}
+{##}
+{#            <a href="{% url 'sms-view' record.id %}" class="btn btn-outline-primary"> Powrót &nbsp; <i#}
+{#                    class="fa fa-arrow-left"></i> </a>#}
+{##}
+{#            <button type="submit" class="btn btn-outline-primary">Wyślij</button>#}
+{#            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#}
+{##}
+{#        </form>#}
+{#    </div>#}
+{##}
+{#    <br>#}
+{#    </body>#}
+{##}
+{##}
+{#{% endblock %}#}

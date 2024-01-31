@@ -1,0 +1,33 @@
+{% extends 'base-telefony.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <body>
+    <div class="container bg-light shadow-md p-5 form-layout-add">
+        <h3> Dodaj Kontrahenta </h3>
+        <hr>
+        <br>
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{ form.indeks|as_crispy_field }}
+            <br>
+            {{ form.nazwa|as_crispy_field }}
+            <br>
+            {{ form.adres|as_crispy_field }}
+            <br>
+            {{ form.klatka|as_crispy_field }}
+            <br>
+            {{ form.telefon|as_crispy_field }}
+            <br>
+            {{ form.zgoda|as_crispy_field }}
+            <br>
+            {{ form.administracja|as_crispy_field }}
+            <br>
+            <button type="submit" class="btn btn-outline-primary">Dodaj</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'dashboard_telefony' %}" class="btn btn-secondary">Powrót</a>
+        </form>
+    </div>
+    <br>
+    </body>
+{% endblock %}

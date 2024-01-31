@@ -1,0 +1,36 @@
+Odbiorca = 601521657
+Tresc = test 2
+Data:2024-01-28
+Wyslal = golataa
+Godzina: 19:41:34
+-----------
+Odbiorca = 601521657
+Tresc = test 3
+Data:2024-01-28
+Wyslal = golataa
+Godzina: 20:21:18
+-----------
+Odbiorca = 601521657
+Tresc = test
+Data:2024-01-29
+Wyslal = golataa
+Godzina: 12:07:33
+-----------
+Odbiorca = 601521657
+Tresc = testedeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+Data:2024-01-29
+Wyslal = golataa
+Godzina: 18:19:11
+-----------
+Odbiorca = 601521657
+Tresc = edftefdytfeydtfetfdtefdytfetydfteyfdytfeydtfeytfdytefdytfeytdfeytfdytefdtefytdfeytfdytefdytfeytdfteyfdytefdtyfetydfteyfdytefdytfeytdfeytdfetyfdytefdtfeytdfteyfd
+Data:2024-01-29
+Wyslal = golataa
+Godzina: 18:31:16
+-----------
+Odbiorca = 601521657
+Tresc = test
+Data:2024-01-31
+Wyslal = golataa
+Godzina: 12:00:24
+-----------

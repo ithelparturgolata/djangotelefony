@@ -1,0 +1,82 @@
+{% extends 'base-sms.html' %}
+{% block content %}
+    <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
+    <hr>
+    Filtr:
+    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-kontrahent' %}">Kontrahent &nbsp;<i
+            class="fa fa-filter"
+            aria-hidden="true"></i> </a>
+    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-blok' %}">Blok&nbsp;<i
+            class="fa fa-filter"
+            aria-hidden="true"></i> </a>&nbsp;&nbsp;
+    <a class="btn btn-outline-primary" href="{% url 'dashboard-szablony' %}">Szablony sms&nbsp;<i
+            class="fa fa-filter"
+            aria-hidden="true"></i> </a>&nbsp;&nbsp;
+{#    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-lu' %}">Lokale użytkowe&nbsp;<i#}
+{#            class="fa fa-filter"#}
+{#            aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
+    <hr>
+    <p align="justify">
+        Wysyłanie SMS-ów to skuteczny sposób komunikacji, ale ważne jest, aby być odpowiedzialnym i przestrzegać zasad
+        prywatności. Dlatego używanie filtrów jest kluczowe. Filtr „Kontrahent” pozwala nam wybrać tylko tych
+        kontrahentów, którzy wyrazili zgodę na otrzymywanie SMS-ów. Dzięki temu możemy uniknąć niechcianych wiadomości i
+        przestrzegać regulacji dotyczących ochrony danych osobowych.
+    </p><p align="justify">
+    Po wybraniu filtra „Kontrahent” pojawia się opcja szukania, co ułatwia znalezienie konkretnego kontrahenta na
+    liście. To przydatne narzędzie, szczególnie gdy mamy dużą bazę danych kontrahentów i chcemy szybko dotrzeć do
+    określonej osoby.
+</p><p align="justify">
+    Filtr „Blok” umożliwia wysyłanie SMS-ów do wybranego bloku mieszkalnego. Jest to przydatne, gdy chcemy przekazać
+    ważne informacje wszystkim mieszkańcom danego bloku, na przykład o planowanych pracach remontowych czy zmianach w
+    zarządzaniu nieruchomościami.
+</p><p align="justify">
+    Dzięki tym filtrom możemy skuteczniej zarządzać procesem wysyłania SMS-ów, zapewniając, że nasze wiadomości trafią
+    tylko do odpowiednich odbiorców i będą zgodne z przepisami dotyczącymi ochrony danych osobowych. To ważne dla
+    budowania zaufania i dobrego wizerunku firmy.
+</p>
+
+    {#    <table class="table  table-bordered" id="sample_data">#}
+    {#        <thead class="table-light">#}
+    {#        <tr>#}
+    {#            <th scope="col"> ID</th>#}
+    {#            <th scope="col"> Indeks</th>#}
+    {#            <th scope="col"> Nazwa</th>#}
+    {#            <th scope="col"> Adres</th>#}
+    {#            <th scope="col"> Telefon</th>#}
+    {#            <th scope="col"> SMS</th>#}
+    {#        </tr>#}
+    {#        </thead>#}
+    {#        <tbody>#}
+    {#        {% if records %}#}
+    {#            {% for record in my_record %}#}
+    {#                <tr>#}
+    {#                    <td> {{ record.id }} </td>#}
+    {#                    <td> {{ record.indeks }} </td>#}
+    {#                    <td> {{ record.nazwa }}</td>#}
+    {#                    <td> {{ record.adres }} </td>#}
+    {#                    <td> {{ record.telefon }} </td>#}
+    {#                    <td><a class="btn btn-outline-primary btn-sm" href="{% url 'sms-view' record.id %}">#}
+    {#                        <i class="fa fa-eye" aria-hidden="true"></i> </a></td>#}
+    {#                </tr>#}
+    {#            {% endfor %}#}
+    {#        {% endif %}#}
+    {##}
+    {#        </tbody>#}
+    {#    </table>#}
+    {#    <br><br>#}
+    <hr>
+
+    {#    <nav aria-label="Page navigation example">#}
+    {#        <ul class="pagination">#}
+    {#            {% if my_record.has_previous %}#}
+    {#                <li class="page-item"><a class="page-link"#}
+    {#                                         href="?page={{ my_record.previous_page_number }}">Poprzednia</a></li>#}
+    {#            {% endif %}#}
+    {#            {% if my_record.has_next %}#}
+    {#                <li class="page-item"><a class="page-link" href="?page={{ my_record.next_page_number }}">Następna</a>#}
+    {#                </li>#}
+    {#            {% endif %}#}
+    {#        </ul>#}
+    {#    </nav>#}
+    {{ redirect_to_login_immediately }}
+{% endblock %}
