@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'dashboard',
     'telefony',
     'sms',
+    'todo',
     "crispy_forms",
     "crispy_bootstrap4",
 ]

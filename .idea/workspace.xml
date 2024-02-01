@@ -5,19 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81f4f5f2-b9d5-459d-a352-883d72331b66" name="Changes" comment="poprawki filtr">
-      <change afterPath="$PROJECT_DIR$/sms/templates/dashboard_szablony.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/migrations/0002_task_administracja.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/templates/add_task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/templates/assign_task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/templates/base-todo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/templates/dashboard-todo-ce.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/templates/dashboard-todo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/templates/navbar-todo-ce.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/templates/navbar-todo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/templates/task-view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/templates/task_summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/templates/task_summary_pdf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms-blok.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms-blok.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms-kontrahent.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms-kontrahent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sms/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sms/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangotelefony/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangotelefony/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangotelefony/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangotelefony/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save/sms/sms_blok.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save/sms/sms_blok.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save/sms/sms_kontrahent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save/sms/sms_kontrahent.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/migrations/0002_delete_blok.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/migrations/0003_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/migrations/0002_alter_mieszkaniec_data_utworzenia.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/migrations/0003_alter_mieszkaniec_content_alter_mieszkaniec_phone.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/migrations/0004_phonenumber.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/migrations/0005_blok.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/migrations/0006_delete_blok.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/migrations/0007_delete_phonenumber.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/migrations/0008_blok.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/templates/dashboard-telefony.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/dashboard-telefony.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -35,7 +67,7 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2ZFRHLsGNxFnfdLCIN9am1OXmlp" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -116,7 +148,7 @@
       <workItem from="1706346826706" duration="5849000" />
       <workItem from="1706442413658" duration="2048000" />
       <workItem from="1706697499422" duration="1167000" />
-      <workItem from="1706698703440" duration="37000" />
+      <workItem from="1706698703440" duration="8160000" />
     </task>
     <servers />
   </component>

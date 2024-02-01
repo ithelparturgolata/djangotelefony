@@ -34,3 +34,9 @@ Data:2024-01-31
 Wyslal = golataa
 Godzina: 12:00:24
 -----------
+Odbiorca = 601521657
+Tresc = Informujemy, ze jutro w mieszkaniach od 1 do 40 w godz.8.00-10.00 nastapi czasowe wylaczenia pradu.
+Data:2024-01-31
+Wyslal = golataa
+Godzina: 12:52:10
+-----------

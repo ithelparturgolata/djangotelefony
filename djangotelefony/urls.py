@@ -6,5 +6,6 @@ urlpatterns = [
     path("", include("dashboard.urls")),
     path("telefony/", include("telefony.urls")),
     path("sms/", include("sms.urls")),
+    path("todo/", include("todo.urls")),
     # path("sms/", include("sms.urls")),
 ]
