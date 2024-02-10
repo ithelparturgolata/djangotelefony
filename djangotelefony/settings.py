@@ -31,7 +31,8 @@ INSTALLED_APPS = [
     'dashboard',
     'telefony',
     'sms',
-    'todo',
+    'pracownik',
+    'splitter',
     "crispy_forms",
     "crispy_bootstrap4",
 ]
@@ -56,6 +57,11 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
+
+FILE_UPLOAD_HANDLERS = [
+    'django.core.files.uploadhandler.MemoryFileUploadHandler',
+    'django.core.files.uploadhandler.TemporaryFileUploadHandler',
+]
 
 ROOT_URLCONF = 'djangotelefony.urls'
 

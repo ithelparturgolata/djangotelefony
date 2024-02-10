@@ -1,0 +1,17 @@
+{% extends 'base-splitter.html' %}
+
+
+{% block content %}
+    <h1>Split PDF</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="pdf_file" required><br><br>
+        Ilość stron do podziału: <input type="number" name="num_pages" required><br><br>
+        Katalog docelowy: <input type="text" name="output_dir" required><br><br>
+        Nazwa bazowa dla plików: <input type="text" name="base_name" required><br><br>
+        <button type="submit">Rozdziel PDF</button>
+    </form>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+{% endblock %}

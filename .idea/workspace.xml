@@ -5,7 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81f4f5f2-b9d5-459d-a352-883d72331b66" name="Changes" comment="poprawki filtr">
+      <change afterPath="$PROJECT_DIR$/pracownik/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pracownik/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pracownik/migrations/0002_alter_zadanie_added_date.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pracownik/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pracownik/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pracownik/templates/add_task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pracownik/templates/edit_task.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pracownik/templates/task_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pracownik/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pracownik/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/templates/file_upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/templates/form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/templates/head_splitter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/templates/navbar-splitter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/templates/pdf_splitter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/templates/split_success.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/splitter/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc1811cf-dbd8-4f81-ba94-56846fa12170.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc1811cf-dbd8-4f81-ba94-56846fa12170.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangotelefony/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangotelefony/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangotelefony/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangotelefony/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save/sms/sms_blok.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save/sms/sms_blok.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard_szablony.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard_szablony.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sms/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sms/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/splitter/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/migrations/0002_task_administracja.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/add_task.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/assign_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/splitter/templates/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/base-todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/base-todo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/dashboard-todo-ce.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/dashboard-todo-ce.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/dashboard-todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/dashboard-todo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/navbar-todo-ce.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/navbar-todo-ce.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/navbar-todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/navbar-todo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/task-view.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/task_summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/task_summary_pdf.html" beforeDir="false" afterPath="$PROJECT_DIR$/splitter/templates/base-splitter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/views.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +76,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -38,26 +96,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.djangotelefony.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Artur/PycharmProjects/djangosmb&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.djangotelefony.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Artur/PycharmProjects/djangosmbudowlani",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="djangotelefony" type="Python.DjangoServer" factoryName="Django server">
       <module name="djangotelefony" />
@@ -112,8 +171,21 @@
       <workItem from="1706346826706" duration="5849000" />
       <workItem from="1706442413658" duration="2048000" />
       <workItem from="1706697499422" duration="1167000" />
-      <workItem from="1706698703440" duration="8779000" />
+      <workItem from="1706698703440" duration="27317000" />
+      <workItem from="1707072830524" duration="1818000" />
+      <workItem from="1707077673046" duration="3510000" />
+      <workItem from="1707124654579" duration="654000" />
+      <workItem from="1707141613481" duration="2394000" />
     </task>
+    <task id="LOCAL-00001" summary="poprawki filtr">
+      <option name="closed" value="true" />
+      <created>1706781530060</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1706781530060</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

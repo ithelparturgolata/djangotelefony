@@ -92,18 +92,18 @@ def update_record(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, "Zaktualizowano Kontrahenta")
-            now = datetime.now()
-            today = str(date.today())
-            hour = now.strftime("%H:%M:%S")
-            user = auth.get_user(request)
-            file = open("save/update/update_kontrahent.txt", "a+")
-            file.write("kontrahent = " + all_records.nazwa + "\n" +
-                       "Telefon = " + all_records.telefon + "\n" +
-                       "Zgoda = " + all_records.zgoda + "\n" +
-                       "Data:" + today + "\n" +
-                       "Dokonal aktualizacji = " + str(user) +
-                       "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
-            file.close
+            # now = datetime.now()
+            # today = str(date.today())
+            # hour = now.strftime("%H:%M:%S")
+            # user = auth.get_user(request)
+            # file = open("save/update/update_kontrahent.txt", "a+")
+            # file.write("kontrahent = " + all_records.nazwa + "\n" +
+            #            "Telefon = " + all_records.telefon + "\n" +
+            #            "Zgoda = " + all_records.zgoda + "\n" +
+            #            "Data:" + today + "\n" +
+            #            "Dokonal aktualizacji = " + str(user) +
+            #            "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
+            # file.close
             return redirect("dashboard_telefony")
 
     # context = {"form": form}
@@ -158,17 +158,17 @@ def sms_record(request,  pk):
             page = request.GET.get("page")
             my_record = p.get_page(page)
 
-            now = datetime.now()
-            today = str(date.today())
-            hour = now.strftime("%H:%M:%S")
-            user = auth.get_user(request)
-            file = open("save/sms/sms_rss.txt", "a+")
-            file.write("Odbiorca = " + phone + "\n" +
-                       "Tresc = " + content + "\n" +
-                       "Data:" + today + "\n" +
-                       "Wyslal = " + str(user) +
-                       "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
-            file.close
+            # now = datetime.now()
+            # today = str(date.today())
+            # hour = now.strftime("%H:%M:%S")
+            # user = auth.get_user(request)
+            # file = open("save/sms/sms_rss.txt", "a+")
+            # file.write("Odbiorca = " + phone + "\n" +
+            #            "Tresc = " + content + "\n" +
+            #            "Data:" + today + "\n" +
+            #            "Wyslal = " + str(user) +
+            #            "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
+            # file.close
 
             return render(request,
                           "dashboard-telefony.html",

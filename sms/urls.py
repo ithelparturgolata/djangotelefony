@@ -20,6 +20,7 @@ urlpatterns = [
     path("sms/<int:pk>", views.sms_record, name="sms-sms"),
     path("sms_blok/<int:pk>", views.sms_record_blok, name="sms-sms-blok"),
     path("sms_lu/<int:pk>", views.sms_record_lu, name="sms-sms-lu"),
+    path("sms_test", views.sms_test, name="sms-test"),
     path("search", views.search, name="search-sms"),
     path("search_kontrahent", views.search_kontrahent, name="search-sms-kontrahent"),
     path("search_blok", views.search_blok, name="search-sms-blok"),

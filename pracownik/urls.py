@@ -8,7 +8,6 @@ urlpatterns = [
          name="dashboard_todo"),
     path("dashboard_todo_ce", views.dashboard_todo_ce,
          name="dashboard-todo-ce"),
-    path("view/<int:pk>", views.view_record, name="view_todo"),
     # path("dashboard_nw", views.dashboard_nw,
     #      name="dashboard-nw"),
     # path("dashboard_ns", views.dashboard_ns,
