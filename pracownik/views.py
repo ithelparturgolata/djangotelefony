@@ -16,11 +16,13 @@ def dashboard_todo_ce(request):
     tasks = Zadanie.objects.all()
     return render(request, 'dashboard-todo-ce.html', {'tasks': tasks})
 
-
+@login_required(login_url="login")
 def task_list(request):
     tasks = Zadanie.objects.all()
     return render(request, 'task_list.html', {'tasks': tasks})
 
+
+@login_required(login_url="login")
 def add_task(request):
     if request.method == 'POST':
         form = ZadanieForm(request.POST, request.FILES)
@@ -31,6 +33,8 @@ def add_task(request):
         form = ZadanieForm()
     return render(request, 'add_task.html', {'form': form})
 
+
+@login_required(login_url="login")
 def edit_task(request, task_id):
     task = Zadanie.objects.get(id=task_id)
     if request.method == 'POST':

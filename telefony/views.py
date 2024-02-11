@@ -129,7 +129,9 @@ def delete(request, pk):
     return redirect("dashboard_telefony")
 
 
+
 # sms pozew
+@login_required(login_url="login")
 def sms_record(request,  pk):
     record = Mieszkaniec.objects.get(id=pk)
     form = SmsRecordFormTelefony(instance=record)
