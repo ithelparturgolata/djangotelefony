@@ -1,7 +1,7 @@
 from django import forms
-from .models import Zadanie
+from .models import Task, TaskAssignment
 
-class ZadanieForm(forms.ModelForm):
+class TaskForm(forms.ModelForm):
     class Meta:
-        model = Zadanie
-        fields = ['description', 'comments', 'status', 'deadline', 'assigned_to', 'task_photo', 'signature_image']
+        model = Task
+        fields = ['description', 'due_date', 'photo', 'status']

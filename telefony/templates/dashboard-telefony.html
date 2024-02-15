@@ -18,36 +18,45 @@
     <a class="btn btn-outline-primary" href="{% url 'dashboard-w' %}">Wspólnoty&nbsp;<i
             class="fa fa-filter"
             aria-hidden="true"></i> </a>
-        <a class="btn btn-outline-primary" href="{% url 'raport_zmian' %}">Raport&nbsp;<i
+    <a class="btn btn-outline-primary" href="{% url 'raport_zmian' %}">Raport&nbsp;<i
             class="fa fa-filter"
             aria-hidden="true"></i> </a>
     <hr>
     <p align="justify">
-        Baza telefonów jest kluczowym narzędziem w zarządzaniu kontaktami i informacjami dotyczącymi różnych podmiotów. Podział na trzy administracje, lokal użytkowy, wspólnoty oraz aktywne filtry umożliwiają efektywne organizowanie danych i szybkie odnajdywanie potrzebnych informacji.
+        Baza telefonów jest kluczowym narzędziem w zarządzaniu kontaktami i informacjami dotyczącymi różnych podmiotów.
+        Podział na trzy administracje, lokal użytkowy, wspólnoty oraz aktywne filtry umożliwiają efektywne organizowanie
+        danych i szybkie odnajdywanie potrzebnych informacji.
     </p><p align="justify">
-    Administracje odnoszą się do różnych obszarów, w których działają podmioty. Lokale użytkowe obejmują firmy, sklepy lub instytucje, które mogą być zlokalizowane w różnych miejscach. Wspólnoty mogą dotyczyć mieszkańców danego kompleksu mieszkaniowego lub wspólnoty lokalnej.
+    Administracje odnoszą się do różnych obszarów, w których działają podmioty. Lokale użytkowe obejmują firmy, sklepy
+    lub instytucje, które mogą być zlokalizowane w różnych miejscach. Wspólnoty mogą dotyczyć mieszkańców danego
+    kompleksu mieszkaniowego lub wspólnoty lokalnej.
 </p><p align="justify">
-   Aktywne filtry pozwalają na precyzyjne filtrowanie danych w bazie telefonów, co ułatwia szybkie odnalezienie potrzebnych informacji. Dodatkowo, możliwość wyszukiwania kontrahenta po nazwie, adresie lub indeksie umożliwia szybkie znalezienie odpowiednich kontaktów w bazie.
+    Aktywne filtry pozwalają na precyzyjne filtrowanie danych w bazie telefonów, co ułatwia szybkie odnalezienie
+    potrzebnych informacji. Dodatkowo, możliwość wyszukiwania kontrahenta po nazwie, adresie lub indeksie umożliwia
+    szybkie znalezienie odpowiednich kontaktów w bazie.
 </p><p align="justify">
-   Baza telefonów jest niezwykle użytecznym narzędziem w zarządzaniu kontaktami i informacjami. Dzięki podziałowi na administracje, lokal użytkowy, wspólnoty oraz aktywne filtry i możliwość wyszukiwania kontrahentów po różnych kryteriach, użytkownicy mogą łatwo odnajdywać potrzebne informacje i efektywnie zarządzać swoimi kontaktami. W ten sposób, baza telefonów staje się niezbędnym narzędziem w codziennej pracy i organizacji działań.
+    Baza telefonów jest niezwykle użytecznym narzędziem w zarządzaniu kontaktami i informacjami. Dzięki podziałowi na
+    administracje, lokal użytkowy, wspólnoty oraz aktywne filtry i możliwość wyszukiwania kontrahentów po różnych
+    kryteriach, użytkownicy mogą łatwo odnajdywać potrzebne informacje i efektywnie zarządzać swoimi kontaktami. W ten
+    sposób, baza telefonów staje się niezbędnym narzędziem w codziennej pracy i organizacji działań.
 </p>
     <br><br>
     <hr>
 
-{#    <nav aria-label="Page navigation example">#}
-{#        <ul class="pagination">#}
-{#            {% if my_record.has_previous %}#}
-{#                <li class="page-item"><a class="page-link"#}
-{#                                         href="?page={{ my_record.previous_page_number }}">Poprzednia</a></li>#}
-                {#                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>#}
-{#            {% endif %}#}
-{#            {% if my_record.has_next %}#}
-                {#                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>#}
-                {#                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>#}
-{#                <li class="page-item"><a class="page-link" href="?page={{ my_record.next_page_number }}">Następna</a>#}
-{#                </li>#}
-{#            {% endif %}#}
-{#        </ul>#}
-{#    </nav>#}
+    {#    <nav aria-label="Page navigation example">#}
+    {#        <ul class="pagination">#}
+    {#            {% if my_record.has_previous %}#}
+    {#                <li class="page-item"><a class="page-link"#}
+    {#                                         href="?page={{ my_record.previous_page_number }}">Poprzednia</a></li>#}
+    {#                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>#}
+    {#            {% endif %}#}
+    {#            {% if my_record.has_next %}#}
+    {#                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>#}
+    {#                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>#}
+    {#                <li class="page-item"><a class="page-link" href="?page={{ my_record.next_page_number }}">Następna</a>#}
+    {#                </li>#}
+    {#            {% endif %}#}
+    {#        </ul>#}
+    {#    </nav>#}
     {{ redirect_to_login_immediately }}
 {% endblock %}

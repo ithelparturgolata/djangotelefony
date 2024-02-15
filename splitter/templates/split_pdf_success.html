@@ -1,12 +1,28 @@
 {% extends 'base-splitter.html' %}
 
-
 {% block content %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Split PDF Success</title>
-</head>
-<body>
-    <h1>PDF successfully split.</h1>
+    <div class="container bg-light shadow-md p-5 form-layout-add">
+        <h5>Zakończono pomyślnie.</h5>
+        <br><br>
+        <hr>
+        <a class="btn btn-outline-primary" href="{% url 'pdf_splitter' %}">Powrót <i
+                class="fa fa-arrow-left"
+                aria-hidden="true"></i> </a>
+    </div>
 {% endblock %}
+
+
+
+
+{#{% extends 'base-splitter.html' %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="container bg-light shadow-md p-5 form-layout-add">#}
+{##}
+{#        <h5>Zakończono pomyślnie.</h5>#}
+{#        <br><br>#}
+{#        <a class="btn btn-outline-primary" href="{% url 'pdf_splitter' %}">Powrot <i#}
+{#                class="fa fa-arrow-left"#}
+{#                aria-hidden="true"></i> </a>#}
+{#    </div>#}
+{#{% endblock %}#}

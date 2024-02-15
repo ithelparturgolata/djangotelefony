@@ -6,6 +6,7 @@ urlpatterns = [
     path("", include("dashboard.urls")),
     path("telefony/", include("telefony.urls")),
     path("sms/", include("sms.urls")),
-    path("pracownik/", include("pracownik.urls")),
+    path("task/", include("pracownik.urls")),
     path("splitter/", include("splitter.urls")),
+    path("umowy/", include("umowy.urls")),
 ]

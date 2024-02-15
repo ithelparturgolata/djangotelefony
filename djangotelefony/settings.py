@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'telefony',
     'sms',
     'pracownik',
+    'umowy',
     'splitter',
     "crispy_forms",
     "crispy_bootstrap4",

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+</head>
+<body>
+    <h1>All Tasks</h1>
+    <ul>
+        {% for task in tasks %}
+            <li><a href="{% url 'task_detail' task.id %}">{{ task.description }}</a></li>
+        {% endfor %}
+    </ul>
+     {% if request.user.username == 'golataa' %}
+        <a href="{% url 'add_task' %}">Add Task</a>
+    {% endif %}
+</body>
+</html>

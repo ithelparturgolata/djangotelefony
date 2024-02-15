@@ -194,13 +194,14 @@ def sms_record_blok(request, pk):
 
 
 @login_required(login_url="login")
-def sms_record_lu(request, pk):
-    record_lu = Mieszkaniec.objects.all().filter(administracja__contains="LU")
+def sms_record_lu(request):
+    record_lu = Mieszkaniec.objects.all()
     form = SmsRecordFormSms(instance=record_lu)
     my_record_lu = Mieszkaniec.objects.all().filter(zgoda__contains="tak") | Mieszkaniec.objects.all().filter(administracja__contains="LU")
     telefony_queryset = Mieszkaniec.objects.filter(zgoda='tak').filter(
         symbol_budynku=my_record_lu.administracja).values_list('telefon', flat=True)
     telefony_str = ', '.join(map(str, telefony_queryset))
+    
     
     if request.method == "POST":
         phone = request.POST.get("phone")

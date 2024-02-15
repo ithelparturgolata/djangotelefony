@@ -3,10 +3,10 @@
 {% block content %}
 
     <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
-{##}
-{#    <a class="btn btn-outline-primary btn-sm" href="{% url 'create_telefony' %}">Dodaj Kontrahenta &nbsp; <i#}
-{#            class="fa fa-plus-circle"#}
-{#            aria-hidden="true"></i></a>#}
+    {##}
+    {#    <a class="btn btn-outline-primary btn-sm" href="{% url 'create_telefony' %}">Dodaj Kontrahenta &nbsp; <i#}
+    {#            class="fa fa-plus-circle"#}
+    {#            aria-hidden="true"></i></a>#}
     <hr>
     <br><br>
     <table class="table  table-bordered" id="sample_data">
@@ -44,5 +44,5 @@
     <a href="{% url 'dashboard_telefony' %}" class="btn btn-outline-primary">Powrót &nbsp; <i class="fa fa-arrow-left"
                                                                                               aria-hidden="true"></i>
     </a>
-
+    {{ redirect_to_login_immediately }}
 {% endblock %}

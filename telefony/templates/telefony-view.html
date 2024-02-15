@@ -28,10 +28,11 @@
                                                                                                       aria-hidden="true"></i>
     </a>
     &nbsp;
-{#    <a href="{% url 'sms_telefony' record.id %}" class="btn btn-outline-primary"> SMS &nbsp;<i class="fa fa-comment"#}
-{#                                                                                          aria-hidden="true"></i> </a>#}
+    {#    <a href="{% url 'sms_telefony' record.id %}" class="btn btn-outline-primary"> SMS &nbsp;<i class="fa fa-comment"#}
+    {#                                                                                          aria-hidden="true"></i> </a>#}
     {{ my_record }}
     {#    <a href="{% url 'view_file' record.id %}" class="btn btn-outline-primary"> Dokumenty &nbsp;<i class="fa fa-file"#}
     {#                                                                                                  aria-hidden="true"></i>#}
     {#    </a>#}
+    {{ redirect_to_login_immediately }}
 {% endblock %}

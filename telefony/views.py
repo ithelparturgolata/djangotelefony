@@ -1,23 +1,16 @@
 from django.shortcuts import render, redirect
 from telefony.forms import AddRecordFormTelefony, \
     UpdateRecordFormTelefony, SmsRecordFormTelefony
-from django.contrib.auth.models import auth
-from django.contrib.auth import authenticate
-from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from .models import Mieszkaniec
 from smsapi.client import SmsApiPlClient
 from django.core.paginator import Paginator
 from django.http import FileResponse
-import io, os
-from datetime import date, datetime
-from django.db import connection
+import io
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 from django.contrib import messages
-from django.conf import settings
-from django.core.files.storage import FileSystemStorage
 
 
 @login_required(login_url="login")
@@ -129,7 +122,6 @@ def delete(request, pk):
     return redirect("dashboard_telefony")
 
 
-
 # sms pozew
 @login_required(login_url="login")
 def sms_record(request,  pk):
@@ -180,6 +172,7 @@ def sms_record(request,  pk):
     context = {"form": form, "record": record, "my_record": my_record}
     return render(request, "telefony-sms.html", context=context)
 
+
 # pdf pozew
 @login_required(login_url="login")
 def pdf(request):
@@ -226,7 +219,6 @@ def search(request):
         return render(request, "telefony-search.html", {})
 
 
-
 @login_required(login_url="login")
 def dashboard_lu(request):
     my_records = Mieszkaniec.objects.all().filter(administracja="LU")
@@ -257,4 +249,4 @@ def raport_zmian(request):
         data = f.read()
 
         context = {'dane': data}
-        return render(request, 'raport-zmian.html',context)
+        return render(request, 'raport-zmian.html', context)

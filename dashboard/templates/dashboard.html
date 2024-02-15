@@ -23,28 +23,39 @@
                     <a href="{% url 'dashboard_sms' %}" class="btn btn-primary">Otwórz</a>
                 </div>
             </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pracownik</h5>
+                    <hr>
+                    <p class="card-text">Lista zadań<br><br></p>
+                    <a href="{% url 'home' %}" class="btn btn-primary">Otwórz</a>
+                </div>
             </div>
-                <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Pracownik</h5>
-                        <hr>
-                        <p class="card-text">Lista zadań<br><br></p>
-                        <a href="{% url 'dashboard_todo' %}" class="btn btn-primary">Otwórz</a>
-                    </div>
+            <br>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Splitter PDF</h5>
+                    <hr>
+                    <p class="card-text">Podziel pdf<br><br></p>
+                    <a href="{% url 'pdf_splitter' %}" class="btn btn-primary">Otwórz</a>
                 </div>
-                <br>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Umowy</h5>
+                    <hr>
+                    <p class="card-text">Wykaz umów<br><br></p>
+                    <a href="{% url 'dashboard_umowy' %}" class="btn btn-primary">Otwórz</a>
                 </div>
-                <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Splitter PDF</h5>
-                        <hr>
-                        <p class="card-text">Podziel pdf<br><br></p>
-                        <a href="{% url 'pdf_splitter' %}" class="btn btn-primary">Otwórz</a>
-                    </div>
-                </div>
-                </div>
+            </div>
+        </div>
 
     </div>
     <br><br>
