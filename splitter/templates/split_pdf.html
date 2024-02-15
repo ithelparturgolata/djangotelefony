@@ -5,30 +5,32 @@
 {% block content %}
     <div class="container bg-light shadow-md p-5 form-layout-add">
 
-    <h5>Split PDF</h5>
-      <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label for="pdf_file">Wybierz plik pdf:</label>
-        <input type="file" name="pdf_file" required><br><br>
-        <label for="num_pages">Ile stron:</label>
-        <input type="number" name="num_pages" required><br><br>
-        <label for="base_name">Indeks budynku:*</label>
-        <input type="text" name="base_name" required><br><br>
-        <label for="different_name">Wyróżnik:**</label>
-        <input type="text" name="different_name" required><br><br>
-        <button class="btn btn-outline-primary" type="submit">Wykonaj</button>
-           <a class="btn btn-outline-primary" href="{% url 'dashboard' %}">Powrot <i
-                class="fa fa-arrow-left"
-                aria-hidden="true"></i> </a>
-    </form>
-    <hr>
-    * - Indeks budynku - 4 cyfry<br>
-    ** - Wyróżnik:<br>
-    co - central ogrzewanie<br>
-    ko - karta opłat<br>
-    ps - potwierdzenie salda<br>
-    rk - rozliczenie kosztów<br>
+        <h5>Split PDF</h5>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="pdf_file">Wybierz plik pdf:</label>
+            <input type="file" name="pdf_file" required><br><br>
+            <label for="num_pages">Ile stron:</label>
+            <input type="number" name="num_pages" required><br><br>
+            <label for="base_name">Indeks budynku:*</label>
+            <input type="text" name="base_name" required><br><br>
+            <label for="different_name">Wyróżnik:**</label>
+            <input type="text" name="different_name" required><br><br>
+            <button class="btn btn-outline-primary" type="submit">Wykonaj</button>
+            <a class="btn btn-outline-primary" href="{% url 'dashboard' %}">Powrot <i
+                    class="fa fa-arrow-left"
+                    aria-hidden="true"></i> </a>
+        </form>
+        <hr>
+        * - Indeks budynku - 4 cyfry<br>
+        ** - Wyróżnik:<br>
+        co - central ogrzewanie<br>
+        ko - karta opłat<br>
+        ps - potwierdzenie salda<br>
+        rk - rozliczenie kosztów<br>
     </div>
+
+    {{ redirect_to_login_immediately }}
 {% endblock %}
 
 
