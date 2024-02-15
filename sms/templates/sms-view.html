@@ -24,7 +24,7 @@
 
         </div>
 
-    <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="col-sm-6 mb-3 mb-sm-0">
             <div class="card">
                 <div class="card-body">
                     <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
@@ -34,15 +34,16 @@
                     <hr>
 
                     <a href="{% url 'dashboard-sms-kontrahent' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
-            class="fa fa-arrow-left"></i> </a>
-    <a href="{% url 'sms-sms' record.id %}" class="btn btn-outline-primary"> SMS &nbsp; <i
-            class="fa fa-comment"></i> </a>
-    {{ my_record }}
+                            class="fa fa-arrow-left"></i> </a>
+                    <a href="{% url 'sms-sms' record.id %}" class="btn btn-outline-primary"> SMS &nbsp; <i
+                            class="fa fa-comment"></i> </a>
+                    {{ my_record }}
                 </div>
             </div>
 
         </div>
-    <br>
+        <br>
     </div>
+    {{ redirect_to_login_immediately }}
 {% endblock %}
 

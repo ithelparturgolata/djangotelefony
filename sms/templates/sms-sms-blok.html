@@ -12,14 +12,14 @@
             <p><strong> Ulica: </strong> {{ my_record.adres_blok }} </p>
             {% csrf_token %}
             <div class="mb-3">
-                    <label for="phone" class="form-label">Telefony:</label>
-                    <input type="text" class="form-control" id="phone" name="phone" placeholder=""
-                           value="{{ telefony_str }}" maxlength="9" autocomplete="off">
-                </div>
-                <div class="mb-3">
-                    <label for="content" class="form-label">Treść:</label>
-                    <textarea class="form-control" id="content" name="content" maxlength="160" rows="3"></textarea>
-                </div>
+                <label for="phone" class="form-label">Telefony:</label>
+                <input type="text" class="form-control" id="phone" name="phone" placeholder=""
+                       value="{{ telefony_str }}" maxlength="9" autocomplete="off">
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Treść:</label>
+                <textarea class="form-control" id="content" name="content" maxlength="160" rows="3"></textarea>
+            </div>
             <a href="{% url 'dashboard-sms-blok' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
                     class="fa fa-arrow-left"></i> </a>
 
@@ -31,6 +31,7 @@
     </body>
 
 
+    {{ redirect_to_login_immediately }}
 {% endblock %}
 
 

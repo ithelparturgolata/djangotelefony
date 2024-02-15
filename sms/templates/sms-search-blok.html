@@ -21,10 +21,10 @@
             {% for record in my_records %}
                 <tr>
                 <tr>
-                <td> {{ record.id }} </td>
-                <td> {{ record.indeks_blok }} </td>
-                <td> {{ record.adres_blok }} </td>
-                <td> {{ record.osiedle_blok }} </td>
+                    <td> {{ record.id }} </td>
+                    <td> {{ record.indeks_blok }} </td>
+                    <td> {{ record.adres_blok }} </td>
+                    <td> {{ record.osiedle_blok }} </td>
                     <td><a class="btn btn-outline-primary btn-sm" href="{% url 'sms-view-blok' record.id %}">
                         <i class="fa fa-comment" aria-hidden="true"></i> </a></td>
                 </tr>
@@ -37,7 +37,8 @@
     <hr>
 
     <a class="btn btn-outline-primary" href="{% url 'dashboard_sms' %}">Powrót &nbsp; <i class="fa fa-arrow-left"
-                                                                                              aria-hidden="true"></i>
+                                                                                         aria-hidden="true"></i>
     </a>
 
+    {{ redirect_to_login_immediately }}
 {% endblock %}

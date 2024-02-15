@@ -1,4 +1,4 @@
-{% extends 'rss/../../rss/templates/base-rss.html' %}
+{% extends 'base-sms.html' %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -29,4 +29,6 @@
     </div>
     <br>
     </body>
+
+    {{ redirect_to_login_immediately }}
 {% endblock %}
