@@ -4,66 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81f4f5f2-b9d5-459d-a352-883d72331b66" name="Changes" comment="poprawki filtr">
-      <change afterPath="$PROJECT_DIR$/pracownik/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pracownik/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pracownik/migrations/0002_alter_zadanie_added_date.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pracownik/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pracownik/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pracownik/templates/add_task.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pracownik/templates/edit_task.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pracownik/templates/task_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pracownik/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pracownik/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/templates/file_upload.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/templates/form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/templates/head_splitter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/templates/navbar-splitter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/templates/pdf_splitter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/templates/split_success.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/splitter/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc1811cf-dbd8-4f81-ba94-56846fa12170.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc1811cf-dbd8-4f81-ba94-56846fa12170.xml" afterDir="false" />
+    <list default="true" id="81f4f5f2-b9d5-459d-a352-883d72331b66" name="Changes" comment="autoindent lines, reformat code Umowy">
+      <change afterPath="$PROJECT_DIR$/media/contract_files/2215.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/2215_5JGyBuM.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/2215_DE8bP3u.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/2215_NwUSSpU.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/2215_bDB9Ue1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/2215_jjJK2cK.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/2316.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/2316_dQZryKh.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/2316_dbfqI4Z.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/Nałkowskiej_4_co.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/Zajęcza_4.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/Zajęcza_4_6g0kmhz.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contracts/Zajęcza_4.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/umowy/migrations/0002_contractfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/umowy/migrations/0003_alter_contractfile_contract.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/umowy/migrations/0004_contract_notification_enabled.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/umowy/migrations/0005_remove_contract_notification_enabled.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/umowy/migrations/0006_contract_status.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/umowy/migrations/0008_remove_contract_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/umowy/migrations/0009_file_delete_contractfile_contract_files.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/umowy/migrations/0010_contractfile_remove_contract_files_delete_file_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/umowy/templates/add-contractor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/umowy/templates/contract_file_upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/umowy/templates/contractor-search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/umowy/templates/umowy-search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangotelefony/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangotelefony/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangotelefony/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangotelefony/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/save/sms/sms_blok.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save/sms/sms_blok.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard_szablony.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard_szablony.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sms/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracownik/templates/dashboard-todo-ce.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracownik/templates/dashboard-todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/dashboard-todo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracownik/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sms/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telefony/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/splitter/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/forms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/migrations/0002_task_administracja.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/add_task.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/assign_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/splitter/templates/result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/base-todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/base-todo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/dashboard-todo-ce.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/dashboard-todo-ce.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/dashboard-todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/dashboard-todo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/navbar-todo-ce.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/navbar-todo-ce.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/navbar-todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/navbar-todo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/task-view.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/task_summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/task_summary_pdf.html" beforeDir="false" afterPath="$PROJECT_DIR$/splitter/templates/base-splitter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/umowy/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/umowy/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/umowy/templates/add_contract.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/add-contract.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/umowy/templates/contract_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/contract-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/umowy/templates/dashboard-umowy.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/dashboard-umowy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/umowy/templates/navbar-umowy.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/navbar-umowy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/umowy/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/umowy/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,8 +57,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -96,27 +77,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Django Server.djangotelefony.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Artur/PycharmProjects/djangosmbudowlani",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.djangotelefony.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Artur/PycharmProjects/pdfsplitter&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="djangotelefony" type="Python.DjangoServer" factoryName="Django server">
       <module name="djangotelefony" />
@@ -176,6 +157,9 @@
       <workItem from="1707077673046" duration="3510000" />
       <workItem from="1707124654579" duration="654000" />
       <workItem from="1707141613481" duration="2394000" />
+      <workItem from="1707562970397" duration="72872000" />
+      <workItem from="1708026513380" duration="10942000" />
+      <workItem from="1708338342444" duration="6571000" />
     </task>
     <task id="LOCAL-00001" summary="poprawki filtr">
       <option name="closed" value="true" />
@@ -185,7 +169,55 @@
       <option name="project" value="LOCAL" />
       <updated>1706781530060</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="poprawki filtr">
+      <option name="closed" value="true" />
+      <created>1707598081671</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707598081671</updated>
+    </task>
+    <task id="LOCAL-00003" summary="splitter pdf dodany">
+      <option name="closed" value="true" />
+      <created>1707651251862</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707651251862</updated>
+    </task>
+    <task id="LOCAL-00004" summary="autoindent lines, reformat code Telefony">
+      <option name="closed" value="true" />
+      <created>1707994332797</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707994332797</updated>
+    </task>
+    <task id="LOCAL-00005" summary="autoindent lines, reformat code SMS">
+      <option name="closed" value="true" />
+      <created>1707994693924</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707994693924</updated>
+    </task>
+    <task id="LOCAL-00006" summary="autoindent lines, reformat code Splitter">
+      <option name="closed" value="true" />
+      <created>1707994903150</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707994903150</updated>
+    </task>
+    <task id="LOCAL-00007" summary="autoindent lines, reformat code Umowy">
+      <option name="closed" value="true" />
+      <created>1707995038219</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1707995038219</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +238,11 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="poprawki filtre" />
     <MESSAGE value="poprawki filtr" />
-    <option name="LAST_COMMIT_MESSAGE" value="poprawki filtr" />
+    <MESSAGE value="splitter pdf dodany" />
+    <MESSAGE value="autoindent lines, reformat code Telefony" />
+    <MESSAGE value="autoindent lines, reformat code SMS" />
+    <MESSAGE value="autoindent lines, reformat code Splitter" />
+    <MESSAGE value="autoindent lines, reformat code Umowy" />
+    <option name="LAST_COMMIT_MESSAGE" value="autoindent lines, reformat code Umowy" />
   </component>
 </project>

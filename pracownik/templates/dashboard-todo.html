@@ -2,24 +2,11 @@
 {% block content %}
     <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
     <hr>
-{#    Filtr:#}
-{#    <a class="btn btn-outline-primary" href="{% url '' %}">Zadania NW &nbsp;<i#}
-{#            class="fa fa-filter"#}
-{#            aria-hidden="true"></i> </a>#}
-{#    <a class="btn btn-outline-primary" href="{% url '' %}">Zadania NS &nbsp;<i#}
-{#            class="fa fa-filter"#}
-{#            aria-hidden="true"></i> </a>#}
-{#    <a class="btn btn-outline-primary" href="{% url '' %}">Zadania CE &nbsp;<i#}
-{#            class="fa fa-filter"#}
-{#            aria-hidden="true"></i> </a>#}
          {% if request.user.username == 'golataa' %}
         <a class="btn btn-outline-primary"  href="{% url 'add_task' %}">Dodaj <i
             class="fa fa-plus"
             aria-hidden="true"></i> </a>
     {% endif %}
-{#    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-lu' %}">Lokale użytkowe&nbsp;<i#}
-{#            class="fa fa-filter"#}
-{#            aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
     <hr>
 
         <table class="table  table-bordered" id="sample_data">

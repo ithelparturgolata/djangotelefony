@@ -1,10 +1,14 @@
-{% extends 'base-telefony.html' %}
+{% extends 'base-umowy.html' %}
 {% block content %}
     <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
     <hr>
-    <a class="btn btn-outline-primary" href="{% url 'add_contract' %}">Dodaj <i
+    <a class="btn btn-outline-primary" href="{% url 'add_contract' %}">Dodaj umowę<i
             class="fa fa-plus"></i> </a>
+    <a class="btn btn-outline-primary" href="{% url 'add_contractor' %}">Dodaj wykonawcę<i
+            class="fa fa-plus"></i> </a>
+
     <br><br>
+
     <table class="table  table-bordered" id="sample_data">
         <thead class="table-light">
         <tr>
@@ -25,17 +29,13 @@
                 <td> {{ contract.description }} </td>
                 <td> {{ contract.start_date }} </td>
                 <td> {{ contract.end_date }} </td>
-                <td> {% if contract.is_expired %}
-                    <button class="btn btn-danger">Wygasła</button>
-                {% else %}
-                    <button class="btn btn-success">Aktywna</button>
-                {% endif %} </td>
+                <td>
+                    <button class="btn {{ contract.status_css_class }}">{{ contract.status }}</button>
+                </td>
                 <td><a class="btn btn-outline-primary btn-sm" href="{% url 'contract_details' contract.id %}">
                     <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
             </tr>
-
         {% endfor %}
-
         </tbody>
     </table>
     <br><br>

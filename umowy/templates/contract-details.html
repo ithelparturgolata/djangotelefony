@@ -17,10 +17,25 @@
                 <button class="btn btn-success">Umowa aktywna</button>
             {% endif %}</p>
         <br>
-        <p>Pliki: <a href="{{ contract.file.url }}">{{ contract.file.name }}</a></p>
-        <a href="{% url 'dashboard_umowy' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
-                class="fa fa-arrow-left"></i> </a>
 
+        <h5>Dokumenty:</h5>
+        <hr>
+        <ul>
+            {% for file in my_files %}
+                <li><a href="{{ file.file.url }}" target="_blank">{{ file.file.name }}</a></li>
+            {% endfor %}
+        </ul>
+        <br>
+        <h5>Wgraj plik/pliki</h5>
+        <hr>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-outline-primary" type="submit">Wgraj <i
+                    class="fa fa-plus"></i></button>
+            <a href="{% url 'dashboard_umowy' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+                    class="fa fa-arrow-left"></i> </a>
+        </form>
     </div>
 
     {{ redirect_to_login_immediately }}

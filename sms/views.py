@@ -318,7 +318,18 @@ def sms_test(request):
                                            message=content,
                                            from_="SMBUDOWLANI")
             my_records = Mieszkaniec.objects.all()
-           
+            
+            # now = datetime.now()
+            # today = str(date.today())
+            # hour = now.strftime("%H:%M:%S")
+            # user = auth.get_user(request)
+            # file = open("/save/sms/sms_blok.txt", "a+")
+            # file.write("Odbiorca = " + phone + "\n" +
+            #            "Tresc = " + content + "\n" +
+            #            "Data:" + today + "\n" +
+            #            "Wyslal = " + str(user) +
+            #            "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
+            # file.close
 
             return render(request,
                           "dashboard-sms.html",

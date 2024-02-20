@@ -1,0 +1,67 @@
+{% extends 'base-umowy.html' %}
+{% block content %}
+    <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
+    {##}
+    {#    <a class="btn btn-outline-primary btn-sm" href="{% url 'create_telefony' %}">Dodaj Kontrahenta &nbsp; <i#}
+    {#            class="fa fa-plus-circle"#}
+    {#            aria-hidden="true"></i></a>#}
+    <hr>
+    <br><br>
+
+    {#{% if searched %}#}
+    {#    <h2>Search Results for "{{ searched }}"</h2>#}
+    {#    {% endif %}#}
+    {##}
+    {#    {% if my_contracts %}#}
+    {#    <ul>#}
+    {#        {% for contract in my_contracts %}#}
+    {#        <li>{{ contract }}</li>#}
+    {#        {% endfor %}#}
+    {#    </ul>#}
+    {#    {% else %}#}
+    {#    <p>No contracts found.</p>#}
+    {#    {% endif %}#}
+
+    <table class="table  table-bordered" id="sample_data">
+        <thead class="table-light">
+        <tr>
+            <th scope="col"> ID</th>
+            <th scope="col"> Wykonawca</th>
+            <th scope="col"> Opis</th>
+            <th scope="col"> Od</th>
+            <th scope="col"> Do</th>
+            <th scope="col"> Status</th>
+            <th scope="col"> Szczegóły</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if message %}
+            <p>{{ message|safe }}</p>
+        {% else %}
+            {% for contract in my_contracts %}
+
+                <tr>
+                    <td> {{ contract.id }} </td>
+                    <td> {{ contract.contractor.name }} </td>
+                    <td> {{ contract.description }} </td>
+                    <td> {{ contract.start_date }} </td>
+                    <td> {{ contract.end_date }} </td>
+                    <td>
+                        <button class="btn {{ contract.status_css_class }}">{{ contract.status }}</button>
+                    </td>
+                    <td><a class="btn btn-outline-primary btn-sm" href="{% url 'contract_details' contract.id %}">
+                        <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+
+        </tbody>
+    </table>
+    <br><br>
+    <hr>
+
+    <a href="{% url 'dashboard_umowy' %}" class="btn btn-outline-primary">Powrót &nbsp; <i class="fa fa-arrow-left"
+                                                                                           aria-hidden="true"></i>
+    </a>
+    {{ redirect_to_login_immediately }}
+{% endblock %}
