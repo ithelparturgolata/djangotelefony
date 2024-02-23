@@ -1,4 +1,4 @@
-{% extends 'base-umowy.html' %}
+{% extends 'base-contract.html' %}
 {% block content %}
     <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
     <hr>
@@ -32,7 +32,7 @@
                 <td>
                     <button class="btn {{ contract.status_css_class }}">{{ contract.status }}</button>
                 </td>
-                <td><a class="btn btn-outline-primary btn-sm" href="{% url 'contract_details' contract.id %}">
+                <td><a class="btn btn-outline-primary btn-sm" href="{% url 'details_contract' contract.id %}">
                     <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
             </tr>
         {% endfor %}

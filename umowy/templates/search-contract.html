@@ -1,26 +1,8 @@
-{% extends 'base-umowy.html' %}
+{% extends 'base-contract.html' %}
 {% block content %}
     <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
-    {##}
-    {#    <a class="btn btn-outline-primary btn-sm" href="{% url 'create_telefony' %}">Dodaj Kontrahenta &nbsp; <i#}
-    {#            class="fa fa-plus-circle"#}
-    {#            aria-hidden="true"></i></a>#}
     <hr>
     <br><br>
-
-    {#{% if searched %}#}
-    {#    <h2>Search Results for "{{ searched }}"</h2>#}
-    {#    {% endif %}#}
-    {##}
-    {#    {% if my_contracts %}#}
-    {#    <ul>#}
-    {#        {% for contract in my_contracts %}#}
-    {#        <li>{{ contract }}</li>#}
-    {#        {% endfor %}#}
-    {#    </ul>#}
-    {#    {% else %}#}
-    {#    <p>No contracts found.</p>#}
-    {#    {% endif %}#}
 
     <table class="table  table-bordered" id="sample_data">
         <thead class="table-light">
@@ -49,7 +31,7 @@
                     <td>
                         <button class="btn {{ contract.status_css_class }}">{{ contract.status }}</button>
                     </td>
-                    <td><a class="btn btn-outline-primary btn-sm" href="{% url 'contract_details' contract.id %}">
+                    <td><a class="btn btn-outline-primary btn-sm" href="{% url 'details_contract' contract.id %}">
                         <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
                 </tr>
             {% endfor %}

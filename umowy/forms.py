@@ -23,5 +23,5 @@ class ContractFileForm(forms.ModelForm):
         labels = {'file': 'Plik'}
 
 
-class UmowySearchForm(forms.Form):
+class ContractsSearchForm(forms.Form):
     searched = forms.CharField(label='Search')
