@@ -1,6 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
+from django.core.validators import RegexValidator
+
 from .models import Mieszkaniec
 from django import forms
 from django.forms.widgets import PasswordInput, TextInput, FileInput
@@ -41,7 +43,7 @@ class UpdateRecordFormTelefony(forms.ModelForm):
     klatka = forms.CharField(label="Klatka",
                              max_length=2)
     telefon = forms.CharField(label="Telefon",
-                              max_length=9)
+                              max_length=9, validators=[RegexValidator(r'^\d{9}$', message="Pole 'Telefon' musi zawierać dokładnie 9 cyfr.")])
     zgoda = forms.CharField(label="Zgoda tak/nie",
                             max_length=3)
 

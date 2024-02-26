@@ -1,0 +1,77 @@
+{% extends 'rss/base.html' %}
+
+{% block content %}
+
+    <h5> Witaj, {{ user }}! 👋 </h5>
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create_rss' %}">Dodaj pozew &nbsp; <i class="fa fa-plus-circle"
+                                                                                              aria-hidden="true"></i></a>
+    &nbsp;&nbsp;&nbsp;Filtr:
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'dashboard-przeciw' %}">Przeciwko Spółdzielni &nbsp;<i
+            class="fa fa-file-archive-o"
+            aria-hidden="true"></i> </a>
+    &nbsp;&nbsp;
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'dashboard-przez' %}">Przez &nbsp;Spółdzielnię&nbsp;<i
+            class="fa fa-file-o"
+            aria-hidden="true"></i> </a>
+
+    &nbsp;&nbsp;
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'pdf_rss' %}">Raport &nbsp; <i class="fa fa-file-pdf-o"
+                                                                                      aria-hidden="true"></i>
+    </a>
+    <hr>
+    <br><br>
+    <table class="table  table-bordered" id="sample_data">
+        <thead class="table-light">
+        <tr>
+            <th scope="col"> ID</th>
+            <th scope="col"> Powód</th>
+            <th scope="col"> Dotyczy</th>
+            <th scope="col"> Status</th>
+            <th scope="col"> Szczegóły</th>
+            {#                <th scope="col"> SMS </th>#}
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for record in records %}
+            {% if record.kto == "Pozew przez Spółdzielnię" %}
+                <tr>
+                    <td> {{ record.id }} </td>
+                    <td> {{ record.powod }}</td>
+                    <td> {{ record.dotyczy }} </td>
+                    <td> {{ record.status }} </td>
+                    <td><a class="btn btn-outline-primary btn-sm" href="{% url 'view_rss' record.id %}"> <i
+                            class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                    {#                <td> <a class="btn btn-outline-primary btn-sm" href="{% url ''  %}"> <i class="fa fa-comment" aria-hidden="true"></i> </a> </td>#}
+                </tr>
+            {% endif %}
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <br><br>
+    <hr>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if my_record.has_previous %}
+                <li class="page-item"><a class="page-link"
+                                         href="?page={{ my_record.previous_page_number }}">Poprzednia</a></li>
+                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+            {% endif %}
+            {% if my_record.has_next %}
+                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
+                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ my_record.next_page_number }}">Następna</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+{% endblock %}

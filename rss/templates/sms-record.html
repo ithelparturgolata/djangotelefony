@@ -1,0 +1,29 @@
+{% extends 'base-rss.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <body>
+    <div class="container bg-light shadow-md p-5 form-layout-add">
+        <h3> Wyślij sms </h3>
+        <hr>
+        <br>
+        <form method="POST" autocomplete="off">
+            <p><strong> Powód: </strong> {{ record.powod }} </p>
+            <p><strong> Dotyczy: </strong> {{ record.dotyczy }} </p>
+            {% csrf_token %}
+            {{ form.content|as_crispy_field }}
+            <br>
+            {{ form.phone|as_crispy_field }}
+            <br>
+            <a href="{% url 'view_rss' record.id %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+                    class="fa fa-arrow-left"></i> </a>
+
+            <button type="submit" class="btn btn-outline-primary">Wyślij</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </form>
+    </div>
+    <br>
+    </body>
+
+
+{% endblock %}

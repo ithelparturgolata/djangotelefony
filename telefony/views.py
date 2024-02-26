@@ -109,8 +109,26 @@ def update_record(request, pk):
 def view_record(request, pk):
     all_records = Mieszkaniec.objects.get(id=pk)
     context = {"record": all_records}
-
+    
+    if all_records.administracja == 'NS':
+        back_url = 'dashboard_ns'
+    elif all_records.administracja == 'NW':
+        back_url = 'dashboard_nw'
+    elif all_records.administracja == 'CE':
+        back_url = 'dashboard_ce'
+    elif all_records.administracja == 'LU':
+        back_url = 'dashboard_lu'
+    elif all_records.administracja == 'W':
+        back_url = 'dashboard_w'
+    else:
+        # Default back URL if administracja value is not recognized
+        back_url = 'dashboard_telefony'
+        
+        # Pass the back URL to the template context
+    context['back_url'] = back_url
+    
     return render(request, "telefony-view.html", context=context)
+    # return render(request, "telefony-view.html", context=context)
 
 
 # delete pozew

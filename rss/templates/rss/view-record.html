@@ -1,0 +1,43 @@
+{% extends 'rss/base.html' %}
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+            <strong>
+                Powód:&nbsp;&nbsp;&nbsp;{{ record.powod|upper }}
+                {#                {{record.dotyczy}}#}
+            </strong>
+            <hr>
+            <p><strong> ID: </strong> {{ record.id }} </p>
+            <p><strong> Powód: </strong> {{ record.powod }} </p>
+            <p><strong> Dotyczy: </strong> {{ record.dotyczy }} </p>
+            <p><strong> Data pozwu: </strong> {{ record.data_pozew }} </p>
+            <p><strong> Wyrok 1 instancji: </strong> {{ record.wyrok1 }} </p>
+            <p><strong> Wyrok 2 instancji: </strong> {{ record.wyrok2 }} </p>
+            <p><strong> Egzekucja: </strong> {{ record.egzekucja }} </p>
+            <p><strong> Uwagi: </strong> {{ record.uwagi }} </p>
+            <p><strong> Zakończenie: </strong> {{ record.zakonczenie }} </p>
+            <p><strong> Status: </strong> {{ record.status }} </p>
+            <p><strong> Data utworzenia: </strong> {{ record.data_utworzenia }} </p>
+
+        </div>
+    </div>
+    <br>
+    <a href="{% url 'dashboard_main' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i class="fa fa-arrow-left"></i>
+    </a>
+    &nbsp;
+    <a href="{% url 'update_rss' record.id %}" class="btn btn-outline-primary"> Edytuj &nbsp; <i class="fa fa-plus"
+                                                                                                 aria-hidden="true"></i>
+    </a>
+    &nbsp;
+    <a href="{% url 'delete_rss' record.id %}" class="btn btn-outline-primary"> Skasuj &nbsp;<i
+            class="fa fa-minus-square"
+            aria-hidden="true"></i> </a>
+    &nbsp;
+    <a href="{% url 'sms_rss' record.id %}" class="btn btn-outline-primary"> SMS &nbsp;<i class="fa fa-comment"
+                                                                                          aria-hidden="true"></i> </a>
+    {{ my_record }}
+    <a href="{% url 'view_file' record.id %}" class="btn btn-outline-primary"> Dokumenty &nbsp;<i class="fa fa-file"
+                                                                                                  aria-hidden="true"></i>
+    </a>
+{% endblock %}

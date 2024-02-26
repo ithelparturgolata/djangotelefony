@@ -9,4 +9,5 @@ urlpatterns = [
     path("task/", include("pracownik.urls")),
     path("splitter/", include("splitter.urls")),
     path("umowy/", include("umowy.urls")),
+    path("rss/", include("rss.urls")),
 ]

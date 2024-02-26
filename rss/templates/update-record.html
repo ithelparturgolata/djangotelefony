@@ -1,0 +1,44 @@
+{% extends 'base-rss.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <body>
+    <div class="container bg-light shadow-md p-5 form-layout-add">
+        <h3> Edytuj pozew </h3>
+        <hr>
+        <br>
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{ form.powod|as_crispy_field }}
+            <br>
+            {{ form.dotyczy|as_crispy_field }}
+            <br>
+            {{ form.data_pozew|as_crispy_field }}
+            <br>
+            {{ form.wyrok1|as_crispy_field }}
+            <br>
+            {{ form.wyrok2|as_crispy_field }}
+            <br>
+            {{ form.egzekucja|as_crispy_field }}
+            <br>
+            {{ form.uwagi|as_crispy_field }}
+            <br>
+            {#            {{ form.zakonczenie|as_crispy_field }}#}
+            {#            <br>#}
+            {{ form.status|as_crispy_field }}
+            <br>
+            {{ form.kto|as_crispy_field }}
+            <br>
+            {{ my_record }}
+            <a href="{% url 'view_rss' record.id %}" class="btn btn-outline-primary"> Powrót &nbsp;<i
+                    class="fa fa-arrow-left"
+                    aria-hidden="true"></i>
+            </a>
+            <button type="submit" class="btn btn-outline-primary">Zapisz</button>
+            &nbsp;&nbsp;&nbsp;
+
+        </form>
+    </div>
+    <br>
+    </body>
+{% endblock %}

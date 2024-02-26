@@ -57,4 +57,4 @@ def split_pdf(request):
         except Exception as e:
             return HttpResponse(f"An error occurred: {str(e)}", status=500)
 
-    return render(request, 'split_pdf.html')
+    return render(request, 'pdf_splitter.html')

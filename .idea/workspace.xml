@@ -4,26 +4,65 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81f4f5f2-b9d5-459d-a352-883d72331b66" name="Changes" comment="finally Umowy">
-      <change afterPath="$PROJECT_DIR$/umowy/templates/file_upload_contract.html" afterDir="false" />
+    <list default="true" id="81f4f5f2-b9d5-459d-a352-883d72331b66" name="Changes" comment="docstring dla umowy">
+      <change afterPath="$PROJECT_DIR$/media/2316.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/P._Śląskich_9_I_co.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/migrations/0002_remove_record_plik_record_file_contractfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/base-rss.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/create-record.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/dashboard-main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/dashboard-przeciw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/dashboard-przez.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/dashboard-search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/navbar-rss.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/rss/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/rss/create-record.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/rss/dashboard-main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/rss/dashboard-przeciw.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/rss/dashboard-przez.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/rss/dashboard-search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/rss/navbar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/rss/sms-record.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/rss/update-record.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/rss/upload-file.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/rss/view-file.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/rss/view-record.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/sms-record.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/update-record.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/upload-file.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/view-file.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/templates/view-record.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rss/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/djangotelefony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/djangotelefony.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/splitter/templates/split_pdf.html" beforeDir="false" afterPath="$PROJECT_DIR$/splitter/templates/split_pdf.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/add-contract.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/add-contract.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/add-contractor.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/add-contractor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/base-umowy.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/base-contract.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/contract-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/details-contract.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/contract_file_upload.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/contractor-search.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/search-contractor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/dashboard-umowy.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/dashboard-contracts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/navbar-umowy.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/navbar-contracts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/umowy-search.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/search-contract.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangotelefony/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangotelefony/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangotelefony/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangotelefony/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitter/templates/split_pdf.html" beforeDir="false" afterPath="$PROJECT_DIR$/splitter/templates/pdf_splitter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitter/templates/split_pdf_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/splitter/templates/pdf_success_splitter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitter/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/splitter/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/templates/dashboard-ce.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/dashboard-ce.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/templates/dashboard-lu.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/dashboard-lu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/templates/dashboard-ns.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/dashboard-ns.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/templates/dashboard-nw.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/dashboard-nw.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/templates/dashboard-telefony.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/dashboard-telefony.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/templates/dashboard-w.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/dashboard-w.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/templates/telefony-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/telefony-view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/umowy/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +177,8 @@
       <workItem from="1707141613481" duration="2394000" />
       <workItem from="1707562970397" duration="72872000" />
       <workItem from="1708026513380" duration="10942000" />
-      <workItem from="1708338342444" duration="17445000" />
+      <workItem from="1708338342444" duration="25740000" />
+      <workItem from="1708931693813" duration="1595000" />
     </task>
     <task id="LOCAL-00001" summary="poprawki filtr">
       <option name="closed" value="true" />
@@ -204,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708405232321</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="docstring dla umowy">
+      <option name="closed" value="true" />
+      <created>1708674101309</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1708674101309</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +279,7 @@
     <MESSAGE value="autoindent lines, reformat code Splitter" />
     <MESSAGE value="autoindent lines, reformat code Umowy" />
     <MESSAGE value="finally Umowy" />
-    <option name="LAST_COMMIT_MESSAGE" value="finally Umowy" />
+    <MESSAGE value="docstring dla umowy" />
+    <option name="LAST_COMMIT_MESSAGE" value="docstring dla umowy" />
   </component>
 </project>
