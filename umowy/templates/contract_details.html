@@ -1,0 +1,45 @@
+{% extends 'base-umowy.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+    <div class="container bg-light shadow-md p-5 form-layout-add">
+        <h5>Szczegóły umowy</h5>
+        <hr>
+        <p>Wykonawca: {{ contract.contractor.name }}</p>
+        <p>Opis: {{ contract.description }}</p>
+        <p>Umowa od: {{ contract.start_date }}</p>
+        <p>Umowa do: {{ contract.end_date }}</p>
+        <p>Status:
+            {% if contract.is_expired %}
+                <button class="btn btn-danger">Umowa wygasła</button>
+            {% else %}
+                <button class="btn btn-success">Umowa aktywna</button>
+            {% endif %}</p>
+        <br>
+
+        <h5>Dokumenty:</h5>
+        <hr>
+        <ul>
+            {% for file in contract.files.all %}
+                <li><a href="{{ file.file.url }}">{{ file.file.name }}</a></li>
+            {% endfor %}
+        </ul>
+        <br>
+        <h5>Wgraj plik/pliki</h5>
+        <hr>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-outline-primary" type="submit">Dodaj <i
+                    class="fa fa-plus"></i></button>
+            <a href="{% url 'dashboard_umowy' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+                    class="fa fa-arrow-left"></i> </a>
+        </form>
+
+    </div>
+
+
+
+    {{ redirect_to_login_immediately }}
+{% endblock %}

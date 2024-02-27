@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+<body>
+    <h1>File Upload</h1>
+
+    {% if data %}
+        <p>Request Method: {{ data.0 }}</p>
+
+        {% if data.0 == "POST" %}
+            <p>File Uploaded: {{ data.2 }}{{ upload.file_name }}</p>
+            <p>Custom Folder: {{ data.2 }}</p>
+            <p>Custom Split Pages: {{ data.3 }}</p>
+            <p>Splitting Result: {{ data.1 }}</p>
+        {% endif %}
+
+        {% if data.1 %}
+            <p>Error: {{ data.1 }}</p>
+        {% endif %}
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="file">Choose a file:</label>
+        <input type="file" name="file" required><br>
+
+        <label for="customFolder">Custom Folder:</label>
+        <input type="text" name="customFolder" required><br>
+
+        <label for="customSuffix">Custom Suffix:</label>
+        <input type="text" name="customSuffix"><br>
+
+        <label for="customSplitPages">Custom Split Pages:</label>
+        <input type="number" name="customSplitPages"><br>
+
+        <label for="customSplitPagesDefined">Or Define Split Pages:</label>
+        <input type="number" name="customSplitPagesDefined"><br>
+
+        <button type="submit">Upload and Split</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends 'base-splitter.html' %}
+
+{% block content %}
+    <div class="container bg-light shadow-md p-5 form-layout-add">
+        <h5>Zakończono pomyślnie.</h5>
+        <br><br>
+        <hr>
+        <a class="btn btn-outline-primary" href="{% url 'pdf_splitter' %}">Powrót <i
+                class="fa fa-arrow-left"
+                aria-hidden="true"></i> </a>
+    </div>
+
+    {{ redirect_to_login_immediately }}
+{% endblock %}
+
+
+
+
+{#{% extends 'base-splitter.html' %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="container bg-light shadow-md p-5 form-layout-add">#}
+{##}
+{#        <h5>Zakończono pomyślnie.</h5>#}
+{#        <br><br>#}
+{#        <a class="btn btn-outline-primary" href="{% url 'pdf_splitter' %}">Powrot <i#}
+{#                class="fa fa-arrow-left"#}
+{#                aria-hidden="true"></i> </a>#}
+{#    </div>#}
+{#{% endblock %}#}

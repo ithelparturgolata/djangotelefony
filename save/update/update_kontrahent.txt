@@ -19,3 +19,24 @@ Data:2024-01-29
 Dokonal aktualizacji = golataa
 Godzina: 18:30:13
 -----------
+kontrahent = Go³ata Arturek
+Telefon = 601521658
+Zgoda = tak
+Data:2024-02-27
+Dokonal aktualizacji = golataa
+Godzina: 09:32:38
+-----------
+kontrahent = Go³ata Artur
+Telefon = 601521657
+Zgoda = tak
+Data:2024-02-27
+Dokonal aktualizacji = golataa
+Godzina: 10:24:03
+-----------
+kontrahent = Go³ata Arturek
+Telefon = 601521657
+Zgoda = tak
+Data:2024-02-27
+Dokonal aktualizacji = golataa
+Godzina: 11:50:39
+-----------

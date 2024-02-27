@@ -1,0 +1,45 @@
+{% extends 'base-umowy.html' %}
+{% block content %}
+    <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
+    <hr>
+    <a class="btn btn-outline-primary" href="{% url 'add_contract' %}">Dodaj umowę<i
+            class="fa fa-plus"></i> </a>
+    <a class="btn btn-outline-primary" href="{% url 'add_contractor' %}">Dodaj wykonawcę<i
+            class="fa fa-plus"></i> </a>
+
+    <br><br>
+
+    <table class="table  table-bordered" id="sample_data">
+        <thead class="table-light">
+        <tr>
+            <th scope="col"> ID</th>
+            <th scope="col"> Wykonawca</th>
+            <th scope="col"> Opis</th>
+            <th scope="col"> Od</th>
+            <th scope="col"> Do</th>
+            <th scope="col"> Status</th>
+            <th scope="col"> Szczegóły</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for contract in contracts %}
+            <tr>
+                <td> {{ contract.id }} </td>
+                <td> {{ contract.contractor.name }} </td>
+                <td> {{ contract.description }} </td>
+                <td> {{ contract.start_date }} </td>
+                <td> {{ contract.end_date }} </td>
+                <td>
+                    <button class="btn {{ contract.status_css_class }}">{{ contract.status }}</button>
+                </td>
+                <td><a class="btn btn-outline-primary btn-sm" href="{% url 'contract_details' contract.id %}">
+                    <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br><br>
+    <hr>
+
+    {{ redirect_to_login_immediately }}
+{% endblock %}

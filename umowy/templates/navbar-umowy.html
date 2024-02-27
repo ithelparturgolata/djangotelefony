@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-center">
+    {#    <a class="navbar-brand main-heading" href="{% url 'dashboard_sms' %}">#}
+    {#        &nbsp; Panel SMS - Menu#}
+    {#    </a>#}
+    <ul class="navbar-nav ms-center">
+        {% if user.is_authenticated %}
+            <form class="d-flex" role="search" method="POST" action="{% url "search_umowy" %}">
+                {% csrf_token %}
+                <input class="form-control me-2" type="search" placeholder="..." aria-label="Search"
+                       name="searched">
+                <button class="btn btn-outline-success" type="submit">Szukaj</button>
+            </form><br>
+            <a class="btn btn-outline-success" href="{% url 'dashboard' %}">Home &nbsp; <i
+                    class="fa fa-home"
+                    aria-hidden="true"></i>
+            </a><br>
+
+            <a class="btn btn-outline-success" href="{% url 'logout' %}">Wyloguj się &nbsp; <i
+                    class="fa fa-sign-out"
+                    aria-hidden="true"></i>
+            </a>
+            </ul>
+        {% else %}
+
+        {% endif %}
+</nav>
+
+
+{#<nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-center">#}
+{#    <a class="navbar-brand main-heading" href="{% url 'dashboard_sms' %}">#}
+{#        &nbsp; Panel SMS - Menu#}
+{#    </a>#}
+{#    <ul class="navbar-nav ms-center">#}
+{#        {% if user.is_authenticated %}#}
+{#            <form class="d-flex" role="search" method="POST" action="{% url "search_umowy" %}">#}
+{#                {% csrf_token %}#}
+{#                <input class="form-control me-2" type="search" placeholder="..." aria-label="Search"#}
+{#                       name="searched_umowy">#}
+{#                <button class="btn btn-outline-success" type="submit">Szukaj</button>#}
+{#            </form><br>#}
+{#            <a class="btn btn-outline-success" href="{% url 'dashboard' %}">Home &nbsp; <i#}
+{#                    class="fa fa-home"#}
+{#                    aria-hidden="true"></i>#}
+{#            </a><br>#}
+{#            <a class="btn btn-outline-success" href="{% url 'logout' %}">Wyloguj się &nbsp; <i#}
+{#                    class="fa fa-sign-out"#}
+{#                    aria-hidden="true"></i>#}
+{#            </a>#}
+{#            </ul>#}
+{#        {% else %}#}
+{##}
+{#        {% endif %}#}
+{#</nav>#}

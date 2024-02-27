@@ -7,7 +7,6 @@
         </div>
     {% endfor %}
     <body>
-
     <div class="container bg-light shadow-md p-5 form-layout">
         <h3> Panel logowania </h3>
         <hr>
@@ -21,12 +20,13 @@
             <button type="submit" class="btn btn-primary w-100 btn-block p-2"> Zaloguj się &nbsp; <i class="fa fa-key"
                                                                                                      aria-hidden="true"></i>
             </button>
-
         </form>
         <br>
-        {#        <div class="text-center">#}
-        {#                <p> Nie masz konta ? </p> <a href="{% url 'register' %}"> Utwórz konto </a>#}
-        {#        </div>#}
+        <div class="text-center">
+            {% if form.errors %}
+                <button type="button" class="btn btn-outline-danger">Nieprawidłowy login lub hasło</button>
+            {% endif %}
+        </div>
 
     </div>
     <br>

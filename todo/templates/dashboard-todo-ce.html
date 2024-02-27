@@ -1,0 +1,58 @@
+{% extends 'base-todo.html' %}
+{% block content %}
+    <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
+    <hr>
+    Filtr:
+    <a class="btn btn-outline-primary" href="{% url 'dashboard-todo-ce' %}">Zadania NW &nbsp;<i
+            class="fa fa-filter"
+            aria-hidden="true"></i> </a>
+    <a class="btn btn-outline-primary" href="{% url 'dashboard-todo-ce' %}">Zadania NS &nbsp;<i
+            class="fa fa-filter"
+            aria-hidden="true"></i> </a>
+    <a class="btn btn-outline-primary" href="{% url 'dashboard-todo-ce' %}">Zadania CE &nbsp;<i
+            class="fa fa-filter"
+            aria-hidden="true"></i> </a>
+    <hr>
+        <table class="table  table-bordered" id="sample_data">
+            <thead class="table-light">
+            <tr>
+                <th scope="col"> ID</th>
+                <th scope="col"> Pracownik</th>
+                <th scope="col"> Zadanie</th>
+                <th scope="col"> Status</th>
+                <th scope="col"> Szczegóły</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if tasks %}
+                {% for task in tasks %}
+                    <tr>
+                        <td> {{ task.id }} </td>
+                        <td> {{ task.employee }} </td>
+                        <td> {{ task.description }}</td>
+                        <td> {{ task.status }}</td>
+                        <td><a class="btn btn-outline-primary btn-sm" href="{% url 'view_todo' task.id %}">
+                            <i class="fa fa-eye" aria-hidden="true"></i> Szczegóły</a></td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+
+            </tbody>
+        </table>
+        <br><br>
+    <hr>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if my_record.has_previous %}
+                    <li class="page-item"><a class="page-link"
+                                             href="?page={{ my_record.previous_page_number }}">Poprzednia</a></li>
+                {% endif %}
+                {% if my_record.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ my_record.next_page_number }}">Następna</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {{ redirect_to_login_immediately }}
+{% endblock %}
