@@ -10,4 +10,5 @@ urlpatterns = [
     path("splitter/", include("splitter.urls")),
     path("umowy/", include("umowy.urls")),
     path("rss/", include("rss.urls")),
+    path("domofony/", include("domofony.urls")),
 ]

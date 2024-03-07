@@ -7,7 +7,7 @@ urlpatterns = [
     # path('task/home', views.home, name='home'),
     path('add_task/', views.add_task, name='add_task'),
     path('task/<int:task_id>/', views.task_detail, name='task_detail'),
-    path("dashboard_todo", views.home, name='home'),
+    path("dashboard_todo", views.dashboard_task, name='dashboard_task'),
 
 ]
 if settings.DEBUG:

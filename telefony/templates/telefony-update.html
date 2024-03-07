@@ -2,32 +2,36 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <body>
-    <div class="container bg-light shadow-md p-5 form-layout-add">
-        <h3> Edytuj Kontrahenta </h3>
-        <hr>
-        <br>
-        <form method="POST" autocomplete="off">
-            {% csrf_token %}
-            {{ form.nazwa|as_crispy_field }}
-            <br>
-            {{ form.klatka|as_crispy_field }}
-            <br>
-            {{ form.telefon|as_crispy_field }}
-            <br>
-            {{ form.zgoda|as_crispy_field }}
-            <br>
-            {{ my_record }}
-            <a href="{% url 'view_telefony' record.id %}" class="btn btn-outline-primary"> Powrót &nbsp;<i
-                    class="fa fa-arrow-left"
-                    aria-hidden="true"></i>
-            </a>
-            <button type="submit" class="btn btn-outline-primary">Zapisz</button>
-            &nbsp;&nbsp;&nbsp;
-
-        </form>
-    </div>
-    <br>
-    </body>
+    <div class="row">
+        <div class="col-sm-8 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>
+                        Edytuj Kontrahenta </strong>
+                    <hr>
+                    <form method="POST" autocomplete="off">
+                        {% csrf_token %}
+                        {{ form.nazwa|as_crispy_field }}
+                        <br>
+                        {{ form.klatka|as_crispy_field }}
+                        <br>
+                        {{ form.telefon|as_crispy_field }}
+                        <br>
+                        {{ form.zgoda|as_crispy_field }}
+                        <br>
+                        {{ my_record }}
+                        <div style="display: flex; justify-content: flex-end">
+                                    <a href="{% url 'view_telefony' record.id %}" class="btn btn-outline-primary"> Powrót&nbsp;&nbsp;<i
+                                            class="fa fa-arrow-left"
+                                            aria-hidden="true"></i>
+                                    </a>&nbsp;&nbsp;
+                                    <button type="submit" class="btn btn-outline-primary">Zapisz&nbsp;&nbsp;<i
+                                            class="fa fa-save"
+                                            aria-hidden="true"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div></div></div>
     {{ redirect_to_login_immediately }}
 {% endblock %}

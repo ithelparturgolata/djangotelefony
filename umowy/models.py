@@ -13,30 +13,25 @@ class Contract(models.Model):
     contractor = models.ForeignKey(Contractor, on_delete=models.CASCADE)
     description = models.TextField()
     start_date = models.DateField()
-    end_date = models.DateField()
+    end_date = models.DateField(blank=True, null=True)
     status = models.CharField(max_length=100, default='Aktywna')
     
     def is_expired(self):
-        # Calculate the number of days left until the end of the contract
+        if self.end_date is None:
+            self.status = 'Aktywna'
+            self.save()
+            return
+        
         days_left = (self.end_date - timezone.now().date()).days
-
-        # Update status based on the number of days left
+        
         if days_left <= 0:
             self.status = 'Wygasła'
         elif days_left <= 45:
             self.status = 'Poniżej 45 dni do końca'
         else:
             self.status = 'Aktywna'
-    
+        
         self.save()
-    
-    def status_css_class(self):
-        if self.status == 'Wygasła':
-            return 'btn btn-danger'
-        elif self.status == 'Poniżej 45 dni do końca':
-            return 'btn btn-warning'
-        else:
-            return 'btn btn-success'
     
 
 class ContractFile(models.Model):

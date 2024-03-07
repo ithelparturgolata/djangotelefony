@@ -13,12 +13,13 @@
             <a class="btn btn-outline-success" href="{% url 'dashboard' %}">Home &nbsp; <i
                     class="fa fa-home"
                     aria-hidden="true"></i>
-            </a><br>
-            <a class="btn btn-outline-success" href="{% url 'logout' %}">Wyloguj się &nbsp; <i
-                    class="fa fa-sign-out"
-                    aria-hidden="true"></i>
-            </a>
-            </ul>            {% else %}
+            </a>&nbsp;
+            {#            <a class="btn btn-outline-success" href="{% url 'logout' %}">Wyloguj się &nbsp; <i#}
+            {#                    class="fa fa-sign-out"#}
+            {#                    aria-hidden="true"></i>#}
+            {#            </a>#}
+            </ul>
+        {% else %}
 
         {% endif %}
 </nav>

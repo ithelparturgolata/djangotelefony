@@ -29,7 +29,7 @@ from django.core.files.storage import FileSystemStorage
 
 @login_required(login_url="login")
 def dashboard_todo(request):
-    return render(request, 'dashboard-todo.html')
+    return render(request, 'dashboard-task.html')
 
 
 @login_required(login_url="login")
@@ -40,7 +40,7 @@ def dashboard_todo_ce(request):
 
 def task_list(request):
     tasks = Task.objects.all()
-    return render(request, 'task_list.html', {'tasks': tasks})
+    return render(request, 'list_task.html', {'tasks': tasks})
 
 def add_task(request):
     if request.method == 'POST':

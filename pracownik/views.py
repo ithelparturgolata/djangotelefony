@@ -5,11 +5,10 @@ from .models import Task, TaskPhoto
 from django.shortcuts import render, redirect
 
 
-
-
-def home(request):
+def dashboard_task(request):
     tasks = Task.objects.all()
-    return render(request, 'dashboard-todo.html', {'tasks': tasks})
+    return render(request, 'dashboard-task.html', {'tasks': tasks})
+
 
 def add_task(request):
     if request.method == 'POST':
@@ -22,7 +21,6 @@ def add_task(request):
     return render(request, 'add_task.html', {'form': form})
 
 
-
 def task_detail(request, task_id):
     task = Task.objects.get(pk=task_id)
     if request.method == 'POST':
@@ -30,4 +28,4 @@ def task_detail(request, task_id):
             photo = TaskPhoto(image=request.FILES['additional_photo'], task=task)
             photo.save()
             return redirect('task_detail', task_id=task_id)
-    return render(request, 'task_detail.html', {'task': task})
+    return render(request, 'detail_task.html', {'task': task})

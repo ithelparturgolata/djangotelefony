@@ -1,32 +1,45 @@
 {% extends 'base-telefony.html' %}
 {% block content %}
-    <div class="card">
+
+
+    <div class="row">
+        <div class="col-sm-8 mb-3 mb-sm-0">
+            <div class="card">
         <div class="card-body">
             <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
             <strong>
                 Kontrahent:&nbsp;&nbsp;&nbsp;{{ record.nazwa|upper }}
                 {#                {{record.dotyczy}}#}
             </strong>
-            <hr>
-            <p><strong> ID: </strong> {{ record.id }} </p>
-            <p><strong> Indeks: </strong> {{ record.indeks }} </p>
-            <p><strong> Nazwa: </strong> {{ record.nazwa }} </p>
-            <p><strong> Adres: </strong> {{ record.adres }} </p>
-            <p><strong> Klatka: </strong> {{ record.klatka }} </p>
-            <p><strong> Telefon: </strong> {{ record.telefon }} </p>
-            <p><strong> Zgoda: </strong> {{ record.zgoda }} </p>
-            <p><strong> Administracja: </strong> {{ record.administracja }} </p>
-            <p><strong> Data utworzenia: </strong> {{ record.data_utworzenia }} </p>
 
-        </div>
-    </div>
-    <br>
-    <a href="{% url back_url %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+            <a href="{% url back_url %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
             class="fa fa-arrow-left"></i> </a>
     &nbsp;
     <a href="{% url 'update_telefony' record.id %}" class="btn btn-outline-primary"> Edytuj &nbsp; <i class="fa fa-plus"
                                                                                                       aria-hidden="true"></i>
     </a>
+            <hr>
+{#            <p><strong> ID: </strong> {{ record.id }} </p>#}
+            <p><strong> Indeks: </strong> {{ record.indeks }} </p>
+            <p><strong> Nazwa: </strong> {{ record.nazwa }} </p>
+            <p><strong> Adres: </strong> {{ record.adres }} </p>
+            <p><strong> Klatka: </strong> {{ record.klatka }} </p>
+            <p><strong> Telefon SMS: </strong> <a href="{{ record.telefon }}">{{ record.telefon }}</a>  </p>
+            <p><strong> Telefon 2: </strong> <a href="{{ record.telefon2 }}">{{ record.telefon2 }}</a>  </p>
+            <p><strong> Telefon 3: </strong> <a href="{{ record.telefon3 }}">{{ record.telefon3 }}</a>  </p>
+            <p><strong> Zgoda: </strong> {{ record.zgoda }} </p>
+{#            <p><strong> Administracja: </strong> {{ record.administracja }} </p>#}
+            <p><strong> Data utworzenia: </strong> {{ record.data_utworzenia }} </p>
+
+        </div>
+    </div>
+    <br>
+{#    <a href="{% url back_url %}" class="btn btn-outline-primary"> Powrót &nbsp; <i#}
+{#            class="fa fa-arrow-left"></i> </a>#}
+{#    &nbsp;#}
+{#    <a href="{% url 'update_telefony' record.id %}" class="btn btn-outline-primary"> Edytuj &nbsp; <i class="fa fa-plus"#}
+{#                                                                                                      aria-hidden="true"></i>#}
+{#    </a>#}
     &nbsp;
     {#    <a href="{% url 'sms_telefony' record.id %}" class="btn btn-outline-primary"> SMS &nbsp;<i class="fa fa-comment"#}
     {#                                                                                          aria-hidden="true"></i> </a>#}
@@ -35,4 +48,5 @@
     {#                                                                                                  aria-hidden="true"></i>#}
     {#    </a>#}
     {{ redirect_to_login_immediately }}
+        </div></div>
 {% endblock %}

@@ -12,9 +12,11 @@ class Task(models.Model):
     photo = models.ImageField(upload_to='task_photos/', blank=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='in_progress')
 
+
 class TaskAssignment(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     assigned_to = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
 class TaskComment(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='comments')

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+    <h5>Szczegóły zadania</h5>
+    <hr>
+    <p>Opis: {{ task.description }}</p>
+    <p>Data dodania: {{ task.added_date }}</p>
+    <p>Termin: {{ task.due_date }}</p>
+    <p>Status: {{ task.status }}</p>
+    {% if task.photo %}
+        <img src="{{ task.photo.url }}" alt="Task Photo" style="width: 100px; height: 100px;">
+    {% endif %}
+    {% for photo in task.additional_photos.all %}
+        <img src="{{ photo.image.url }}" alt="Additional Photo" style="width: 100px; height: 100px;">
+    {% endfor %}
+    <br><br>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="additional_photo" accept="image/*">
+        <button class="btn btn-outline-primary" type="submit">Dodaj zdjęcie <i
+            class="fa fa-plus"
+            aria-hidden="true"></i></button>
+    </form>
+    <br>
+    <hr>
+    <h5>Dodaj podpis</h5>
+    <canvas id="signatureCanvas" width="400" height="200" style="border:1px solid #000;"></canvas>
+    <button class="btn btn-outline-primary" onclick="clearCanvas()">Wyczyść</button>
+    <button class="btn btn-outline-primary" onclick="saveSignature()">Zapisz</button>
+
+    <script>
+        var canvas = document.getElementById('signatureCanvas');
+        var ctx = canvas.getContext('2d');
+        var drawing = false;
+
+        canvas.addEventListener('mousedown', function(e) {
+            drawing = true;
+            ctx.beginPath();
+            ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+        });
+
+        canvas.addEventListener('mousemove', function(e) {
+            if (drawing) {
+                ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+                ctx.stroke();
+            }
+        });
+
+        canvas.addEventListener('mouseup', function(e) {
+            drawing = false;
+        });
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function saveSignature() {
+            var signatureData = canvas.toDataURL('image/png');
+            // Send signatureData to your backend for processing
+            // For example, you can use AJAX to send the data to your Django view
+            // and save it to the Task model associated with this task
+            console.log(signatureData); // Display the signature data in console (for demonstration)
+            alert('Signature saved successfully!');
+            window.location.href = "{% url 'dashboard_task' %}"; // Redirect to dashboard_task.html
+        }
+    </script>
+    <br>
+    <hr>
+    <a class="btn btn-outline-primary"  href="{% url 'dashboard_task' %}">Powrót <i
+            class="fa fa-arrow-left"
+            aria-hidden="true"></i> </a>
+</div>
+    </div>
+{% endblock %}

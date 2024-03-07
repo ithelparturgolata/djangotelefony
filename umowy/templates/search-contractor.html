@@ -7,12 +7,12 @@
 </head>
 <body>
 
-    <ul>
-        {% for contractor in contractors %}
-            <li>{{ contractor.name }}</li>
+<ul>
+    {% for contractor in contractors %}
+        <li>{{ contractor.name }}</li>
         {% empty %}
-            <li>No contractors found</li>
-        {% endfor %}
-    </ul>
+        <li>No contractors found</li>
+    {% endfor %}
+</ul>
 </body>
 </html>

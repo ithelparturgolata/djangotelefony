@@ -1,0 +1,46 @@
+{% extends 'base-intercom.html' %}
+{% block content %}
+    <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
+    <hr>
+    <a class="btn btn-outline-primary" href="{% url 'add_task_intercom' %}">Dodaj zlecenie <i
+            class="fa fa-plus"></i> </a>
+    <br><br>
+
+    <table class="table  table-bordered" id="sample_data">
+        <thead class="table-warning">
+        <tr>
+            <th scope="col"> Użytkownik</th>
+            <th scope="col"> Opis</th>
+            <th scope="col"> Osiedle</th>
+            <th scope="col"> Ulica</th>
+            <th scope="col"> Do</th>
+            <th scope="col"> Wykonawca</th>
+            <th scope="col"> Status</th>
+            <th scope="col"> Data dodania</th>
+            <th scope="col"> Planowana data</th>
+            <th scope="col"> Wykonano</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.user }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.get_estate_display }}</td>
+                <td>{{ task.street }}</td>
+                <td>{{ task.contractor }}</td>
+                <td>{{ task.get_status_display }}</td>
+                <td>{{ task.added_date }}</td>
+                <td>{{ task.planned_execution_date }}</td>
+                <td>{{ task.actual_execution_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br><br>
+    <hr>
+
+    {{ redirect_to_login_immediately }}
+{% endblock %}
+
+

@@ -1,0 +1,23 @@
+{% extends 'base-intercom.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+        <strong>Dodaj zlecenie</strong>
+        <hr>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button class="btn btn-outline-primary" type="submit">Dodaj <i
+                    class="fa fa-plus"></i></button>
+            <a href="{% url 'dashboard_intercom' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+                    class="fa fa-arrow-left"></i> </a>
+        </form>
+    </div>
+    </div>
+    {{ redirect_to_login_immediately }}
+{% endblock %}

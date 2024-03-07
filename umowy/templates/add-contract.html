@@ -9,6 +9,11 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
+            <label for="id_end_date">Jeżeli jest na czas nieokreślony wpisujemy (nieokreślony) w innym przypadku
+                wypełniamy pole Umowa do:</label>
+
+            <label for="id_end_date">Umowa do:</label>
+            <input type="text" id="id_end_date" name="end_date"><br><br>
             <button class="btn btn-outline-primary" type="submit">Dodaj <i
                     class="fa fa-plus"></i></button>
             <a href="{% url 'dashboard_contracts' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i

@@ -40,3 +40,45 @@ Data:2024-02-27
 Dokonal aktualizacji = golataa
 Godzina: 11:50:39
 -----------
+kontrahent = Go³ata Artur
+Telefon = 601521657
+Zgoda = tak
+Data:2024-03-06
+Dokonal aktualizacji = golataa
+Godzina: 07:34:53
+-----------
+kontrahent = Sójkowska-Zydel Danuta
+Telefon = 502786937
+Zgoda = nie
+Data:2024-03-07
+Dokonal aktualizacji = golataa
+Godzina: 08:17:55
+-----------
+kontrahent = Sójkowska-Zydel Danuta
+Telefon = 502786937
+Zgoda = tak
+Data:2024-03-07
+Dokonal aktualizacji = golataa
+Godzina: 09:31:08
+-----------
+kontrahent = Sójkowska-Zydel Danuta
+Telefon = 502786937
+Zgoda = nie
+Data:2024-03-07
+Dokonal aktualizacji = golataa
+Godzina: 09:46:26
+-----------
+kontrahent = Sójkowska-Zydel Danuta
+Telefon = 502786937
+Zgoda = tak
+Data:2024-03-07
+Dokonal aktualizacji = golataa
+Godzina: 10:25:24
+-----------
+kontrahent = Go³ata Artu
+Telefon = 601521657
+Zgoda = tak
+Data:2024-03-07
+Dokonal aktualizacji = golataa
+Godzina: 11:12:07
+-----------

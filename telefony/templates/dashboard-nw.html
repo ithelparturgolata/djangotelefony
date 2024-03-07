@@ -1,4 +1,4 @@
-{% extends 'base-telefony.html' %}
+{% extends 'base-telefony-nw.html' %}
 {% block content %}
     <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
     <hr>
@@ -39,7 +39,7 @@
                 <td> {{ record.indeks }} </td>
                 <td> {{ record.nazwa }}</td>
                 <td> {{ record.adres }} </td>
-                <td> {{ record.telefon }} </td>
+                <td> <a href="{{ record.telefon }}">{{ record.telefon }}</a> </td>
                 <td> {{ record.administracja }} </td>
                 <td><a class="btn btn-outline-primary btn-sm" href="{% url 'view_telefony' record.id %}">
                     <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
