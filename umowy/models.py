@@ -15,6 +15,7 @@ class Contract(models.Model):
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True)
     status = models.CharField(max_length=100, default='Aktywna')
+    place = models.CharField(max_length=20, blank=True, null=True)
     
     def is_expired(self):
         if self.end_date is None:
@@ -40,3 +41,13 @@ class ContractFile(models.Model):
 
     def __str__(self):
             return self.file.name
+    
+    
+class ContractFileAnnex(models.Model):
+    contract = models.ForeignKey(Contract, on_delete=models.CASCADE)
+    file_annex = models.FileField(upload_to='contract_files/')
+
+    def __str__(self):
+            return self.file_annex.name
+
+    

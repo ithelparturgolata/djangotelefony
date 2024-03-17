@@ -1,58 +1,88 @@
 {% extends 'base-contract-detail.html' %}
-{#{% load crispy_forms_tags %}#}
 {% load static %}
 
 {% block content %}
     <div class="row">
-    <div class="col-sm-6 mb-3 mb-sm-0">
-        <div class="card">
-            <div class="card-body">
-                <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
-                <strong>Szczegóły umowy</strong>
-                <hr>
-                <p>Wykonawca: {{ contract.contractor.name }}</p>
-                <p>Opis: {{ contract.description }}</p>
-                <p>Umowa od: <b>{{ contract.start_date }}</b></p>
-                <p>Umowa do: {% if contract.end_date == None %}
-                    <b>Czas nieokreślony</b>
-                {% else %}
-                    <b>{{ contract.end_date }}</b>
-                {% endif %}</p>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>Szczegóły umowy</strong>
+                    <hr>
+                    <p>Wykonawca: {{ contract.contractor.name }}</p>
+                    <p>Opis: {{ contract.description }}</p>
+                    <p>Umowa od: <b>{{ contract.start_date }}</b></p>
+                    <p>Umowa do: {% if contract.end_date == None %}
+                        <b>Czas nieokreślony</b>
+                    {% else %}
+                        <b>{{ contract.end_date }}</b>
+                    {% endif %}</p>
+                    <p>Umowa, miejsce: {{ contract.place }}</p>
+                </div>
+            </div>
 
+            <!-- Display Contract Files -->
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>Umowa:</strong>
+                    <hr>
+                    <ul>
+                        {% for file in my_files %}
+                            <li><a href="{{ file.file.url }}" target="_blank">{{ file.file.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <br>
+                </div>
+            </div>
+
+            <!-- Display Annex Files -->
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>Aneksy:</strong>
+                    <hr>
+                    <ul>
+                        {% for file_annex in annex_files %}
+                            <li><a href="{{ file_annex.file_annex.url }}" target="_blank">{{ file_annex.file_annex.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <!-- Form for Uploading Contract File -->
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>Dodaj umowę</strong>
+                    <hr>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="btn btn-outline-primary" type="submit">Dodaj <i class="fa fa-plus"></i></button>
+                        <a href="{% url 'dashboard_contracts' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i class="fa fa-arrow-left"></i> </a>
+                    </form>
+                </div>
+            </div>
+            <br>
+
+            <!-- Form for Uploading Annex File -->
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>Dodaj aneks</strong>
+                    <hr>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ annex_form.as_p }}
+                        <button class="btn btn-outline-primary" type="submit">Dodaj <i class="fa fa-plus"></i></button>
+                        <a href="{% url 'dashboard_contracts' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i class="fa fa-arrow-left"></i> </a>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="col-sm-6 mb-3 mb-sm-0">
-    <div class="card">
-        <div class="card-body">
-            <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
-            <strong>Dokumenty:</strong>
-            <hr>
-            <ul>
-                {% for file in my_files %}
-                    <li><a href="{{ file.file.url }}" target="_blank">{{ file.file.name }}</a></li>
-                {% endfor %}
-            </ul>
-            <br>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-body">
-
-            <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
-            <strong>Wgraj plik/pliki</strong>
-            <hr>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button class="btn btn-outline-primary" type="submit">Wgraj plik <i
-                        class="fa fa-plus"></i></button>
-                <a href="{% url 'dashboard_contracts' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
-                        class="fa fa-arrow-left"></i> </a>
-            </form>
-        </div>
-    </div>
-    {{ redirect_to_login_immediately }}
 {% endblock %}

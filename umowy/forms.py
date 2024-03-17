@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contract, ContractFile, Contractor
+from .models import Contract, ContractFile, Contractor, ContractFileAnnex
 
 
 class ContractForm(forms.ModelForm):
@@ -8,8 +8,8 @@ class ContractForm(forms.ModelForm):
 
     class Meta:
         model = Contract
-        fields = ['contractor', 'description', 'start_date', 'end_date']
-        labels = {'contractor': 'Wykonawca', 'files': 'Pliki', 'description': 'Opis', 'start_date': 'Umowa od', 'end_date': 'Umowa do'}
+        fields = ['contractor', 'description', 'start_date', 'end_date', 'place']
+        labels = {'contractor': 'Wykonawca', 'files': 'Pliki', 'description': 'Opis', 'start_date': 'Umowa od', 'end_date': 'Umowa do', 'place': 'Umowa jest w:'}
     
     def clean_end_date(self):
         end_date = self.cleaned_data.get('end_date')
@@ -29,6 +29,13 @@ class ContractFileForm(forms.ModelForm):
         model = ContractFile
         fields = ['file']
         labels = {'file': 'Plik'}
+        
+
+class ContractFileFormAnnex(forms.ModelForm):
+    class Meta:
+        model = ContractFileAnnex
+        fields = ['file_annex']
+        labels = {'file_annex': 'Plik'}
 
 
 class ContractsSearchForm(forms.Form):

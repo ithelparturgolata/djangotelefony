@@ -1,0 +1,22 @@
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form_annex.as_p }}
+  <button type="submit">Wgraj plik</button>
+</form>
+
+
+{#{% extends 'base-contract-detail.html' %}#}
+{#{% load static %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="card">#}
+{#        <div class="card-body">#}
+{#            <h5 class="card-title">Dodaj aneks</h5>#}
+{#            <form method="post" enctype="multipart/form-data">#}
+{#                {% csrf_token %}#}
+{#                {{ form_annex.as_p }}#}
+{#                <button type="submit" class="btn btn-primary">Dodaj</button>#}
+{#            </form>#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}

@@ -7,7 +7,9 @@ class Mieszkaniec(models.Model):
     nazwa = models.CharField(max_length=255, blank=True)
     adres = models.CharField(max_length=255, blank=True)
     klatka = models.CharField(max_length=2, blank=True)
-    telefon = models.CharField(max_length=9, blank=True)
+    telefon = models.CharField(max_length=20, blank=True)
+    telefon2 = models.CharField(max_length=20, blank=True)
+    telefon3 = models.CharField(max_length=20, blank=True)
     symbol_budynku = models.CharField(max_length=4, blank=True)
     tak = "tak"
     nie = "nie"

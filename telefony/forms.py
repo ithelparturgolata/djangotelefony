@@ -43,7 +43,13 @@ class UpdateRecordFormTelefony(forms.ModelForm):
     klatka = forms.CharField(label="Klatka",
                              max_length=2)
     telefon = forms.CharField(label="Telefon",
-                              max_length=9, validators=[RegexValidator(r'^\d{9}$', message="Pole 'Telefon' musi zawierać dokładnie 9 cyfr.")])
+                              max_length=20, validators=[RegexValidator(r'^\d{9}$', message="Pole 'Telefon' musi zawierać dokładnie 9 cyfr.")])
+    telefon2 = forms.CharField(label="Telefon",
+                              max_length=20, validators=[
+            RegexValidator(r'^\d{9}$', message="Pole 'Telefon' musi zawierać dokładnie 9 cyfr.")])
+    telefon3 = forms.CharField(label="Telefon",
+                              max_length=20, validators=[
+            RegexValidator(r'^\d{9}$', message="Pole 'Telefon' musi zawierać dokładnie 9 cyfr.")])
     zgoda = forms.CharField(label="Zgoda tak/nie",
                             max_length=3)
 

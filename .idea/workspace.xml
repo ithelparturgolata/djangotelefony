@@ -4,112 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81f4f5f2-b9d5-459d-a352-883d72331b66" name="Changes" comment="katalog dashboard komplet. docstringi, exceptions, alert przy zlym logowaniu">
-      <change afterPath="$PROJECT_DIR$/domofony/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/migrations/0002_taskintercom_rename_contractor_contractorintercom_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/templates/add-intercom.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/templates/base-intercom-detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/templates/base-intercom.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/templates/dashboard-intercom.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/templates/navbar-detail-intercom.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/templates/navbar-intercom.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domofony/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/contract_files/MX-2651_20240220_080914.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/contract_files/MX-2651_20240220_080914_7eonrEH.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/contract_files/MX-2651_20240220_080914_GVHl99t.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/contract_files/MX-2651_20240220_080914_v6kwCgZ.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/contract_files/MX-2651_20240220_080914_zZIgNjO.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/contract_files/MX-2651_20240304_112818.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/contract_files/SKAN_20240227_095023.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/contract_files/Umowa_6_2024.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/contract_files/Umowa_8_2024.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sms/templates/sms-sms-check.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telefony/migrations/0009_mieszkaniec_telefon_2_mieszkaniec_telefon_3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telefony/migrations/0010_alter_mieszkaniec_zgoda.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telefony/migrations/0011_remove_mieszkaniec_telefon_2_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telefony/templates/base-telefony-ce.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telefony/templates/base-telefony-lu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telefony/templates/base-telefony-ns.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telefony/templates/base-telefony-nw.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telefony/templates/base-telefony-w.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telefony/templates/navbar-telefony-ce.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telefony/templates/navbar-telefony-lu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telefony/templates/navbar-telefony-ns.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telefony/templates/navbar-telefony-nw.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/telefony/templates/navbar-telefony-w.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/umowy/migrations/0011_alter_contract_end_date.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/umowy/migrations/0012_alter_contract_end_date.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/umowy/migrations/0013_alter_contract_end_date.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/umowy/migrations/0014_alter_contract_end_date.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/umowy/templates/base-contract-detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/umowy/templates/navbar-detail-contract.html" afterDir="false" />
+    <list default="true" id="81f4f5f2-b9d5-459d-a352-883d72331b66" name="Changes" comment="poprawki telefony, sms">
+      <change afterPath="$PROJECT_DIR$/result.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangotelefony/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangotelefony/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangotelefony/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangotelefony/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/2316.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pracownik/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pracownik/templates/add_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/add_task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pracownik/templates/base-todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/base-task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pracownik/templates/dashboard-todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/dashboard-task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pracownik/templates/navbar-todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/navbar-task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pracownik/templates/task_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/detail_task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pracownik/templates/task_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/templates/list_task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pracownik/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pracownik/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pracownik/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/save/update/update_kontrahent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/save/update/update_kontrahent.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/sms/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms-blok.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms-blok.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms-kontrahent.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms-kontrahent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms-lu.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms-lu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard_szablony.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard_szablony.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/navbar-sms-blok.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/navbar-sms-blok.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/navbar-sms-kontrahent.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/navbar-sms-kontrahent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/navbar-sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/navbar-sms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-sms-blok.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-sms-blok.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-sms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sms/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telefony/templates/dashboard-ce.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/dashboard-ce.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telefony/templates/dashboard-lu.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/dashboard-lu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telefony/templates/dashboard-ns.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/dashboard-ns.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telefony/templates/dashboard-nw.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/dashboard-nw.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telefony/templates/dashboard-w.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/dashboard-w.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telefony/templates/navbar-telefony.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/navbar-telefony.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telefony/templates/telefony-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/telefony-update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telefony/templates/telefony-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/telefony-view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telefony/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/base-todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/base-todo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/dashboard-todo-ce.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/dashboard-todo-ce.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/dashboard-todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/dashboard-todo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/task-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/task-view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/add-contract.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/add-contract.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/base-umowy.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/contract-details.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/contract_details.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/contract_file_upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/contract_file_upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/contractor-search.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/contractor-search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/dashboard-contracts.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/dashboard-contracts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/dashboard-umowy.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/details-contract.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/details-contract.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/navbar-contracts.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/navbar-contracts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/navbar-umowy.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/search-contractor.html" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/templates/search-contractor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/templates/umowy-search.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/umowy/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/umowy/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/templates/telefony-search.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/telefony-search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +126,7 @@
       <workItem from="1708338342444" duration="25740000" />
       <workItem from="1708931693813" duration="8516000" />
       <workItem from="1709029591503" duration="22604000" />
-      <workItem from="1709461569725" duration="44123000" />
+      <workItem from="1709461569725" duration="46863000" />
     </task>
     <task id="LOCAL-00001" summary="poprawki filtr">
       <option name="closed" value="true" />
@@ -317,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709056354692</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="poprawki telefony, sms">
+      <option name="closed" value="true" />
+      <created>1709842478018</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1709842478018</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,6 +254,7 @@
     <MESSAGE value="docstring dla umowy" />
     <MESSAGE value="views oraz urls dla apki telefony, powrot do wybranego dashboardu" />
     <MESSAGE value="katalog dashboard komplet. docstringi, exceptions, alert przy zlym logowaniu" />
-    <option name="LAST_COMMIT_MESSAGE" value="katalog dashboard komplet. docstringi, exceptions, alert przy zlym logowaniu" />
+    <MESSAGE value="poprawki telefony, sms" />
+    <option name="LAST_COMMIT_MESSAGE" value="poprawki telefony, sms" />
   </component>
 </project>

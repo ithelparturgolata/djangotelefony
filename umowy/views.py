@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Contractor, Contract, ContractFile
-from .forms import ContractForm, ContractFileForm, ContractorForm, ContractsSearchForm
+from .models import Contractor, Contract, ContractFile, ContractFileAnnex
+from .forms import ContractForm, ContractFileForm, ContractorForm, ContractFileFormAnnex
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
 
@@ -78,19 +78,28 @@ def details_contract(request, contract_id):
     """
     contract = get_object_or_404(Contract, pk=contract_id)
     my_files = ContractFile.objects.filter(contract=contract)
+    annex_files = ContractFileAnnex.objects.filter(contract=contract)
+    
     if request.method == 'POST':
         form = ContractFileForm(request.POST, request.FILES)
+        annex_form = ContractFileFormAnnex(request.POST, request.FILES)
+        
         if form.is_valid():
             instance = form.save(commit=False)
             instance.contract = contract
             instance.save()
             return redirect('details_contract', contract_id=contract_id)
-        else:
-            raise ValidationError("Błędy w formularzu")  # Raise validation error if form is not valid
+        elif annex_form.is_valid():
+            instance_annex = annex_form.save(commit=False)
+            instance_annex.contract = contract
+            instance_annex.save()
+            return redirect('details_contract', contract_id=contract_id)
     else:
         form = ContractFileForm()
-    return render(request, 'details-contract.html', {'contract': contract, 'form': form, 'my_files': my_files})
-
+        annex_form = ContractFileFormAnnex()
+    
+    return render(request, 'details-contract.html',
+                  {'contract': contract, 'form': form, 'annex_form': annex_form, 'my_files': my_files, 'annex_files': annex_files})
 
 @login_required(login_url="login")
 def upload_file_contract(request, contract_id):
@@ -117,6 +126,33 @@ def upload_file_contract(request, contract_id):
     else:
         form = ContractFileForm()
     return render(request, 'file_upload_contract.html', {'form': form, 'contract': contract})
+
+
+@login_required(login_url="login")
+def upload_file_contract_annex(request, contract_id):
+    """
+    View to upload a file for a specific contract annex.
+
+    Args:
+    - request (HttpRequest): The HTTP request object.
+    - contract_id (int): The ID of the contract.
+
+    Returns:
+    - HttpResponse: Rendered template for uploading a file for the contract annex.
+    """
+    contract = get_object_or_404(Contract, pk=contract_id)
+    if request.method == 'POST':
+        form = ContractFileFormAnnex(request.POST, request.FILES)
+        if form.is_valid():
+            file_annex = form.save(commit=False)
+            file_annex.contract = contract
+            file_annex.save()
+            return redirect('details_contract', contract_id=contract.id)
+        else:
+            raise ValidationError("Błędy w formularzu")  # Raise validation error if form is not valid
+    else:
+        form = ContractFileFormAnnex()
+    return render(request, 'file_upload_contract_annex.html', {'form': form, 'contract': contract})
 
 
 @login_required(login_url="login")
