@@ -1,4 +1,6 @@
 from django import forms
+from django.utils.safestring import mark_safe
+
 from .models import Contract, ContractFile, Contractor, ContractFileAnnex
 
 
@@ -30,13 +32,29 @@ class ContractFileForm(forms.ModelForm):
         fields = ['file']
         labels = {'file': 'Plik'}
         
-
+    def clean_file(self):
+        file = self.cleaned_data.get('file')
+        if file:
+            if not file.name.lower().endswith('.pdf'):
+                error_message = mark_safe("<b><span style='color:red;'>Umowa format tylko pdf.</span></b>")
+                raise forms.ValidationError(error_message)
+        return file
+    
+    
 class ContractFileFormAnnex(forms.ModelForm):
     class Meta:
         model = ContractFileAnnex
         fields = ['file_annex']
         labels = {'file_annex': 'Plik'}
 
-
+    def clean_file_annex(self):
+        file_annex = self.cleaned_data.get('file_annex')
+        if file_annex:
+            if not file_annex.name.lower().endswith('.pdf'):
+                error_message = mark_safe("<b><span style='color:red;'>Aneks format tylko pdf.</span></b>")
+                raise forms.ValidationError(error_message)
+        return file_annex
+    
+    
 class ContractsSearchForm(forms.Form):
     searched = forms.CharField(label='Search')

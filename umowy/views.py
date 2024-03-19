@@ -132,7 +132,7 @@ def upload_file_contract(request, contract_id):
             file.save()
             return redirect('details_contract', contract_id=contract.id)
         else:
-            raise ValidationError("Błędy w formularzu")  # Raise validation error if form is not valid
+            messages.error(request, "Only PDF files are allowed.")
     else:
         form = ContractFileForm()
     return render(request, 'file-upload-contract.html', {'form': form, 'contract': contract})

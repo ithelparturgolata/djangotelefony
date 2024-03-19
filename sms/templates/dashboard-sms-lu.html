@@ -54,15 +54,15 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             {% if my_record.has_previous %}
-                <li class="page-item"><a class="page-link"
-                                         href="?page={{ my_record.previous_page_number }}">Poprzednia</a></li>
+                <a class="btn btn-outline-primary btn-sm"
+                                         href="?page={{ my_record.previous_page_number }}">Poprzednia</a>
                 {#                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>#}
             {% endif %}
             {% if my_record.has_next %}
                 {#                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>#}
                 {#                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>#}
-                <li class="page-item"><a class="page-link" href="?page={{ my_record.next_page_number }}">Następna</a>
-                </li>
+                <a class="btn btn-outline-primary btn-sm" href="?page={{ my_record.next_page_number }}">Następna</a>
+
             {% endif %}
         </ul>
     </nav>

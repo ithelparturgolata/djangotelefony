@@ -19,8 +19,7 @@
             class="fa fa-filter"
             aria-hidden="true"></i> </a>
     <hr>
-    <br><br>
-    <table class="table  table-bordered" id="sample_data">
+    <table class="table  table-bordered table-striped" id="sample_data">
         <thead class="table-light">
         <tr>
             <th scope="col"> ID</th>
@@ -44,25 +43,21 @@
                 <td><a class="btn btn-outline-primary btn-sm" href="{% url 'view_telefony' record.id %}">
                     <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
             </tr>
-
         {% endfor %}
-
         </tbody>
     </table>
-    <br><br>
     <hr>
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             {% if my_record.has_previous %}
-                <li class="page-item"><a class="page-link"
-                                         href="?page={{ my_record.previous_page_number }}">Poprzednia</a></li>
+                <a class="btn btn-outline-primary btn-sm"
+                                         href="?page={{ my_record.previous_page_number }}">Poprzednia</a>
                 {#                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>#}
             {% endif %}
             {% if my_record.has_next %}
                 {#                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>#}
                 {#                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>#}
-                <li class="page-item"><a class="page-link" href="?page={{ my_record.next_page_number }}">Następna</a>
-                </li>
+                <a class="btn btn-outline-primary btn-sm" href="?page={{ my_record.next_page_number }}">Następna</a>
             {% endif %}
         </ul>
     </nav>
