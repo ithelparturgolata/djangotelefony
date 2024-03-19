@@ -251,7 +251,7 @@ def upload_file(request, pk):
     pk (int): Identifier of the contract for which the file should be uploaded.
 
     Returns:
-    HttpResponse: Renders the "file_upload_contract.html" template with the file upload form and
+    HttpResponse: Renders the "file-upload-contract.html" template with the file upload form and
     contract information.
     """
     record = get_object_or_404(Record, pk=pk)

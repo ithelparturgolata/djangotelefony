@@ -3,23 +3,30 @@
 {% load static %}
 
 {% block content %}
-    <div class="container bg-light shadow-md p-5 form-layout-add">
-        <h5>Dodaj umowę</h5>
-        <hr>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <label for="id_end_date">Jeżeli jest na czas nieokreślony wpisujemy (nieokreślony) w innym przypadku
-                wypełniamy pole Umowa do:</label>
+    <div class="row">
+        <div class="col-sm-8 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-file" aria-hidden="true"></i>
+                    <strong>Dodaj umowę</strong>
+                    <hr>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <label for="id_end_date">Jeżeli jest na czas nieokreślony wpisujemy (nieokreślony) w innym
+                            przypadku
+                            wypełniamy pole Umowa do:</label>
 
-            <label for="id_end_date">Umowa do:</label>
-            <input type="text" id="id_end_date" name="end_date"><br><br>
-            <button class="btn btn-outline-primary" type="submit">Dodaj <i
-                    class="fa fa-plus"></i></button>
-            <a href="{% url 'dashboard_contracts' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
-                    class="fa fa-arrow-left"></i> </a>
-        </form>
+                        <label for="id_end_date">Umowa do:</label>
+                        <input type="text" id="id_end_date" name="end_date"><br><br>
+                        <button class="btn btn-outline-primary" type="submit">Dodaj <i
+                                class="fa fa-plus"></i></button>
+                        <a href="{% url 'dashboard_contracts' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+                                class="fa fa-arrow-left"></i> </a>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-
     {{ redirect_to_login_immediately }}
 {% endblock %}

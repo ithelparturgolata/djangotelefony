@@ -44,7 +44,8 @@
                     <hr>
                     <ul>
                         {% for file_annex in annex_files %}
-                            <li><a href="{{ file_annex.file_annex.url }}" target="_blank">{{ file_annex.file_annex.name }}</a></li>
+                            <li><a href="{{ file_annex.file_annex.url }}"
+                                   target="_blank">{{ file_annex.file_annex.name }}</a></li>
                         {% endfor %}
                     </ul>
                     <br>
@@ -63,7 +64,8 @@
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button class="btn btn-outline-primary" type="submit">Dodaj <i class="fa fa-plus"></i></button>
-                        <a href="{% url 'dashboard_contracts' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i class="fa fa-arrow-left"></i> </a>
+                        <a href="{% url 'dashboard_contracts' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+                                class="fa fa-arrow-left"></i> </a>
                     </form>
                 </div>
             </div>
@@ -79,7 +81,8 @@
                         {% csrf_token %}
                         {{ annex_form.as_p }}
                         <button class="btn btn-outline-primary" type="submit">Dodaj <i class="fa fa-plus"></i></button>
-                        <a href="{% url 'dashboard_contracts' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i class="fa fa-arrow-left"></i> </a>
+                        <a href="{% url 'dashboard_contracts' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+                                class="fa fa-arrow-left"></i> </a>
                     </form>
                 </div>
             </div>

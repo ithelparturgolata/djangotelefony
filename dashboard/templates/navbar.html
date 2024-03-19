@@ -2,6 +2,7 @@
     <a class="navbar-brand main-heading" href="{% url 'dashboard' %}">
         &nbsp; Panel SM
     </a>
+   
     <ul class="navbar-nav ms-auto">
         {% if user.is_authenticated %}
             <a class="btn btn-outline-success" href="{% url 'logout' %}">Wyloguj się &nbsp; <i
@@ -9,6 +10,5 @@
                     aria-hidden="true"></i>
             </a>
             </ul>
-
         {% endif %}
 </nav>

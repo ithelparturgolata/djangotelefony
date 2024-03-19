@@ -3,6 +3,7 @@ from .models import Contractor, Contract, ContractFile, ContractFileAnnex
 from .forms import ContractForm, ContractFileForm, ContractorForm, ContractFileFormAnnex
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
+from django.contrib import messages
 
 
 def add_contract(request):
@@ -37,16 +38,25 @@ def add_contractor(request):
     Returns:
     - HttpResponse: Rendered template for adding a new contractor.
     """
+    contracts = Contract.objects.all()
     if request.method == 'POST':
         form = ContractorForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('dashboard_contracts')
+            # Check if the contractor already exists
+            name = form.cleaned_data.get('name')
+            existing_contractor = Contractor.objects.filter(name__iexact=name).exists()
+            if existing_contractor:
+                # Contractor already exists, display a message
+                messages.error(request, f"Wykonawca '{name}' już jest w bazie.")
+            else:
+                # Contractor doesn't exist, save the form
+                form.save()
+                return redirect('dashboard_contracts')
         else:
-            raise ValidationError("Błędy w formularzu")  # Raise validation error if form is not valid
+            messages.error(request, "Błędy w formularzu.")  # Display form errors
     else:
         form = ContractorForm()
-    return render(request, 'add-contractor.html', {'form': form})
+    return render(request, 'add-contractor.html', {'form': form, 'contracts': contracts})
 
 
 @login_required(login_url="login")
@@ -125,7 +135,7 @@ def upload_file_contract(request, contract_id):
             raise ValidationError("Błędy w formularzu")  # Raise validation error if form is not valid
     else:
         form = ContractFileForm()
-    return render(request, 'file_upload_contract.html', {'form': form, 'contract': contract})
+    return render(request, 'file-upload-contract.html', {'form': form, 'contract': contract})
 
 
 @login_required(login_url="login")
@@ -152,7 +162,7 @@ def upload_file_contract_annex(request, contract_id):
             raise ValidationError("Błędy w formularzu")  # Raise validation error if form is not valid
     else:
         form = ContractFileFormAnnex()
-    return render(request, 'file_upload_contract_annex.html', {'form': form, 'contract': contract})
+    return render(request, 'file-upload-contract-annex.html', {'form': form, 'contract': contract})
 
 
 @login_required(login_url="login")
