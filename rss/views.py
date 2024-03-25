@@ -1,12 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from .forms import CreateUserForm, LoginForm, \
-    AddRecordForm, UpdateRecordForm, SmsRecordForm, RecordFileForm
+    AddRecordForm, UpdateRecordForm, SmsRecordForm, RecordFile, RecordFileForm
 from django.contrib.auth.models import auth
-from django.contrib.auth import authenticate
-from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-
-from .functions import handle_uploaded_file
 from .models import Record
 from smsapi.client import SmsApiPlClient
 from django.core.paginator import Paginator
@@ -16,19 +12,25 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 from django.contrib import messages
-from django.conf import settings
-from django.core.files.storage import FileSystemStorage
 from datetime import date, datetime
+from django.contrib.auth.models import Group
+
 
 @login_required(login_url="login")
 def dashboard_main(request):
-    my_records = Record.objects.all()
-    p = Paginator(Record.objects.all(), 10)
-    page = request.GET.get("page")
-    my_record = p.get_page(page)
-
-    return render(request, "dashboard-main.html",
-                  {"records": my_records, "my_record": my_record})
+    # Check if the user is a member of the 'rss_group'
+    rss_group = Group.objects.get(name='rss_group')
+    if request.user.groups.filter(name=rss_group).exists():
+        # If the user is in the 'rss_group', retrieve records and render the dashboard-main.html template
+        my_records = Record.objects.all()
+        p = Paginator(Record.objects.all(), 10)
+        page = request.GET.get("page")
+        my_record = p.get_page(page)
+        return render(request, "dashboard-main.html",
+                      {"records": my_records, "my_record": my_record})
+    else:
+        # If the user is not in the 'rss_group', redirect to a different page or display an error message
+        return render(request, 'error-rss.html', {'message': 'Access denied. You are not authorized to view this page.'})
 
 
 @login_required(login_url="login")
@@ -56,19 +58,18 @@ def dashboard_przez(request):
 # add pozew
 @login_required(login_url="login")
 def create_record(request):
-    form = AddRecordForm()
     if request.method == "POST":
-
         form = AddRecordForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Dodano pozew")
             return redirect("dashboard_main")
+    else:
+        form = AddRecordForm()
     context = {"form": form}
     return render(request, "create-record.html", context=context)
 
 
-# update pozew
 @login_required(login_url="login")
 def update_record(request, pk):
     record = Record.objects.get(id=pk)
@@ -236,49 +237,22 @@ def view_file(request, pk):
     return render(request, "view-file.html", context=context)
 
 
-# upload pozew pliki
 @login_required(login_url="login")
 def upload_file(request, pk):
-    """
-    View function allowing uploading a file to a specific contract.
-
-    Fetches a contract with a specified identifier from the database. If the request method is POST,
-    processes the form submission to upload a file to the contract. Otherwise, renders the file upload
-    form to the contract.
-
-    Args:
-    request (HttpRequest): HTTP request object.
-    pk (int): Identifier of the contract for which the file should be uploaded.
-
-    Returns:
-    HttpResponse: Renders the "file-upload-contract.html" template with the file upload form and
-    contract information.
-    """
     record = get_object_or_404(Record, pk=pk)
     if request.method == 'POST':
         form = RecordFileForm(request.POST, request.FILES)
         if form.is_valid():
-            file = form.save(commit=False)
-            file.record = record
-            file.save()
-            return redirect('view_file', pk=record.id)
+            record_file = form.save(commit=False)
+            record_file.record_file = record
+            record_file.save()
+            return redirect('view_record', pk=pk)
     else:
         form = RecordFileForm()
-    return render(request, 'upload-file.html', {'form': form, 'record': record})
+    return render(request, 'upload-file.html', {'form': form})
 
-# @login_required(login_url="login")
-# def upload_file(request, pk):
-#     record = Record.objects.get(id=pk)
-#     form = UploadFileForm(instance=record)
-#     my_record = Record.objects.get(id=pk)
-#
-#     if request.method == 'POST':
-#         form = UploadFileForm(request.POST, request.FILES, instance=record)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, "Dodano plik")
-#             return redirect('view_file', pk)
-#     else:
-#         form = UploadFileForm()
-#     context = {"form": form, "record": record, "my_record": my_record}
-#     return render(request, 'upload-file.html', context=context)
+
+def view_record_files(request, record_id):
+    record = get_object_or_404(Record, pk=record_id)
+    record_files = RecordFile.objects.filter(record_file=record)
+    return render(request, 'view-file.html', {'record': record, 'record_files': record_files})

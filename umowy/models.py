@@ -7,6 +7,13 @@ class Contractor(models.Model):
 
     def __str__(self):
         return self.name
+    
+    
+class Department(models.Model):
+    department_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.department_name
 
 
 class Contract(models.Model):
@@ -14,6 +21,7 @@ class Contract(models.Model):
     description = models.TextField()
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True)
+    indefinite = models.CharField(max_length=100, blank=True, null=True)
     status = models.CharField(max_length=100, default='Aktywna')
     place = models.CharField(max_length=20, blank=True, null=True)
     

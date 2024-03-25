@@ -1,3 +1,4 @@
+import unicodedata
 from requests import auth
 from sms.forms import SmsRecordFormSms, SmsRecordFormSmsBlok
 from django.shortcuts import render
@@ -8,7 +9,9 @@ from telefony.models import Mieszkaniec, Blok
 from smsapi.client import SmsApiPlClient
 from django.core.paginator import Paginator
 from django.http import HttpResponse
+from django.contrib.auth.models import Group
 from datetime import date, datetime
+from django.db.models import Q
 
 
 @login_required(login_url="login")
@@ -22,13 +25,19 @@ def dashboard_sms(request):
     Returns:
         HttpResponse: Rendered HTML response displaying the dashboard with SMS records.
     """
-    my_records = Mieszkaniec.objects.all()
-    p = Paginator(Mieszkaniec.objects.all(), 10)
-    page = request.GET.get("page")
-    my_record = p.get_page(page)
-
-    return render(request, "dashboard-sms.html",
-                  {"records": my_records, "my_record": my_record})
+    
+    sms_group = Group.objects.get(name='sms_group')
+    if request.user.groups.filter(name=sms_group).exists():
+        # If the user is in the 'sms_group', render the dashboard-sms.html template
+        my_records = Mieszkaniec.objects.all()
+        p = Paginator(Mieszkaniec.objects.all(), 10)
+        page = request.GET.get("page")
+        my_record = p.get_page(page)
+        return render(request, "dashboard-sms.html", {"records": my_records, "my_record": my_record})
+    else:
+        # If the user is not in the 'sms_group', redirect to a different page or display an error message
+        return render(request, 'error-sms.html',
+                      {'message': 'Access denied. You are not authorized to view this page.'})
 
 
 def dashboard_sms_blok(request):
@@ -399,7 +408,6 @@ def search_kontrahent(request):
         return render(request, "sms-search-kontrahent.html", {})
 
 
-@login_required(login_url="login")
 def search_blok(request):
     """
     View function for searching SMS records related to blocks.
@@ -411,11 +419,16 @@ def search_blok(request):
         HttpResponse: Rendered HTML response displaying the search results for SMS records related to blocks.
     """
     if request.method == "POST":
-        searched = request.POST["searched"]
-        my_record = Blok.objects.filter(indeks_blok__contains=searched) | Blok.objects.filter(
-            adres_blok__contains=searched)
+        searched = request.POST.get("searched", "").strip()
+        searched_upper = searched.upper()
+        my_records = Blok.objects.filter(
+            adres_blok__icontains=searched_upper
+        ) | Blok.objects.filter(
+            indeks_blok__icontains=searched_upper
+        )
+        
         return render(request, "sms-search-blok.html",
-                      {"searched": searched, "my_records": my_record})
+                      {"searched": searched, "my_records": my_records})
     else:
         return render(request, "sms-search-blok.html", {})
 

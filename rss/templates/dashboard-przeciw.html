@@ -5,17 +5,16 @@
     <a class="btn btn-outline-primary" href="{% url 'create_rss' %}">Dodaj pozew &nbsp;
         <i class="fa fa-plus-circle" aria-hidden="true"></i></a>&nbsp;
     Filtr:&nbsp;
-    <a class="btn btn-outline-primary" href="{% url 'dashboard-przeciw' %}">Przeciwko Spółdzielni &nbsp;<i
+    <a class="btn btn-primary" href="{% url 'dashboard-przeciw' %}">Przeciwko Spółdzielni &nbsp;<i
             class="fa fa-filter"
             aria-hidden="true"></i> </a>&nbsp;
     <a class="btn btn-outline-primary" href="{% url 'dashboard-przez' %}">Przez &nbsp;Spółdzielnię&nbsp;<i
             class="fa fa-filter"
             aria-hidden="true"></i> </a>&nbsp;
-    <a class="btn btn-outline-primary" href="{% url 'pdf_rss' %}">Raport &nbsp; <i class="fa fa-file-pdf-o"
-                                                                                   aria-hidden="true"></i>
-    </a>
+    {#    <a class="btn btn-outline-primary" href="{% url 'pdf_rss' %}">Raport &nbsp; <i class="fa fa-file-pdf-o"#}
+    {#                                                                                   aria-hidden="true"></i>#}
+    {#    </a>#}
     <hr>
-    <br><br>
     <table class="table  table-bordered" id="sample_data">
         <thead class="table-light">
         <tr>
@@ -36,7 +35,7 @@
                     <td> {{ record.powod }}</td>
                     <td> {{ record.dotyczy }} </td>
                     <td> {{ record.status }} </td>
-                    <td><a class="btn btn-outline-primary btn-sm" href="{% url 'view_rss' record.id %}"> <i
+                    <td><a class="btn btn-outline-primary btn-sm" href="{% url 'view_record' record.id %}"> <i
                             class="fa fa-eye" aria-hidden="true"></i> </a></td>
                     {#                <td> <a class="btn btn-outline-primary btn-sm" href="{% url ''  %}"> <i class="fa fa-comment" aria-hidden="true"></i> </a> </td>#}
                 </tr>
@@ -46,23 +45,21 @@
 
         </tbody>
     </table>
-    <br><br>
     <hr>
 
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             {% if my_record.has_previous %}
-                <li class="page-item"><a class="page-link"
-                                         href="?page={{ my_record.previous_page_number }}">Poprzednia</a></li>
-                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+                <a class="btn btn-outline-primary btn-sm"
+                   href="?page={{ my_record.previous_page_number }}">Poprzednia</a>
+                {#                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>#}
             {% endif %}
             {% if my_record.has_next %}
-                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
-                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>
-                <li class="page-item"><a class="page-link" href="?page={{ my_record.next_page_number }}">Następna</a>
-                </li>
+                {#                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>#}
+                {#                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>#}
+                <a class="btn btn-outline-primary btn-sm" href="?page={{ my_record.next_page_number }}">Następna</a>
             {% endif %}
         </ul>
     </nav>
-
+    {{ redirect_to_login_immediately }}
 {% endblock %}

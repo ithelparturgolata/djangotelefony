@@ -1,0 +1,53 @@
+{% extends 'base-it.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>Użytkownik</strong>
+                    <hr>
+                    <p><strong>Imię:</strong> {{ user.name }}</p>
+                    <p><strong>Nazwisko:</strong> {{ user.surname }}</p>
+                    <p><strong>Administracja:</strong> {{ user.administration }}</p>
+                    <p><strong>Address IP PC:</strong> {{ user.address_ip_pc }}</p>
+                    <p><strong>Login:</strong> {{ user.login }}</p>
+                    <p><strong>Domain Name:</strong> {{ user.domain_name }}</p>
+                    <p><strong>PC Name:</strong> {{ user.pc_name }}</p>
+                    <p><strong>Office Pass:</strong> {{ user.office_pass }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>Użytkownik</strong>
+
+                    <hr>
+                    <p><strong>Address IP Phone:</strong> {{ user.address_ip_phone }}</p>
+                    <p><strong>Address IP Phone Second:</strong> {{ user.address_ip_phone_second }}</p>
+                    <p><strong>Phone Pass:</strong> {{ user.phone_pass }}</p>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>Akcja:</strong>
+
+                    <hr>
+                    <a href="{% url 'update_user_it' user_id=user.id %}" class="btn btn-outline-primary"> Edytuj &nbsp; <i
+                            class="fa fa-pencil"></i> </a>
+                    <a href="{% url 'dashboard_it' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+                            class="fa fa-arrow-left"></i> </a>
+
+                </div>
+            </div>
+        </div>
+        {{ redirect_to_login_immediately }}
+    </div>
+{% endblock %}

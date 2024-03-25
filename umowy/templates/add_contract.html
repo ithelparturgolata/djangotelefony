@@ -1,4 +1,4 @@
-{% extends 'base-umowy.html' %}
+{% extends 'base-contract.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
 
@@ -8,7 +8,7 @@
         <hr>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.as_p|as_crispy_field }}
             <button class="btn btn-outline-primary" type="submit">Dodaj <i
                     class="fa fa-plus"></i></button>
             <a href="{% url 'dashboard_umowy' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i

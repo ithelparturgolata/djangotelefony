@@ -11,4 +11,5 @@ urlpatterns = [
     path("umowy/", include("umowy.urls")),
     path("rss/", include("rss.urls")),
     path("domofony/", include("domofony.urls")),
+    path("it/", include("it.urls")),
 ]

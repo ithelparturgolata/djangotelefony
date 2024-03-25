@@ -1,0 +1,50 @@
+{% extends 'base-it.html' %}
+{% block content %}
+    <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
+    <hr>
+{#    <a class="btn btn-outline-primary" href="{% url 'add_contract' %}">Dodaj umowę <i#}
+{#            class="fa fa-plus"></i> </a>#}
+{#    <a class="btn btn-outline-primary" href="{% url 'add_contractor' %}">Dodaj wykonawcę <i#}
+{#            class="fa fa-plus"></i> </a>#}
+{#    <br><br>#}
+
+    <table class="table  table-bordered" id="sample_data">
+        <thead class="table-warning">
+        <tr>
+            <th scope="col"> ID</th>
+            <th scope="col"> Imię</th>
+            <th scope="col"> Nazwisko</th>
+            <th scope="col"> Administracja</th>
+            <th scope="col"> Szczegóły</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in hardware %}
+            <tr>
+                <td> {{ item.id }} </td>
+                <td> {{ item.name }} </td>
+                <td> {{ item.surname }} </td>
+                <td> {{ item.administration }} </td>
+                <td><a class="btn btn-outline-primary btn-sm" href="{% url 'user_detail_it' item.id %}">
+                    <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if item.has_previous %}
+                <a class="btn btn-outline-primary btn-sm"
+                                         href="?page={{ my_record.previous_page_number }}">Poprzednia</a>
+                {#                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>#}
+            {% endif %}
+            {% if item.has_next %}
+                {#                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>#}
+                {#                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>#}
+                <a class="btn btn-outline-primary btn-sm" href="?page={{ my_record.next_page_number }}">Następna</a>
+            {% endif %}
+        </ul>
+    </nav>
+    {{ redirect_to_login_immediately }}
+{% endblock %}

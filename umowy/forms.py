@@ -5,19 +5,21 @@ from .models import Contract, ContractFile, Contractor, ContractFileAnnex
 
 
 class ContractForm(forms.ModelForm):
-    # Override the end_date field to handle 'infinite' value
-    end_date = forms.DateField(required=False, label='Czas nieokreślony')
-
     class Meta:
         model = Contract
-        fields = ['contractor', 'description', 'start_date', 'end_date', 'place']
-        labels = {'contractor': 'Wykonawca', 'files': 'Pliki', 'description': 'Opis', 'start_date': 'Umowa od', 'end_date': 'Umowa do', 'place': 'Umowa jest w:'}
+        fields = ['contractor', 'description', 'start_date', 'end_date', 'place', 'indefinite']
+        labels = {'contractor': 'Wykonawca', 'files': 'Pliki', 'description': 'Opis', 'start_date': 'Umowa od', 'end_date': 'Umowa do', 'place': 'Umowa w:', 'indefinite': "Czas nieokreślony"}
+        widgets = {
+            'start_date': forms.DateInput(attrs={'type': 'date'}),
+            'end_date': forms.DateInput(attrs={'type': 'date'}),
+        }
     
     def clean_end_date(self):
         end_date = self.cleaned_data.get('end_date')
         if end_date == "nieokreślony":
             return end_date  # Return "nieokreślony" if it's set
         return end_date  # Return the cleaned end_date value
+
 
 class ContractorForm(forms.ModelForm):
     class Meta:

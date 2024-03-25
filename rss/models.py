@@ -25,7 +25,7 @@ class Record(models.Model):
         choices=status_wybor,
         default=zakonczono,
     )
-    file = models.FileField(upload_to='records/files/', default=True, blank=True)
+    # file = models.FileField(upload_to='records/files/', default=True, blank=True)
     przeciwko = "Pozew przeciwko Spółdzielni"
     przez = "Pozew przez Spółdzielnię"
     kto_wybor = [
@@ -57,14 +57,17 @@ class Record(models.Model):
     )
     content = models.TextField(max_length=160, blank=True)
     opis = models.CharField(max_length=255, blank=True)
-    # data_upload = models.DateTimeField(auto_now_add=True, blank=True)
-
+    
     def __str__(self):
         return self.powod + "   " + self.dotyczy
 
-class ContractFile(models.Model):
-    contract = models.ForeignKey(Record, on_delete=models.CASCADE)
-    file = models.FileField(upload_to='records/files/')
+
+class RecordFile(models.Model):
+    record_file = models.ForeignKey(Record, on_delete=models.CASCADE)
+    file = models.FileField(upload_to='record_files/')
 
     def __str__(self):
             return self.file.name
+    
+    def is_valid(self):
+        pass

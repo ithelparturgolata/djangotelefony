@@ -4,6 +4,7 @@ from .forms import ContractForm, ContractFileForm, ContractorForm, ContractFileF
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
 from django.contrib import messages
+from django.contrib.auth.models import Group
 
 
 def add_contract(request):
@@ -61,17 +62,15 @@ def add_contractor(request):
 
 @login_required(login_url="login")
 def dashboard_contracts(request):
-    """
-    View to display all contracts.
-
-    Args:
-    - request (HttpRequest): The HTTP request object.
-
-    Returns:
-    - HttpResponse: Rendered template displaying all contracts.
-    """
-    contracts = Contract.objects.all()
-    return render(request, 'dashboard-contracts.html', {'contracts': contracts})
+    # Check if the user is a member of the 'umowy_group'
+    umowy_group = Group.objects.get(name='umowy_group')
+    if request.user.groups.filter(name=umowy_group).exists():
+        # If the user is in the 'umowy_group', retrieve contracts and render the dashboard-contracts.html template
+        contracts = Contract.objects.all()
+        return render(request, 'dashboard-contracts.html', {'contracts': contracts})
+    else:
+        # If the user is not in the 'umowy_group', redirect to a different page or display an error message
+        return render(request, 'error-contracts.html', {'message': 'Access denied. You are not authorized to view this page.'})
 
 
 @login_required(login_url="login")

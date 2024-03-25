@@ -17,17 +17,24 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 from django.contrib import messages
+from django.contrib.auth.models import Group
 
 
 @login_required(login_url="login")
 def dashboard_telefony(request):
-	my_records = Mieszkaniec.objects.all()
-	p = Paginator(Mieszkaniec.objects.all(), 10)
-	page = request.GET.get("page")
-	my_record = p.get_page(page)
-	
-	return render(request, "dashboard-telefony.html",
-				  {"records": my_records, "my_record": my_record})
+    # Check if the user is a member of the 'telefony_group'
+    telefony_group = Group.objects.get(name='telefony_group')
+    if request.user.groups.filter(name=telefony_group).exists():
+        # If the user is in the 'telefony_group', retrieve records and render the dashboard-telefony.html template
+        my_records = Mieszkaniec.objects.all()
+        p = Paginator(Mieszkaniec.objects.all(), 10)
+        page = request.GET.get("page")
+        my_record = p.get_page(page)
+        return render(request, "dashboard-telefony.html",
+                      {"records": my_records, "my_record": my_record})
+    else:
+        # If the user is not in the 'telefony_group', redirect to a different page or display an error message
+        return render(request, 'error-telefony.html', {'message': 'Access denied. You are not authorized to view this page.'})
 
 
 @login_required(login_url="login")
@@ -65,8 +72,8 @@ def dashboard_nw(request):
 
 @login_required(login_url="login")
 def dashboard_lu(request):
-	my_records = Mieszkaniec.objects.all().filter(administracja="LU")
-	p = Paginator(Mieszkaniec.objects.all().filter(administracja="LU"), 10)
+	my_records = Mieszkaniec.objects.all().filter(administracja="lu")
+	p = Paginator(Mieszkaniec.objects.all().filter(administracja="lu"), 10)
 	page = request.GET.get("page")
 	my_record = p.get_page(page)
 	
@@ -76,8 +83,8 @@ def dashboard_lu(request):
 
 @login_required(login_url="login")
 def dashboard_w(request):
-	my_records = Mieszkaniec.objects.all().filter(administracja="W")
-	p = Paginator(Mieszkaniec.objects.all().filter(administracja="W"), 10)
+	my_records = Mieszkaniec.objects.all().filter(administracja="w")
+	p = Paginator(Mieszkaniec.objects.all().filter(administracja="w"), 10)
 	page = request.GET.get("page")
 	my_record = p.get_page(page)
 	
@@ -103,66 +110,20 @@ def create_record(request):
 @login_required(login_url="login")
 def update_record(request, pk):
 	record = Mieszkaniec.objects.get(id=pk)
-	form = UpdateRecordFormTelefony(instance=record)
 	all_records = Mieszkaniec.objects.get(id=pk)
+	form = UpdateRecordFormTelefony(instance=record)
 	
 	if request.method == 'POST':
 		form = UpdateRecordFormTelefony(request.POST, instance=record)
-		
 		if form.is_valid():
 			form.save()
 			messages.success(request, "Zaktualizowano Kontrahenta")
-			now = datetime.now()
-			today = str(date.today())
-			hour = now.strftime("%H:%M:%S")
-			user = request.user
-			file = open("save/update/update_kontrahent.txt", "a+")
-			file.write("kontrahent = " + all_records.nazwa + "\n" +
-					   "Telefon = " + all_records.telefon + "\n" +
-					   "Zgoda = " + all_records.zgoda + "\n" +
-					   "Data:" + today + "\n" +
-					   "Dokonal aktualizacji = " + str(user) +
-					   "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
-			file.close()
-			return redirect("dashboard_telefony")
+			return redirect("dashboard_telefony")  # Redirect to dashboard_telefony after successful update
 	
 	return render(request, "telefony-update.html",
 				  {"form": form, "record": record, "all_records": all_records})
 
 
-# update pozew
-# @login_required(login_url="login")
-# def update_record(request, pk):
-#     record = Mieszkaniec.objects.get(id=pk)
-#     form = UpdateRecordFormTelefony(instance=record)
-#     all_records = Mieszkaniec.objects.get(id=pk)
-#
-#     if request.method == 'POST':
-#         form = UpdateRecordFormTelefony(request.POST, instance=record)
-#
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, "Zaktualizowano Kontrahenta")
-#             # now = datetime.now()
-#             # today = str(date.today())
-#             # hour = now.strftime("%H:%M:%S")
-#             # user = auth.get_user(request)
-#             # file = open("save/update/update_kontrahent.txt", "a+")
-#             # file.write("kontrahent = " + all_records.nazwa + "\n" +
-#             #            "Telefon = " + all_records.telefon + "\n" +
-#             #            "Zgoda = " + all_records.zgoda + "\n" +
-#             #            "Data:" + today + "\n" +
-#             #            "Dokonal aktualizacji = " + str(user) +
-#             #            "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
-#             # file.close
-#             return redirect("dashboard_telefony")
-#
-#     # context = {"form": form}
-#     return render(request, "telefony-update.html",
-#                   {"form": form, "record": record, "all_records": all_records})
-
-
-# view pozew
 @login_required(login_url="login")
 def view_record(request, pk):
 	all_records = Mieszkaniec.objects.get(id=pk)
@@ -181,15 +142,16 @@ def view_record(request, pk):
 	else:
 		# Default back URL if administracja value is not recognized
 		back_url = 'dashboard_telefony'
-		
-		# Pass the back URL to the template context
+	
+	# Pass the back URL to the template context
 	context['back_url'] = back_url
 	
 	return render(request, "telefony-view.html", context=context)
-	# return render(request, "telefony-view.html", context=context)
 
 
-# delete pozew
+# return render(request, "telefony-view.html", context=context)
+
+
 @login_required(login_url="login")
 def delete(request, pk):
 	record = Mieszkaniec.objects.get(id=pk)
@@ -229,19 +191,6 @@ def sms_record(request, pk):
 			my_record = p.get_page(page)
 			
 			form.save()
-			messages.success(request, "Wysłano sms")
-			now = datetime.now()
-			today = str(date.today())
-			hour = now.strftime("%H:%M:%S")
-			user = request.user
-			file = open("save/sms/sms_rss.txt", "a+")
-			file.write("Odbiorca = " + phone + "\n" +
-					   "Tresc = " + content + "\n" +
-					   "Data:" + today + "\n" +
-					   "Wyslal = " + str(user) +
-					   "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
-			file.close
-			
 			return render(request,
 						  "dashboard-telefony.html",
 						  {"form": form,
@@ -249,56 +198,6 @@ def sms_record(request, pk):
 	
 	context = {"form": form, "record": record, "my_record": my_record}
 	return render(request, "telefony-sms.html", context=context)
-
-
-# @login_required(login_url="login")
-# def sms_record(request,  pk):
-#     record = Mieszkaniec.objects.get(id=pk)
-#     form = SmsRecordFormTelefony(instance=record)
-#     my_record = Mieszkaniec.objects.get(id=pk)
-#
-#     if request.method == "POST":
-#         phone = request.POST.get("phone")
-#         content = request.POST.get("content")
-#         form = SmsRecordFormTelefony(request.POST, instance=record)
-#         to_remov = {"ą": "a", "Ą": "A", "ś": "s", "Ś": "S",
-#                     "ę": "e", "Ę": "E", "Ł": "L", "ł": "l",
-#                     "Ó": "O", "ó": "o",
-#                     "Ń": "N", "ń": "n", "ć": "c", "Ć": "C",
-#                     "Ż": "Z", "Ź": "Z", "ż": "z", "ź": "z",
-#                     '„': "", '”': ""}
-#         for char in to_remov.keys():
-#             content = content.replace(char, to_remov[char])
-#         if request.method == "POST":
-#             token = "rM5DsJlOvDkbGnYnHAn9f9GmpphT0ovOywqPaiLL"
-#             client = SmsApiPlClient(access_token=token)
-#             send_results = client.sms.send(to=phone,
-#                                            message=content,
-#                                            from_="SMBUDOWLANI")
-#             my_records = Mieszkaniec.objects.all()
-#             p = Paginator(Mieszkaniec.objects.all(), 10)
-#             page = request.GET.get("page")
-#             my_record = p.get_page(page)
-#
-#             # now = datetime.now()
-#             # today = str(date.today())
-#             # hour = now.strftime("%H:%M:%S")
-#             # user = auth.get_user(request)
-#             # file = open("save/sms/sms_rss.txt", "a+")
-#             # file.write("Odbiorca = " + phone + "\n" +
-#             #            "Tresc = " + content + "\n" +
-#             #            "Data:" + today + "\n" +
-#             #            "Wyslal = " + str(user) +
-#             #            "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
-#             # file.close
-#
-#             return render(request,
-#                           "dashboard-telefony.html",
-#                           {"form": form,
-#                            "record": record, "my_record": my_record})
-#
-#     context = {"form": form, "record": record, "my_record": my_record}
-#     return render(request, "telefony-sms.html", context=context)
 
 
 # pdf pozew
@@ -340,7 +239,8 @@ def search(request):
 	if request.method == "POST":
 		searched = request.POST["searched"].lower()
 		my_records = Mieszkaniec.objects.filter(nazwa__contains=searched) | Mieszkaniec.objects.filter(
-			indeks__contains=searched) | Mieszkaniec.objects.filter(adres__contains=searched) | Mieszkaniec.objects.filter(telefon__contains=searched)
+			indeks__contains=searched) | Mieszkaniec.objects.filter(
+			adres__contains=searched) | Mieszkaniec.objects.filter(telefon__contains=searched)
 		
 		return render(request, "telefony-search.html",
 					  {"searched": searched, "my_records": my_records})

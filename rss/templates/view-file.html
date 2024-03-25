@@ -5,7 +5,6 @@
             <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
             <strong>
                 Powód:&nbsp;&nbsp;&nbsp;{{ record.powod|upper }}
-                {#                {{record.dotyczy}}#}
             </strong>
             <hr>
             <p><strong> Powód: </strong> {{ record.powod }} </p>
@@ -14,14 +13,21 @@
             <br>
             <p><strong> Dokumenty: </strong></p>
             <hr>
-            {{ record.opis }}&nbsp;&nbsp;&nbsp;
-            <a href="{{ record.plik }}">Pobierz</a>
+            {% if record.recordfile_set.all %}
+                <ul>
+                    {% for file in record.recordfile_set.all %}
+                        <li><a href="{{ file.file.url }}" target="_blank">{{ file.file.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No files attached to this record.</p>
+            {% endif %}
         </div>
     </div>
     <br>
-    <a href="{% url 'view_rss' record.id %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+    <a href="{% url 'view_record' record.id %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
             class="fa fa-arrow-left"></i> </a>
-    {{ my_record }}
+
     <a href="{% url 'upload_file' record.id %}" class="btn btn-outline-primary"> Wgraj plik &nbsp;<i class="fa fa-file"
                                                                                                      aria-hidden="true"></i>
     </a>

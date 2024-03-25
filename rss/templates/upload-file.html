@@ -7,19 +7,25 @@
         <h3> Wyślij plik </h3>
         <hr>
         <br>
-        <form method="POST" autocomplete="off" enctype="multipart/form-data">
-
-            {% csrf_token %}
-            <p><strong> Powód: </strong> {{ record.powod }} </p>
-            <p><strong> Dotyczy: </strong> {{ record.dotyczy }} </p>
-            {{ form.as_p }}
-            <a href="{% url 'view_rss' record.id %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
-                    class="fa fa-arrow-left"></i> </a>
-
-            <button type="submit" class="btn btn-outline-primary">Wyślij</button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        </form>
+    <h2>Upload File</h2>
+<form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+{#        <form method="POST" autocomplete="off" enctype="multipart/form-data">#}
+{##}
+{#            {% csrf_token %}#}
+{#            <p><strong> Powód: </strong> {{ record.powod }} </p>#}
+{#            <p><strong> Dotyczy: </strong> {{ record.dotyczy }} </p>#}
+{#            {{ form.as_p }}#}
+{#            <a href="{% url 'view_rss' record.id %}" class="btn btn-outline-primary"> Powrót &nbsp; <i#}
+{#                    class="fa fa-arrow-left"></i> </a>#}
+{##}
+{#            <button type="submit" class="btn btn-outline-primary">Wyślij</button>#}
+{#            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#}
+{##}
+{#        </form>#}
     </div>
     <br>
     </body>

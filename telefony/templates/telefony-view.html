@@ -1,7 +1,7 @@
 {% extends 'base-telefony.html' %}
 {% block content %}
-    <div class="row justify-content-center">
-        <div class="col-sm-8 mb-3 mb-sm-0">
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
             <div class="card">
                 <div class="card-body">
                     <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
@@ -9,14 +9,14 @@
                         Kontrahent:&nbsp;&nbsp;&nbsp;{{ record.nazwa|upper }}
                         {#                {{record.dotyczy}}#}
                     </strong>
-
-                    <a href="{% url back_url %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
-                            class="fa fa-arrow-left"></i> </a>
-                    &nbsp;
-                    <a href="{% url 'update_telefony' record.id %}" class="btn btn-outline-primary"> Edytuj &nbsp; <i
-                            class="fa fa-plus"
-                            aria-hidden="true"></i>
-                    </a>
+                    {##}
+                    {#                    <a href="{% url back_url %}" class="btn btn-outline-primary"> Powrót &nbsp; <i#}
+                    {#                            class="fa fa-arrow-left"></i> </a>#}
+                    {#                    &nbsp;#}
+                    {#                    <a href="{% url 'update_telefony' record.id %}" class="btn btn-outline-primary"> Edytuj &nbsp; <i#}
+                    {#                            class="fa fa-plus"#}
+                    {#                            aria-hidden="true"></i>#}
+                    {#                    </a>#}
                     <hr>
                     {#            <p><strong> ID: </strong> {{ record.id }} </p>#}
                     <p><strong> Indeks: </strong> {{ record.indeks }} </p>
@@ -29,10 +29,26 @@
                     <p><strong> Zgoda: </strong> {{ record.zgoda }} </p>
                     {#            <p><strong> Administracja: </strong> {{ record.administracja }} </p>#}
                     <p><strong> Data utworzenia: </strong> {{ record.data_utworzenia }} </p>
-
                 </div>
             </div>
-            <br>
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong>
+                        Akcja:
+                    </strong>
+                    <hr>
+                    <a href="{% url back_url %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+                            class="fa fa-arrow-left"></i> </a>
+                    &nbsp;
+                    <a href="{% url 'update_telefony' record.id %}" class="btn btn-outline-primary"> Edytuj &nbsp; <i
+                            class="fa fa-plus"
+                            aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
             {{ my_record }}
             {{ redirect_to_login_immediately }}
         </div>

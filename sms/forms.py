@@ -16,3 +16,4 @@ class SmsRecordFormSmsBlok(forms.ModelForm):
     class Meta:
         model = Mieszkaniec
         fields = ["phone", "content"]
+
