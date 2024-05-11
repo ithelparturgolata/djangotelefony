@@ -5,10 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81f4f5f2-b9d5-459d-a352-883d72331b66" name="Changes" comment="poprawki telefony, sms">
-      <change afterPath="$PROJECT_DIR$/result.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/MX-2651_20240220_080914_Qar2I2i.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/contract_files/umowa_biuromax_modraczek.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/record_files/wosp_2fQweuB.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/save/sms/sms_rss.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/record-checkbox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/telefony/migrations/0014_alter_mieszkaniec_phone.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telefony/templates/telefony-search.html" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/templates/telefony-search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/2215.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/2215_5JGyBuM.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/2215_DE8bP3u.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/2215_NwUSSpU.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/2215_bDB9Ue1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/2215_jjJK2cK.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/2316.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/2316_dQZryKh.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/2316_dbfqI4Z.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/Jak_Wejsc_Do_Swiata_IT_Kacper_Sieradzinski.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/Nałkowskiej_4_co.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/P._Śląskich_9_I_co.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/Zajęcza_4.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/Zajęcza_4_6g0kmhz.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/baza_lokale.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/baza_mieszkancy.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/etykieta_2024-03-20_08-57-58_6360.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/spotkanie_Zarzad.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/spotkanie_Zarzad_YZ6kfEH.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contract_files/spotkanie_Zarzad_utQIedH.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rss/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/rss/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rss/templates/sms-record.html" beforeDir="false" afterPath="$PROJECT_DIR$/rss/templates/sms-record.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms-kontrahent.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms-kontrahent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/templates/sms-sms-blok.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-sms-blok.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/templates/sms-sms-check.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-sms-check.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/templates/sms-sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-sms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sms/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telefony/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/telefony/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,27 +75,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.djangotelefony.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Artur/PycharmProjects/pdfsplitter&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.djangotelefony.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Artur/PycharmProjects/pdfsplitter",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="djangotelefony" type="Python.DjangoServer" factoryName="Django server">
       <module name="djangotelefony" />
@@ -127,6 +161,11 @@
       <workItem from="1708931693813" duration="8516000" />
       <workItem from="1709029591503" duration="22604000" />
       <workItem from="1709461569725" duration="46863000" />
+      <workItem from="1711434546337" duration="21130000" />
+      <workItem from="1712655227692" duration="1197000" />
+      <workItem from="1712675640383" duration="19000" />
+      <workItem from="1712677065832" duration="1342000" />
+      <workItem from="1712678977365" duration="20000" />
     </task>
     <task id="LOCAL-00001" summary="poprawki filtr">
       <option name="closed" value="true" />

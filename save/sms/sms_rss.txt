@@ -1,0 +1,12 @@
+Odbiorca = 601521657
+Tresc = test
+Data:2024-03-26
+Wyslal = golataa
+Godzina: 10:15:51
+-----------
+Odbiorca = 601521657
+Tresc = test rss
+Data:2024-03-28
+Wyslal = golataa
+Godzina: 10:39:26
+-----------

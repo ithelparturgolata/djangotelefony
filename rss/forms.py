@@ -59,6 +59,7 @@ class SmsRecordForm(forms.ModelForm):
     class Meta:
         model = Record
         fields = ["powod", "dotyczy", "phone", "content"]
+        labels = {"content": "Treśc", 'phone': "Telefon"}
 
 
 class ContractFileForm(forms.ModelForm):

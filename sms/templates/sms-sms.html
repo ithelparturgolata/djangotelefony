@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-body">
                     <i class="fa fa-comment" aria-hidden="true"></i> &nbsp;
-                    <strong> Wyślij sms </strong>
+                    <strong> Wyślij sms ##</strong>
                     <hr>
                     <form method="POST" autocomplete="off" id="smsForm">
                         <p><strong> Kontrahent: </strong> {{ record.nazwa }}&nbsp; <strong>
@@ -16,8 +16,7 @@
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="phone" class="form-label">Telefon:</label>
-                            <input type="text" class="form-control" id="phone" name="phone" placeholder=""
-                                   value="{{ record.telefon }}" maxlength="9" autocomplete="off">
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="" autocomplete="off">
                         </div>
 
                         <select class="form-control" id="smsTemplate">
@@ -185,3 +184,18 @@
 {##}
 {#    {{ redirect_to_login_immediately }}#}
 {#{% endblock %}#}
+
+<script>
+    const checkboxes = document.querySelectorAll('.record-checkbox');
+    const phoneInput = document.getElementById('phone');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            const selectedPhones = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+
+            phoneInput.value = selectedPhones.join(', ');
+        });
+    });
+</script>

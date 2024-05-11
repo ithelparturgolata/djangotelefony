@@ -2,11 +2,14 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <body>
-    <div class="container bg-light shadow-md p-5 form-layout-add">
-        <h3> Wyślij sms </h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6 col-sm-6">
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                    <strong> Wyślij sms </strong>
         <hr>
-        <br>
+
         <form method="POST" autocomplete="off">
             <p><strong> Powód: </strong> {{ record.powod }} </p>
             <p><strong> Dotyczy: </strong> {{ record.dotyczy }} </p>
@@ -15,15 +18,15 @@
             <br>
             {{ form.phone|as_crispy_field }}
             <br>
-            <a href="{% url 'view_rss' record.id %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+            <a href="{% url 'view_record' record.id %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
                     class="fa fa-arrow-left"></i> </a>
 
             <button type="submit" class="btn btn-outline-primary">Wyślij</button>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </form>
     </div>
+            </div></div></div>
     <br>
-    </body>
 
 
 {% endblock %}

@@ -1,9 +1,6 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from .models import Mieszkaniec
-from .forms import UpdateRecordFormTelefony
-from datetime import datetime, date
+from django.db.models import Q
+from unidecode import unidecode
+
 from django.shortcuts import render, redirect
 from telefony.forms import AddRecordFormTelefony, \
 	UpdateRecordFormTelefony, SmsRecordFormTelefony
@@ -22,19 +19,20 @@ from django.contrib.auth.models import Group
 
 @login_required(login_url="login")
 def dashboard_telefony(request):
-    # Check if the user is a member of the 'telefony_group'
-    telefony_group = Group.objects.get(name='telefony_group')
-    if request.user.groups.filter(name=telefony_group).exists():
-        # If the user is in the 'telefony_group', retrieve records and render the dashboard-telefony.html template
-        my_records = Mieszkaniec.objects.all()
-        p = Paginator(Mieszkaniec.objects.all(), 10)
-        page = request.GET.get("page")
-        my_record = p.get_page(page)
-        return render(request, "dashboard-telefony.html",
-                      {"records": my_records, "my_record": my_record})
-    else:
-        # If the user is not in the 'telefony_group', redirect to a different page or display an error message
-        return render(request, 'error-telefony.html', {'message': 'Access denied. You are not authorized to view this page.'})
+	# Check if the user is a member of the 'telefony_group'
+	telefony_group = Group.objects.get(name='telefony_group')
+	if request.user.groups.filter(name=telefony_group).exists():
+		# If the user is in the 'telefony_group', retrieve records and render the dashboard-telefony.html template
+		my_records = Mieszkaniec.objects.all()
+		p = Paginator(Mieszkaniec.objects.all(), 10)
+		page = request.GET.get("page")
+		my_record = p.get_page(page)
+		return render(request, "dashboard-telefony.html",
+					  {"records": my_records, "my_record": my_record})
+	else:
+		# If the user is not in the 'telefony_group', redirect to a different page or display an error message
+		return render(request, 'error-telefony.html',
+					  {'message': 'Access denied. You are not authorized to view this page.'})
 
 
 @login_required(login_url="login")
@@ -234,16 +232,16 @@ def pdf(request):
 
 
 # search pozew
-@login_required(login_url="login")
 def search(request):
 	if request.method == "POST":
-		searched = request.POST["searched"].lower()
-		my_records = Mieszkaniec.objects.filter(nazwa__contains=searched) | Mieszkaniec.objects.filter(
-			indeks__contains=searched) | Mieszkaniec.objects.filter(
-			adres__contains=searched) | Mieszkaniec.objects.filter(telefon__contains=searched)
-		
-		return render(request, "telefony-search.html",
-					  {"searched": searched, "my_records": my_records})
+		searched = request.POST.get("searched", "").strip()
+		searched_upper = searched.upper()  # Normalizuje i zamienia polskie znaki diakrytyczne na odpowiedniki bez diakrytyków
+		my_records = Mieszkaniec.objects.filter(
+			adres__icontains=searched_upper
+		) | Mieszkaniec.objects.filter(
+			indeks__icontains=searched_upper
+		)
+		return render(request, "telefony-search.html", {"searched": searched, "my_records": my_records})
 	else:
 		return render(request, "telefony-search.html", {})
 

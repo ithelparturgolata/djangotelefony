@@ -6,20 +6,10 @@
     <a class="btn btn-primary" href="{% url 'dashboard-sms-kontrahent' %}">Kontrahent &nbsp;<i
             class="fa fa-filter"
             aria-hidden="true"></i> </a>
-    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-blok' %}">Blok&nbsp;<i
-            class="fa fa-filter"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;
-    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-lu' %}">Lokale użytkowe&nbsp;<i
-            class="fa fa-filter"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;
-    <a class="btn btn-outline-primary" href="{% url 'dashboard-szablony' %}">Szablony sms&nbsp;<i
-            class="fa fa-filter"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;
-    <a class="btn btn-outline-primary" href="{% url 'sms-test' %}">SMS test&nbsp;<i
-            class="fa fa-filter"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;
+    <!-- Add other filter links here -->
     <hr>
     <form id="smsForm" method="POST" autocomplete="off">
+        {% csrf_token %}
         <table class="table  table-bordered" id="sample_data">
             <thead class="table-light">
             <tr>
@@ -34,7 +24,7 @@
             </tr>
             </thead>
             <tbody>
-            {% if records %}
+            {% if my_record %}
                 {% for record in my_record %}
                     <tr>
                         <td> {{ record.id }} </td>
@@ -43,15 +33,18 @@
                         <td> {{ record.adres }} </td>
                         <td> {{ record.klatka }} </td>
                         <td> {{ record.telefon }} </td>
-                        <td><input type="checkbox" name="selected_records" value="{{ record.id }}"></td>
+                        <td><input type="checkbox" name="record_ids" value="{{ record.id }}" data-phone="{{ record.telefon }}"></td>
                         <td><a class="btn btn-outline-primary btn-sm" href="{% url 'sms-view' record.id %}">
                             <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
                     </tr>
                 {% endfor %}
             {% endif %}
-
             </tbody>
         </table>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Telefon:</label>
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="" maxlength="9" autocomplete="off">
+        </div>
     </form>
     <br>
     <nav aria-label="Page navigation example">
@@ -62,9 +55,26 @@
             {% endif %}
             {% if my_record.has_next %}
                 <a class="btn btn-outline-primary btn-sm" href="?page={{ my_record.next_page_number }}">Następna</a>
-
             {% endif %}
         </ul>
     </nav>
     {{ redirect_to_login_immediately }}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('input[name="record_ids"]').change(function () {
+                var selectedNumbers = [];
+                $('input[name="record_ids"]:checked').each(function () {
+                    // Get the phone number associated with the checked checkbox
+                    var phone = $(this).data('phone');
+                    if (phone) {
+                        selectedNumbers.push(phone);
+                    }
+                });
+                // Update the phone input field with the selected phone numbers separated by commas
+                $('#phone').val(selectedNumbers.join(','));
+            });
+        });
+    </script>
 {% endblock %}

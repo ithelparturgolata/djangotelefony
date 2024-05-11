@@ -36,7 +36,7 @@ class Mieszkaniec(models.Model):
         default=ce,
     )
     content = models.TextField(max_length=160, blank=True, null=True)
-    phone = models.TextField(max_length=9, blank=True, null=True)
+    phone = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.nazwa + "   " + self.telefon + "  " + self.zgoda
