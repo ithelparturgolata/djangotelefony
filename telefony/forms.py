@@ -5,7 +5,7 @@ from django.core.validators import RegexValidator
 
 from .models import Mieszkaniec
 from django import forms
-from django.forms.widgets import PasswordInput, TextInput, FileInput
+from django.forms.widgets import PasswordInput, TextInput
 
 
 class CreateUserForm(UserCreationForm):
@@ -18,6 +18,7 @@ class LoginForm(AuthenticationForm):
 
     username = forms.CharField(widget=TextInput(), label="Użytkownik")
     password = forms.CharField(widget=PasswordInput(), label="Hasło")
+
 
 class AddRecordFormTelefony(forms.ModelForm):
     indeks = forms.CharField(label="Indeks", max_length=7)
@@ -43,7 +44,7 @@ class UpdateRecordFormTelefony(forms.ModelForm):
     klatka = forms.CharField(label="Klatka",
                              max_length=2)
     telefon = forms.CharField(label="Telefon",
-                              max_length=20, validators=[RegexValidator(r'^\d{9}$', message="Pole 'Telefon' musi zawierać dokładnie 9 cyfr.")])
+                              max_length=20, validators=[RegexValidator(r'^\d{9}$', message="9 cyfr.")])
     telefon2 = forms.CharField(label="Telefon", max_length=20)
     telefon3 = forms.CharField(label="Telefon", max_length=20)
     zgoda = forms.CharField(label="Zgoda tak/nie",

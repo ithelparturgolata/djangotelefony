@@ -16,7 +16,8 @@
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="phone" class="form-label">Telefon:</label>
-                            <input type="text" class="form-control" id="phone" name="phone" placeholder="" autocomplete="off">
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder=""
+                                   autocomplete="off" value="{{ record.telefon }}">
                         </div>
 
                         <select class="form-control" id="smsTemplate">
@@ -75,7 +76,7 @@
                                       rows="3"></textarea>
                         </div>
 
-                        <a href="{% url 'dashboard-sms-kontrahent' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
+                        <a href="{% url 'dashboard_sms' %}" class="btn btn-outline-primary"> Powrót &nbsp; <i
                                 class="fa fa-arrow-left"></i> </a>
 
                         <button type="submit" class="btn btn-outline-primary">Wyślij</button>
@@ -87,7 +88,6 @@
     </div>
 
     {{ redirect_to_login_immediately }}
-
     <script>
         document.getElementById('smsTemplate').addEventListener('change', function () {
             document.getElementById('content').value = this.value;

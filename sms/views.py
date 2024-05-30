@@ -221,17 +221,17 @@ def sms_record(request, pk):
 			page = request.GET.get("page")
 			my_record = p.get_page(page)
 			
-			now = datetime.now()
-			today = str(date.today())
-			hour = now.strftime("%H:%M:%S")
-			user = auth.get_user(request)
-			file = open("..//save/sms/sms_kontrahent.txt", "a+")
-			file.write("Odbiorca = " + phone + "\n" +
-					   "Tresc = " + content + "\n" +
-					   "Data:" + today + "\n" +
-					   "Wyslal = " + str(user) +
-					   "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
-			file.close
+			# now = datetime.now()
+			# today = str(date.today())
+			# hour = now.strftime("%H:%M:%S")
+			# user = auth.get_user(request)
+			# file = open("..//save/sms/sms_kontrahent.txt", "a+")
+			# file.write("Odbiorca = " + phone + "\n" +
+			# 		   "Tresc = " + content + "\n" +
+			# 		   "Data:" + today + "\n" +
+			# 		   "Wyslal = " + str(user) +
+			# 		   "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
+			# file.close
 			
 			return render(request,
 						  "dashboard-sms.html",
@@ -284,17 +284,17 @@ def sms_record_blok(request, pk):
 			page = request.GET.get("page")
 			my_record = p.get_page(page)
 			
-			now = datetime.now()
-			today = str(date.today())
-			hour = now.strftime("%H:%M:%S")
-			user = auth.get_user(request)
-			file = open("..//save/sms/sms_blok.txt", "a+")
-			file.write("Odbiorca = " + phone + "\n" +
-					   "Tresc = " + content + "\n" +
-					   "Data:" + today + "\n" +
-					   "Wyslal = " + str(user) +
-					   "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
-			file.close
+			# now = datetime.now()
+			# today = str(date.today())
+			# hour = now.strftime("%H:%M:%S")
+			# user = auth.get_user(request)
+			# file = open("..//save/sms/sms_blok.txt", "a+")
+			# file.write("Odbiorca = " + phone + "\n" +
+			# 		   "Tresc = " + content + "\n" +
+			# 		   "Data:" + today + "\n" +
+			# 		   "Wyslal = " + str(user) +
+			# 		   "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
+			# file.close
 			
 			return render(request,
 						  "dashboard-sms.html",
@@ -347,17 +347,17 @@ def sms_record_lu(request):
 			page = request.GET.get("page")
 			my_record = p.get_page(page)
 			
-			now = datetime.now()
-			today = str(date.today())
-			hour = now.strftime("%H:%M:%S")
-			user = auth.get_user(request)
-			file = open("..//save/sms/sms_blok.txt", "a+")
-			file.write("Odbiorca = " + phone + "\n" +
-					   "Tresc = " + content + "\n" +
-					   "Data:" + today + "\n" +
-					   "Wyslal = " + str(user) +
-					   "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
-			file.close
+			# now = datetime.now()
+			# today = str(date.today())
+			# hour = now.strftime("%H:%M:%S")
+			# user = auth.get_user(request)
+			# file = open("..//save/sms/sms_blok.txt", "a+")
+			# file.write("Odbiorca = " + phone + "\n" +
+			# 		   "Tresc = " + content + "\n" +
+			# 		   "Data:" + today + "\n" +
+			# 		   "Wyslal = " + str(user) +
+			# 		   "\n" + "Godzina: " + hour + "\n" + "-----------" + "\n")
+			# file.close
 			
 			return render(request,
 						  "dashboard-sms.html",
@@ -415,7 +415,9 @@ def search_kontrahent(request):
 		return render(request, "sms-search-kontrahent.html", {})
 
 
+@login_required(login_url="login")
 def search_blok(request):
+
 	"""
 	View function for searching SMS records related to blocks.
 

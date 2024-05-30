@@ -19,11 +19,10 @@
             class="fa fa-filter"
             aria-hidden="true"></i> </a>&nbsp;&nbsp;
     <hr>
-    <br><br>
     <table class="table  table-bordered" id="sample_data">
         <thead class="table-light">
         <tr>
-            <th scope="col"> ID</th>
+            {#            <th scope="col"> ID</th>#}
             <th scope="col"> Indeks</th>
             <th scope="col"> Nazwa</th>
             <th scope="col"> Adres</th>
@@ -35,7 +34,7 @@
         {% if records %}
             {% for record in my_record %}
                 <tr>
-                    <td> {{ record.id }} </td>
+                    {#                    <td> {{ record.id }} </td>#}
                     <td> {{ record.indeks }} </td>
                     <td> {{ record.nazwa }}</td>
                     <td> {{ record.adres }} </td>
@@ -45,22 +44,15 @@
                 </tr>
             {% endfor %}
         {% endif %}
-
         </tbody>
     </table>
-    <br><br>
-    <hr>
-
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             {% if my_record.has_previous %}
                 <a class="btn btn-outline-primary btn-sm"
-                                         href="?page={{ my_record.previous_page_number }}">Poprzednia</a>
-                {#                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>#}
+                   href="?page={{ my_record.previous_page_number }}">Poprzednia</a>
             {% endif %}
             {% if my_record.has_next %}
-                {#                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>#}
-                {#                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>#}
                 <a class="btn btn-outline-primary btn-sm" href="?page={{ my_record.next_page_number }}">Następna</a>
 
             {% endif %}

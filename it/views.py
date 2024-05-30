@@ -2,30 +2,68 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import UsersIT
 from .forms import UsersITForm
 from django.contrib.auth.decorators import login_required
-from django.core.exceptions import ValidationError
 from django.contrib import messages
 from django.contrib.auth.models import Group
 
+
 @login_required(login_url="login")
 def dashboard_it(request):
-    # Check if the user is a member of the 'it_group'
+    """
+    Display IT dashboard.
+
+    This view displays the IT dashboard page, showing information about hardware for IT users.
+
+    Args:
+        request (HttpRequest): The request object.
+
+    Returns:
+        HttpResponse: The rendered dashboard-it.html template with hardware information or error-it.html
+        if the user is not authorized to view the page.
+
+    """
     it_group = Group.objects.get(name='it_group')
     if request.user.groups.filter(name=it_group).exists():
-        # If the user is in the 'it_group', render the dashboard-it.html template
         hardware = UsersIT.objects.all()
         return render(request, 'dashboard-it.html', {'hardware': hardware})
     else:
-        # If the user is not in the 'it_group', redirect to a different page or display an error message
         return render(request, 'error-it.html', {'message': 'Access denied. You are not authorized to view this page.'})
 
 
 def user_detail_it(request, user_id):
+    """
+    Display details of a specific IT user.
+
+    This view displays detailed information about a specific IT user.
+
+    Args:
+        request (HttpRequest): The request object.
+        user_id (int): The ID of the user to display details for.
+
+    Returns:
+        HttpResponse: The rendered detail-it.html template with user details.
+
+    Raises:
+        Http404: If the specified user does not exist.
+
+    """
     user = get_object_or_404(UsersIT, pk=user_id)
     return render(request, 'detail-it.html', {'user': user})
 
 
 @login_required(login_url="login")
 def search_it(request):
+    """
+    Search for IT users.
+
+    This view allows searching for IT users based on contractor name.
+
+    Args:
+        request (HttpRequest): The request object.
+
+    Returns:
+        HttpResponse: The rendered search-it.html template with search results.
+
+    """
     searched = request.POST.get("searched", "").lower()
     my_contracts = UsersIT.objects.filter(contractor__name__icontains=searched)
     if not my_contracts:
@@ -37,11 +75,27 @@ def search_it(request):
 
 @login_required(login_url="login")
 def update_user_it(request, user_id):
-    # Check if the user is a member of the 'it_group'
+    """
+    Update information of a specific IT user.
+
+    This view allows updating information of a specific IT user.
+
+    Args:
+        request (HttpRequest): The request object.
+        user_id (int): The ID of the user to update.
+
+    Returns:
+        HttpResponse: The rendered update-user-it.html template with the update form and user information.
+
+    Raises:
+        Http404: If the specified user does not exist.
+        PermissionDenied: If the user does not have permission to update user information.
+
+    """
     it_group = Group.objects.get(name='it_group')
     if not request.user.groups.filter(name=it_group).exists():
-        # If the user is not in the 'it_group', display an error message
-        return render(request, 'error-it.html', {'message': 'Access denied. You are not authorized to perform this action.'})
+        return render(request, 'error-it.html',
+                      {'message': 'Odmowa dostępu.'})
 
     user = get_object_or_404(UsersIT, pk=user_id)
     if request.method == 'POST':

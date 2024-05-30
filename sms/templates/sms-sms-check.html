@@ -12,11 +12,12 @@
                     <form method="POST" autocomplete="off">
                         <hr>
                         {% csrf_token %}
-<div class="mb-3">
-    <label for="phone" class="form-label">Telefon:</label>
-    <input type="text" class="form-control" id="phone" name="phone" placeholder=""
-           value="{% for phone_number in phone_numbers %}{{ phone_number }}, {% endfor %}" autocomplete="off">
-</div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telefon:</label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder=""
+                                   value="{% for phone_number in phone_numbers %}{{ phone_number }}, {% endfor %}"
+                                   autocomplete="off">
+                        </div>
 
                         <select class="form-control" id="smsTemplate">
                             <option value="">--Wybierz treść--</option>

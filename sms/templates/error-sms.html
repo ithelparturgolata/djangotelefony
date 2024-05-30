@@ -1,11 +1,9 @@
 {% extends 'base-sms.html' %}
 {% block content %}
     <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
-
     <hr>
     <p align="justify">
-    Niestety nie posiadasz uprawnień do tej aplikacji.
+        Niestety nie posiadasz uprawnień do tej aplikacji.
     </p>
-
     {{ redirect_to_login_immediately }}
 {% endblock %}

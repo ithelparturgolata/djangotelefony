@@ -1,6 +1,5 @@
 {% extends 'base-sms.html' %}
 {% load crispy_forms_tags %}
-
 {% block content %}
     <div class="row justify-content-center">
         <div class="col-sm-6 mb-3 mb-sm-0">
@@ -22,6 +21,9 @@
 
                         <select class="form-control" id="smsTemplate">
                             <option value="">--Wybierz treść--</option>
+                            <option value="Informujemy, że dzisiaj dostarczylismy do Panstwa skrzynek pocztowych i na adresy mailowe, ankiety remontowe. Zachecamy do udzialu.">
+                                Ankieta
+                            </option>
                             <option value="Informujemy, ze (x-data) w godzinach (x) zostanie zamkniety doplyw wody.">
                                 Awaria wodna
                             </option>
