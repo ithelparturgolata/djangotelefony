@@ -1,6 +1,5 @@
 from django import forms
 from django.utils.safestring import mark_safe
-
 from .models import Contract, ContractFile, Contractor, ContractFileAnnex
 
 
@@ -8,7 +7,8 @@ class ContractForm(forms.ModelForm):
     class Meta:
         model = Contract
         fields = ['contractor', 'description', 'start_date', 'end_date', 'place', 'indefinite']
-        labels = {'contractor': 'Wykonawca', 'files': 'Pliki', 'description': 'Opis', 'start_date': 'Umowa od', 'end_date': 'Umowa do', 'place': 'Umowa w:', 'indefinite': "Czas nieokreślony"}
+        labels = {'contractor': 'Wykonawca', 'files': 'Pliki', 'description': 'Opis', 'start_date': 'Umowa od',
+                  'end_date': 'Umowa do', 'place': 'Umowa w:', 'indefinite': "Czas nieokreślony"}
         widgets = {
             'start_date': forms.DateInput(attrs={'type': 'date'}),
             'end_date': forms.DateInput(attrs={'type': 'date'}),
@@ -60,3 +60,4 @@ class ContractFileFormAnnex(forms.ModelForm):
     
 class ContractsSearchForm(forms.Form):
     searched = forms.CharField(label='Search')
+    

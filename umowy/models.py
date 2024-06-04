@@ -48,7 +48,7 @@ class ContractFile(models.Model):
     file = models.FileField(upload_to='contract_files/')
 
     def __str__(self):
-            return self.file.name
+        return self.file.name
     
     
 class ContractFileAnnex(models.Model):
@@ -56,6 +56,6 @@ class ContractFileAnnex(models.Model):
     file_annex = models.FileField(upload_to='contract_files/')
 
     def __str__(self):
-            return self.file_annex.name
+        return self.file_annex.name
 
     

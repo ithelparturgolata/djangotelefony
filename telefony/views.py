@@ -131,9 +131,6 @@ def view_record(request, pk):
 	return render(request, "telefony-view.html", context=context)
 
 
-# return render(request, "telefony-view.html", context=context)
-
-
 @login_required(login_url="login")
 def delete(request, pk):
 	record = Mieszkaniec.objects.get(id=pk)
@@ -178,6 +175,8 @@ def sms_record(request, pk):
 def search(request):
 	if request.method == "POST":
 		searched = request.POST["searched"]
+		searched = searched.upper()
+		
 		my_records = Mieszkaniec.objects.filter(nazwa__contains=searched) | Mieszkaniec.objects.filter(
 			indeks__contains=searched) | Mieszkaniec.objects.filter(
 			adres__contains=searched) | Mieszkaniec.objects.filter(

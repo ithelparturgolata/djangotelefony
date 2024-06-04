@@ -5,18 +5,10 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
 from django.contrib import messages
 from django.contrib.auth.models import Group
+from django.core.paginator import Paginator
 
 
 def add_contract(request):
-    """
-    View to add a new contract.
-
-    Args:
-    - request (HttpRequest): The HTTP request object.
-
-    Returns:
-    - HttpResponse: Rendered template for adding a new contract.
-    """
     if request.method == 'POST':
         form = ContractForm(request.POST, request.FILES)
         if form.is_valid():
@@ -30,27 +22,15 @@ def add_contract(request):
 
 @login_required(login_url="login")
 def add_contractor(request):
-    """
-    View to add a new contractor.
-
-    Args:
-    - request (HttpRequest): The HTTP request object.
-
-    Returns:
-    - HttpResponse: Rendered template for adding a new contractor.
-    """
     contracts = Contract.objects.all()
     if request.method == 'POST':
         form = ContractorForm(request.POST, request.FILES)
         if form.is_valid():
-            # Check if the contractor already exists
             name = form.cleaned_data.get('name')
             existing_contractor = Contractor.objects.filter(name__iexact=name).exists()
             if existing_contractor:
-                # Contractor already exists, display a message
                 messages.error(request, f"Wykonawca '{name}' już jest w bazie.")
             else:
-                # Contractor doesn't exist, save the form
                 form.save()
                 return redirect('dashboard_contracts')
         else:
@@ -62,29 +42,19 @@ def add_contractor(request):
 
 @login_required(login_url="login")
 def dashboard_contracts(request):
-    # Check if the user is a member of the 'umowy_group'
     umowy_group = Group.objects.get(name='umowy_group')
     if request.user.groups.filter(name=umowy_group).exists():
-        # If the user is in the 'umowy_group', retrieve contracts and render the dashboard-contracts.html template
         contracts = Contract.objects.all()
+        p = Paginator(Contract.objects.all(), 10)
+        page = request.GET.get("page")
+        contracts = p.get_page(page)
         return render(request, 'dashboard-contracts.html', {'contracts': contracts})
     else:
-        # If the user is not in the 'umowy_group', redirect to a different page or display an error message
-        return render(request, 'error-contracts.html', {'message': 'Access denied. You are not authorized to view this page.'})
+        return render(request, 'error-contracts.html', {'message': ''})
 
 
 @login_required(login_url="login")
 def details_contract(request, contract_id):
-    """
-    View to display details of a specific contract.
-
-    Args:
-    - request (HttpRequest): The HTTP request object.
-    - contract_id (int): The ID of the contract.
-
-    Returns:
-    - HttpResponse: Rendered template displaying details of the contract.
-    """
     contract = get_object_or_404(Contract, pk=contract_id)
     my_files = ContractFile.objects.filter(contract=contract)
     annex_files = ContractFileAnnex.objects.filter(contract=contract)
@@ -108,20 +78,12 @@ def details_contract(request, contract_id):
         annex_form = ContractFileFormAnnex()
     
     return render(request, 'details-contract.html',
-                  {'contract': contract, 'form': form, 'annex_form': annex_form, 'my_files': my_files, 'annex_files': annex_files})
+                  {'contract': contract, 'form': form, 'annex_form': annex_form, 'my_files': my_files,
+                   'annex_files': annex_files})
+
 
 @login_required(login_url="login")
 def upload_file_contract(request, contract_id):
-    """
-    View to upload a file for a specific contract.
-
-    Args:
-    - request (HttpRequest): The HTTP request object.
-    - contract_id (int): The ID of the contract.
-
-    Returns:
-    - HttpResponse: Rendered template for uploading a file for the contract.
-    """
     contract = get_object_or_404(Contract, pk=contract_id)
     if request.method == 'POST':
         form = ContractFileForm(request.POST, request.FILES)
@@ -139,16 +101,6 @@ def upload_file_contract(request, contract_id):
 
 @login_required(login_url="login")
 def upload_file_contract_annex(request, contract_id):
-    """
-    View to upload a file for a specific contract annex.
-
-    Args:
-    - request (HttpRequest): The HTTP request object.
-    - contract_id (int): The ID of the contract.
-
-    Returns:
-    - HttpResponse: Rendered template for uploading a file for the contract annex.
-    """
     contract = get_object_or_404(Contract, pk=contract_id)
     if request.method == 'POST':
         form = ContractFileFormAnnex(request.POST, request.FILES)
@@ -166,15 +118,6 @@ def upload_file_contract_annex(request, contract_id):
 
 @login_required(login_url="login")
 def search_contracts(request):
-    """
-    View to search for contracts by contractor name.
-
-    Args:
-    - request (HttpRequest): The HTTP request object.
-
-    Returns:
-    - HttpResponse: Rendered template displaying search results.
-    """
     searched = request.POST.get("searched", "").lower()
     my_contracts = Contract.objects.filter(contractor__name__icontains=searched)
 
@@ -183,4 +126,5 @@ def search_contracts(request):
     else:
         message = ""
 
-    return render(request, "search-contract.html", {"searched": searched, "my_contracts": my_contracts, "message": message})
+    return render(request, "search-contract.html", {"searched": searched, "my_contracts": my_contracts,
+                                                    "message": message})

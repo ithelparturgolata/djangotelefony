@@ -24,7 +24,7 @@
         <table class="table  table-bordered" id="sample_data">
             <thead class="table-light">
             <tr>
-                                <th scope="col"> ID</th>
+{#                <th scope="col"> ID</th>#}
                 <th scope="col"> Indeks</th>
                 <th scope="col"> Nazwa</th>
                 <th scope="col"> Adres</th>
@@ -38,10 +38,11 @@
             {% if searched %}
                 {% for record in my_records %}
                     <tr>
-                        <td> {{ record.id }} </td>
+{#                        <td> {{ record.id }} </td>#}
                         <td> {{ record.indeks }} </td>
                         <td> {{ record.nazwa }}</td>
                         <td> {{ record.adres }} </td>
+                        <td> {{ record.klatka }} </td>
                         <td> {{ record.telefon }} </td>
                         <td><input type="checkbox" name="record_ids" value="{{ record.id }}"
                                    data-phone="{{ record.telefon }}"></td>

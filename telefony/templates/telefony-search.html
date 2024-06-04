@@ -11,12 +11,12 @@
     <table class="table  table-bordered" id="sample_data">
         <thead class="table-light">
         <tr>
-            <th scope="col"> ID</th>
+{#            <th scope="col"> ID</th>#}
             <th scope="col"> Indeks</th>
             <th scope="col"> Nazwa</th>
             <th scope="col"> Adres</th>
             <th scope="col"> Telefon</th>
-            <th scope="col"> Szczegóły</th>
+{#            <th scope="col"> Szczegóły</th>#}
         </tr>
         </thead>
         <tbody>
@@ -24,13 +24,13 @@
             {% for record in my_records %}
                 <tr>
                 <tr>
-                    <td> {{ record.id }} </td>
+{#                    <td> {{ record.id }} </td>#}
                     <td> {{ record.indeks }} </td>
                     <td> {{ record.nazwa }}</td>
                     <td> {{ record.adres }} </td>
                     <td> <a href="{{ record.telefon }}">{{ record.telefon }}</a> </td>
-                    <td><a class="btn btn-outline-primary btn-sm" href="{% url 'view_telefony' record.id %}">
-                        <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+{#                    <td><a class="btn btn-outline-primary btn-sm" href="{% url 'view_telefony' record.id %}">#}
+{#                        <i class="fa fa-eye" aria-hidden="true"></i> </a></td>#}
                 </tr>
             {% endfor %}
         {% endif %}

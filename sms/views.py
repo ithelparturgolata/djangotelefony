@@ -1,8 +1,5 @@
-import unicodedata
-from requests import auth
-from sms.forms import SmsRecordFormSms, SmsRecordFormSmsBlok
+from sms.forms import SmsRecordFormSms
 from django.shortcuts import render
-from django.contrib.auth.models import auth
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from telefony.models import Mieszkaniec, Blok
@@ -10,8 +7,6 @@ from smsapi.client import SmsApiPlClient
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.contrib.auth.models import Group
-from datetime import date, datetime
-from django.db.models import Q
 
 
 @login_required(login_url="login")
@@ -306,6 +301,169 @@ def sms_record_blok(request, pk):
 
 
 @login_required(login_url="login")
+def sms_ns_all(request):
+
+    telefony_queryset = Mieszkaniec.objects.filter(
+        zgoda='tak',
+        administracja='NS'
+    ).values_list('telefon', flat=True)
+
+
+    telefony_str = ', '.join(map(str, telefony_queryset))
+
+    if request.method == "POST":
+        phone = request.POST.get("phone")
+        content = request.POST.get("content")
+        form = SmsRecordFormSms(request.POST)
+
+        # Normalizacja treści SMS-a, usuwanie polskich znaków diakrytycznych
+        to_remov = {
+            "ą": "a", "Ą": "A", "ś": "s", "Ś": "S",
+            "ę": "e", "Ę": "E", "Ł": "L", "ł": "l",
+            "Ó": "O", "ó": "o", "Ń": "N", "ń": "n",
+            "ć": "c", "Ć": "C", "Ż": "Z", "Ź": "Z",
+            "ż": "z", "ź": "z", '„': "", '”': ""
+        }
+        for char in to_remov:
+            content = content.replace(char, to_remov[char])
+
+        # Wysłanie SMS-a przy użyciu SmsApiPlClient
+        token = "rM5DsJlOvDkbGnYnHAn9f9GmpphT0ovOywqPaiLL"
+        client = SmsApiPlClient(access_token=token)
+        send_results = client.sms.send(
+            to=phone,
+            message=content,
+            from_="SMBUDOWLANI"
+        )
+
+        # Pobranie wszystkich rekordów Mieszkaniec i paginacja
+        my_records = Mieszkaniec.objects.all()
+        p = Paginator(my_records, 10)
+        page = request.GET.get("page")
+        my_record = p.get_page(page)
+
+        return render(request, "dashboard-sms.html", {
+            "form": form,
+            "my_record": my_record,
+            "telefony_str": telefony_str
+        })
+
+    # Utworzenie pustego formularza, gdy metoda nie jest POST
+    form = SmsRecordFormSms()
+    context = {"form": form, "telefony_str": telefony_str}
+    return render(request, "sms-sms-blok-ns-all.html", context=context)
+
+
+@login_required(login_url="login")
+def sms_nw_all(request):
+
+    telefony_queryset = Mieszkaniec.objects.filter(
+        zgoda='tak',
+        administracja='NW'
+    ).values_list('telefon', flat=True)
+
+
+    telefony_str = ', '.join(map(str, telefony_queryset))
+
+    if request.method == "POST":
+        phone = request.POST.get("phone")
+        content = request.POST.get("content")
+        form = SmsRecordFormSms(request.POST)
+
+        # Normalizacja treści SMS-a, usuwanie polskich znaków diakrytycznych
+        to_remov = {
+            "ą": "a", "Ą": "A", "ś": "s", "Ś": "S",
+            "ę": "e", "Ę": "E", "Ł": "L", "ł": "l",
+            "Ó": "O", "ó": "o", "Ń": "N", "ń": "n",
+            "ć": "c", "Ć": "C", "Ż": "Z", "Ź": "Z",
+            "ż": "z", "ź": "z", '„': "", '”': ""
+        }
+        for char in to_remov:
+            content = content.replace(char, to_remov[char])
+
+        # Wysłanie SMS-a przy użyciu SmsApiPlClient
+        token = "rM5DsJlOvDkbGnYnHAn9f9GmpphT0ovOywqPaiLL"
+        client = SmsApiPlClient(access_token=token)
+        send_results = client.sms.send(
+            to=phone,
+            message=content,
+            from_="SMBUDOWLANI"
+        )
+
+        # Pobranie wszystkich rekordów Mieszkaniec i paginacja
+        my_records = Mieszkaniec.objects.all()
+        p = Paginator(my_records, 10)
+        page = request.GET.get("page")
+        my_record = p.get_page(page)
+
+        return render(request, "dashboard-sms.html", {
+            "form": form,
+            "my_record": my_record,
+            "telefony_str": telefony_str
+        })
+
+    # Utworzenie pustego formularza, gdy metoda nie jest POST
+    form = SmsRecordFormSms()
+    context = {"form": form, "telefony_str": telefony_str}
+    return render(request, "sms-sms-blok-nw-all.html", context=context)
+
+
+@login_required(login_url="login")
+def sms_ce_all(request):
+
+    telefony_queryset = Mieszkaniec.objects.filter(
+        zgoda='tak',
+        administracja='CE'
+    ).values_list('telefon', flat=True)
+
+
+    telefony_str = ', '.join(map(str, telefony_queryset))
+
+    if request.method == "POST":
+        phone = request.POST.get("phone")
+        content = request.POST.get("content")
+        form = SmsRecordFormSms(request.POST)
+
+        # Normalizacja treści SMS-a, usuwanie polskich znaków diakrytycznych
+        to_remov = {
+            "ą": "a", "Ą": "A", "ś": "s", "Ś": "S",
+            "ę": "e", "Ę": "E", "Ł": "L", "ł": "l",
+            "Ó": "O", "ó": "o", "Ń": "N", "ń": "n",
+            "ć": "c", "Ć": "C", "Ż": "Z", "Ź": "Z",
+            "ż": "z", "ź": "z", '„': "", '”': ""
+        }
+        for char in to_remov:
+            content = content.replace(char, to_remov[char])
+
+        # Wysłanie SMS-a przy użyciu SmsApiPlClient
+        token = "rM5DsJlOvDkbGnYnHAn9f9GmpphT0ovOywqPaiLL"
+        client = SmsApiPlClient(access_token=token)
+        send_results = client.sms.send(
+            to=phone,
+            message=content,
+            from_="SMBUDOWLANI"
+        )
+
+        # Pobranie wszystkich rekordów Mieszkaniec i paginacja
+        my_records = Mieszkaniec.objects.all()
+        p = Paginator(my_records, 10)
+        page = request.GET.get("page")
+        my_record = p.get_page(page)
+
+        return render(request, "dashboard-sms.html", {
+            "form": form,
+            "my_record": my_record,
+            "telefony_str": telefony_str
+        })
+
+    # Utworzenie pustego formularza, gdy metoda nie jest POST
+    form = SmsRecordFormSms()
+    context = {"form": form, "telefony_str": telefony_str}
+    return render(request, "sms-sms-blok-ce-all.html", context=context)
+
+
+
+@login_required(login_url="login")
 def sms_record_lu(request):
 	"""
 	View function for sending SMS records related to 'LU'.
@@ -381,15 +539,28 @@ def search(request):
 	"""
 	if request.method == "POST":
 		searched = request.POST["searched"]
-		my_records = Mieszkaniec.objects.filter(nazwa__contains=searched).filter(
-			zgoda__contains="tak") | Mieszkaniec.objects.filter(
-			indeks__contains=searched).filter(zgoda__contains="tak") | Mieszkaniec.objects.filter(
+		searched = searched.upper()
+		
+		my_records = (Mieszkaniec.objects.filter(nazwa__contains=searched).filter(zgoda__contains="tak") | Mieszkaniec.objects.filter(indeks__contains=searched).filter(zgoda__contains="tak") | Mieszkaniec.objects.filter(
 			adres__contains=searched).filter(zgoda__contains="tak") | Mieszkaniec.objects.filter(
-			telefon__contains=searched).filter(zgoda__contains="tak")
-		return render(request, "sms-search.html",
-					  {"searched": searched, "my_records": my_records})
+			telefon__contains=searched).filter(zgoda__contains="tak"))
+		
+		return render(request, "sms-search.html", {"searched": searched, "my_records": my_records})
 	else:
 		return render(request, "sms-search.html", {})
+
+
+# if request.method == "POST":
+	# 	searched = request.POST["searched"]
+	# 	my_records = Mieszkaniec.objects.filter(nazwa__contains=searched).filter(
+	# 		zgoda__contains="tak") | Mieszkaniec.objects.filter(
+	# 		indeks__contains=searched).filter(zgoda__contains="tak") | Mieszkaniec.objects.filter(
+	# 		adres__contains=searched).filter(zgoda__contains="tak") | Mieszkaniec.objects.filter(
+	# 		telefon__contains=searched).filter(zgoda__contains="tak")
+	# 	return render(request, "sms-search.html",
+	# 				  {"searched": searched, "my_records": my_records})
+	# else:
+	# 	return render(request, "sms-search.html", {})
 
 
 @login_required(login_url="login")
@@ -405,12 +576,15 @@ def search_kontrahent(request):
 	"""
 	if request.method == "POST":
 		searched = request.POST["searched"]
-		my_records = Mieszkaniec.objects.filter(nazwa__contains=searched).filter(
+		searched = searched.upper()
+		
+		my_records = (Mieszkaniec.objects.filter(nazwa__contains=searched).filter(
+			zgoda__contains="tak") | Mieszkaniec.objects.filter(indeks__contains=searched).filter(
 			zgoda__contains="tak") | Mieszkaniec.objects.filter(
-			indeks__contains=searched).filter(zgoda__contains="tak") | Mieszkaniec.objects.filter(
-			adres__contains=searched).filter(zgoda__contains="tak")
-		return render(request, "sms-search-kontrahent.html",
-					  {"searched": searched, "my_records": my_records})
+			adres__contains=searched).filter(zgoda__contains="tak") | Mieszkaniec.objects.filter(
+			telefon__contains=searched).filter(zgoda__contains="tak"))
+		
+		return render(request, "sms-search-kontrahent.html", {"searched": searched, "my_records": my_records})
 	else:
 		return render(request, "sms-search-kontrahent.html", {})
 
