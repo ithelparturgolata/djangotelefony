@@ -3,21 +3,14 @@
     <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
     <hr>
     Filtr:
-    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-kontrahent' %}">Kontrahent &nbsp;<i
-            class="fa fa-filter"
-            aria-hidden="true"></i> </a>
-    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-blok' %}">Blok&nbsp;<i
-            class="fa fa-filter"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;
-    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-lu' %}">Lokale użytkowe&nbsp;<i
-            class="fa fa-filter"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;
-    <a class="btn btn-outline-primary" href="{% url 'dashboard-szablony' %}">Szablony sms&nbsp;<i
-            class="fa fa-filter"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;
-    <a class="btn btn-outline-primary" href="{% url 'sms-test' %}">SMS test&nbsp;<i
-            class="fa fa-filter"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-primary" href="{% url 'dashboard-sms-kontrahent' %}">Kontrahent &nbsp;<i class="fa fa-filter" aria-hidden="true"></i> </a>
+    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-blok' %}">Blok&nbsp;<i class="fa fa-filter" aria-hidden="true"></i> </a>&nbsp;&nbsp;
+{#    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-lu' %}">Lokale użytkowe&nbsp;<i class="fa fa-filter" aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
+{#    <a class="btn btn-outline-primary" href="{% url 'dashboard-szablony' %}">Szablony sms&nbsp;<i class="fa fa-filter" aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
+    <a class="btn btn-outline-primary" href="{% url 'sms-test' %}">SMS test&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </a>&nbsp;&nbsp;
+    <a class="btn btn-outline-primary" href="{% url 'sms-ce-all' %}">SMS CE-ALL&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </a>&nbsp;&nbsp;
+    <a class="btn btn-outline-primary" href="{% url 'sms-nw-all' %}">SMS NW-ALL&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </a>&nbsp;&nbsp;
+    <a class="btn btn-outline-primary" href="{% url 'sms-ns-all' %}">SMS NS-ALL&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </a>&nbsp;&nbsp;
     <hr>
     <table class="table  table-bordered" id="sample_data">
         <thead class="table-light">

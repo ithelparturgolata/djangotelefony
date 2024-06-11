@@ -4,39 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81f4f5f2-b9d5-459d-a352-883d72331b66" name="Changes" comment="poprawki telefony, sms">
+    <list default="true" id="81f4f5f2-b9d5-459d-a352-883d72331b66" name="Changes" comment="poprawki smsy, filtr i zaznaczenie">
+      <change afterPath="$PROJECT_DIR$/sms/templates/sms-sms-checked.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/it/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/it/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/it/templates/error-it.html" beforeDir="false" afterPath="$PROJECT_DIR$/it/templates/error-it.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/it/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/it/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/it/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/it/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/it/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/it/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rss/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/rss/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/base-sms-blok.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/base-sms-blok.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/base-sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/base-sms.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms-blok.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms-blok.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms-kontrahent.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms-kontrahent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms-lu.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms-lu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sms/templates/dashboard-sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard-sms.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sms/templates/dashboard_szablony.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/dashboard_szablony.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/error-sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/error-sms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/navbar-sms-blok.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/navbar-sms-blok.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/navbar-sms-kontrahent.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/navbar-sms-kontrahent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/navbar-sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/navbar-sms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-create.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-search-blok.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-search-blok.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-search-kontrahent.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-search-kontrahent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-search.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-sms-blok.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-sms-blok.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-sms-check.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-sms-check.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-sms-lu.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-sms-lu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-sms.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-sms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-view-blok.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-view-blok.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-view-lu.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-view-lu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sms/templates/sms-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/sms/templates/sms-view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sms/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sms/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sms/views.py" afterDir="false" />
     </list>
@@ -60,6 +37,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -82,7 +62,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Artur/PycharmProjects/djangorzrsm&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Artur/PycharmProjects/djangopanelmieszkanca&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -165,6 +145,8 @@
       <workItem from="1715397072536" duration="24795000" />
       <workItem from="1716193726730" duration="1835000" />
       <workItem from="1716231933864" duration="3118000" />
+      <workItem from="1716968913525" duration="49778000" />
+      <workItem from="1717701954526" duration="330000" />
     </task>
     <task id="LOCAL-00001" summary="poprawki filtr">
       <option name="closed" value="true" />
@@ -270,7 +252,31 @@
       <option name="project" value="LOCAL" />
       <updated>1715415542120</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="poprawki w aplikacja baza telefonów - wyszukiwanie">
+      <option name="closed" value="true" />
+      <created>1717049014102</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1717049014102</updated>
+    </task>
+    <task id="LOCAL-00015" summary="poprawki umowy">
+      <option name="closed" value="true" />
+      <created>1717515027273</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1717515027273</updated>
+    </task>
+    <task id="LOCAL-00016" summary="poprawki smsy, filtr i zaznaczenie">
+      <option name="closed" value="true" />
+      <created>1717698291752</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1717698291752</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,6 +307,9 @@
     <MESSAGE value="views oraz urls dla apki telefony, powrot do wybranego dashboardu" />
     <MESSAGE value="katalog dashboard komplet. docstringi, exceptions, alert przy zlym logowaniu" />
     <MESSAGE value="poprawki telefony, sms" />
-    <option name="LAST_COMMIT_MESSAGE" value="poprawki telefony, sms" />
+    <MESSAGE value="poprawki w aplikacja baza telefonów - wyszukiwanie" />
+    <MESSAGE value="poprawki umowy" />
+    <MESSAGE value="poprawki smsy, filtr i zaznaczenie" />
+    <option name="LAST_COMMIT_MESSAGE" value="poprawki smsy, filtr i zaznaczenie" />
   </component>
 </project>

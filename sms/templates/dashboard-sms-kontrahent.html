@@ -3,95 +3,274 @@
     <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>
     <hr>
     Filtr:
-    <a class="btn btn-primary" href="{% url 'dashboard-sms-kontrahent' %}">Kontrahent &nbsp;<i
-            class="fa fa-filter"
-            aria-hidden="true"></i> </a>
-    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-blok' %}">Blok&nbsp;<i
-            class="fa fa-filter"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;
-    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-lu' %}">Lokale użytkowe&nbsp;<i
-            class="fa fa-filter"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;
-{#    <a class="btn btn-outline-primary" href="{% url 'dashboard-szablony' %}">Szablony sms&nbsp;<i#}
-{#            class="fa fa-filter"#}
-{#            aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
-    <a class="btn btn-outline-primary" href="{% url 'sms-test' %}">SMS test&nbsp;<i
-            class="fa fa-comment"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;
-    <a class="btn btn-outline-primary" href="{% url 'sms-ce-all' %}">SMS CE-ALL&nbsp;<i
-            class="fa fa-comment"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;
-    <a class="btn btn-outline-primary" href="{% url 'sms-nw-all' %}">SMS NW-ALL&nbsp;<i
-            class="fa fa-comment"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;
-    <a class="btn btn-outline-primary" href="{% url 'sms-ns-all' %}">SMS NS-ALL&nbsp;<i
-            class="fa fa-comment"
-            aria-hidden="true"></i> </a>&nbsp;&nbsp;
+    <a class="btn btn-primary" href="{% url 'dashboard-sms-kontrahent' %}">Kontrahent &nbsp;<i class="fa fa-filter" aria-hidden="true"></i> </a>
+    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-blok' %}">Blok&nbsp;<i class="fa fa-filter" aria-hidden="true"></i> </a>&nbsp;&nbsp;
+{#    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-lu' %}">Lokale użytkowe&nbsp;<i class="fa fa-filter" aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
+{#    <a class="btn btn-outline-primary" href="{% url 'dashboard-szablony' %}">Szablony sms&nbsp;<i class="fa fa-filter" aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
+    <a class="btn btn-outline-primary" href="{% url 'sms-test' %}">SMS test&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </a>&nbsp;&nbsp;
+    <a class="btn btn-outline-primary" href="{% url 'sms-ce-all' %}">SMS CE-ALL&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </a>&nbsp;&nbsp;
+    <a class="btn btn-outline-primary" href="{% url 'sms-nw-all' %}">SMS NW-ALL&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </a>&nbsp;&nbsp;
+    <a class="btn btn-outline-primary" href="{% url 'sms-ns-all' %}">SMS NS-ALL&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </a>&nbsp;&nbsp;
     <hr>
-        <table class="table  table-bordered" id="sample_data">
+
+    <div class="form-group">
+        <label for="search">Znajdź:</label>
+        <input type="text" id="search" class="form-control" placeholder="Wpisz adres, nazwę lub telefon...">
+    </div>
+    <form method="POST" action="{% url 'sms-checked' %}">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="checked">Numery:</label>
+        <input type="text" id="checked" name="checked_numbers" class="form-control" placeholder="Wpisz adres lub nazwisko..." readonly>
+        <button type="submit" class="btn btn-outline-primary">SMS ZAZNACZENI&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </button>
+    </div>
+</form>
+
+    <br>
+    <form id="checkedForm" method="post" action="{% url 'sms-checked' %}">
+        {% csrf_token %}
+        <input type="hidden" id="checkedNumbersInput" name="checked_numbers">
+
+        <table class="table table-bordered" id="sample_data">
             <thead class="table-light">
-            <tr>
-                {#                <th scope="col"> ID</th>#}
-                <th scope="col"> Indeks</th>
-                <th scope="col"> Nazwa</th>
-                <th scope="col"> Adres</th>
-                <th scope="col"> Klatka</th>
-                <th scope="col"> Telefon</th>
-{#                <th scope="col"> Zaznacz</th>#}
-                <th scope="col"> SMS</th>
-            </tr>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Indeks</th>
+                    <th scope="col">Nazwa</th>
+                    <th scope="col">Adres</th>
+                    <th scope="col">Klatka</th>
+                    <th scope="col">Telefon</th>
+                    <th scope="col">Zaznacz</th>
+                    <th scope="col">SMS</th>
+                </tr>
             </thead>
             <tbody>
-            {% if my_record %}
-                {% for record in my_record %}
-                    <tr>
-                        {#                        <td> {{ record.id }} </td>#}
-                        <td> {{ record.indeks }} </td>
-                        <td> {{ record.nazwa }}</td>
-                        <td> {{ record.adres }} </td>
-                        <td> {{ record.klatka }} </td>
-                        <td> {{ record.telefon }} </td>
-{#                        <td><input type="checkbox" name="record_ids" value="{{ record.id }}"#}
-{#                                   data-phone="{{ record.telefon }}"></td>#}
-                        <td><a class="btn btn-outline-primary btn-sm" href="{% url 'sms-view' record.id %}">
-                            <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
-                    </tr>
-                {% endfor %}
-            {% endif %}
+                {% if my_record %}
+                    {% for record in my_record %}
+                        <tr>
+                            <td>{{ record.id }}</td>
+                            <td>{{ record.indeks }}</td>
+                            <td>{{ record.nazwa }}</td>
+                            <td>{{ record.adres }}</td>
+                            <td>{{ record.klatka }}</td>
+                            <td>{{ record.telefon }}</td>
+                            <td><input type="checkbox" name="record_ids" value="{{ record.id }}" data-phone="{{ record.telefon }}"></td>
+                            <td><a class="btn btn-outline-primary btn-sm" href="{% url 'sms-view' record.id %}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
             </tbody>
         </table>
 
 
+    </form>
 
     <br>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            {% if my_record.has_previous %}
-                <a class="btn btn-outline-primary btn-sm"
-                   href="?page={{ my_record.previous_page_number }}">Poprzednia</a>
-            {% endif %}
-            {% if my_record.has_next %}
-                <a class="btn btn-outline-primary btn-sm" href="?page={{ my_record.next_page_number }}">Następna</a>
-            {% endif %}
-        </ul>
-    </nav>
     {{ redirect_to_login_immediately }}
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById('search');
+    const table = document.getElementById('sample_data');
+    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 
-{#    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>#}
-{#    <script>#}
-{#        $(document).ready(function () {#}
-{#            $('input[name="record_ids"]').change(function () {#}
-{#                var selectedNumbers = [];#}
-{#                $('input[name="record_ids"]:checked').each(function () {#}
-{#                    // Get the phone number associated with the checked checkbox#}
-{#                    var phone = $(this).data('phone');#}
-{#                    if (phone) {#}
-{#                        selectedNumbers.push(phone);#}
-{#                    }#}
-{#                });#}
-{#                // Update the phone input field with the selected phone numbers separated by commas#}
-{#                $('#phone').val(selectedNumbers.join(','));#}
-{#            });#}
+    searchInput.addEventListener('keyup', function() {
+        const filter = searchInput.value.toUpperCase();
+        Array.from(rows).forEach(row => {
+            const addressCell = row.getElementsByTagName('td')[3];
+            const nameCell = row.getElementsByTagName('td')[2];
+            const phoneCell = row.getElementsByTagName('td')[5];
+            if (addressCell || nameCell || phoneCell) {
+                const address = addressCell.textContent.toUpperCase();
+                const name = nameCell.textContent.toUpperCase();
+                const phone = phoneCell.textContent.toUpperCase();
+                if (address.includes(filter) || name.includes(filter) || phone.includes(filter)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            }
+        });
+    });
+
+    const checkboxes = document.querySelectorAll('input[name="record_ids"]');
+    const checkedNumbersInput = document.getElementById('checked');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const checkedNumbers = Array.from(checkboxes)
+                .filter(i => i.checked)
+                .map(i => i.dataset.phone)
+                .join(', ');
+            checkedNumbersInput.value = checkedNumbers;
+        });
+    });
+
+    // Change the input value to uppercase as the user types
+    searchInput.addEventListener('input', function() {
+        searchInput.value = searchInput.value.toUpperCase();
+    });
+});
+</script>
+
+{#<script>#}
+{#document.addEventListener("DOMContentLoaded", function() {#}
+{#    const searchInput = document.getElementById('search');#}
+{#    const table = document.getElementById('sample_data');#}
+{#    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');#}
+{#    const checkedInput = document.getElementById('checked');#}
+{#    const checkedNumbersInput = document.getElementById('checkedNumbersInput');#}
+{##}
+{#    searchInput.addEventListener('keyup', function() {#}
+{#        // Zamiana wpisanego tekstu na wielkie litery#}
+{#        searchInput.value = searchInput.value.toUpperCase();#}
+{#        const filter = searchInput.value.toLowerCase();#}
+{#        Array.from(rows).forEach(row => {#}
+{#            const nameCell = row.getElementsByTagName('td')[2];#}
+{#            const addressCell = row.getElementsByTagName('td')[3];#}
+{#            const phoneCell = row.getElementsByTagName('td')[5];#}
+{#            const name = nameCell ? nameCell.textContent.toLowerCase() : '';#}
+{#            const address = addressCell ? addressCell.textContent.toLowerCase() : '';#}
+{#            const phone = phoneCell ? phoneCell.textContent.toLowerCase() : '';#}
+{##}
+{#            if (name.includes(filter) || address.includes(filter) || phone.includes(filter)) {#}
+{#                row.style.display = '';#}
+{#            } else {#}
+{#                row.style.display = 'none';#}
+{#            }#}
 {#        });#}
-{#    </script>#}
+{#    });#}
+{##}
+{#    Array.from(rows).forEach(row => {#}
+{#        const checkbox = row.querySelector('input[type="checkbox"]');#}
+{#        checkbox.addEventListener('change', function() {#}
+{#            updateCheckedNumbers();#}
+{#        });#}
+{#    });#}
+{##}
+{#    function updateCheckedNumbers() {#}
+{#        const checkedPhones = [];#}
+{#        Array.from(rows).forEach(row => {#}
+{#            const checkbox = row.querySelector('input[type="checkbox"]');#}
+{#            if (checkbox.checked) {#}
+{#                const phoneCell = row.getElementsByTagName('td')[5];#}
+{#                const phone = phoneCell ? phoneCell.textContent : '';#}
+{#                checkedPhones.push(phone);#}
+{#            }#}
+{#        });#}
+{#        const checkedPhonesStr = checkedPhones.join(',');#}
+{#        checkedInput.value = checkedPhonesStr;#}
+{#        checkedNumbersInput.value = checkedPhonesStr;#}
+{#    }#}
+{#});#}
+{#</script>#}
 {% endblock %}
+
+
+{#{% extends 'base-sms-kontrahent.html' %}#}
+{#{% block content %}#}
+{#    <h5> Witaj, {{ user.first_name }} {{ user.last_name }}! 👋 </h5>#}
+{#    <hr>#}
+{#    Filtr:#}
+{#    <a class="btn btn-primary" href="{% url 'dashboard-sms-kontrahent' %}">Kontrahent &nbsp;<i class="fa fa-filter" aria-hidden="true"></i> </a>#}
+{#    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-blok' %}">Blok&nbsp;<i class="fa fa-filter" aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
+{#    <a class="btn btn-outline-primary" href="{% url 'dashboard-sms-lu' %}">Lokale użytkowe&nbsp;<i class="fa fa-filter" aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
+{#    <a class="btn btn-outline-primary" href="{% url 'dashboard-szablony' %}">Szablony sms&nbsp;<i class="fa fa-filter" aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
+{#    <a class="btn btn-outline-primary" href="{% url 'sms-test' %}">SMS test&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
+{#    <a class="btn btn-outline-primary" href="{% url 'sms-ce-all' %}">SMS CE-ALL&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
+{#    <a class="btn btn-outline-primary" href="{% url 'sms-nw-all' %}">SMS NW-ALL&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
+{#    <a class="btn btn-outline-primary" href="{% url 'sms-ns-all' %}">SMS NS-ALL&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </a>&nbsp;&nbsp;#}
+{#    <hr>#}
+{##}
+{#    <div class="form-group">#}
+{#        <label for="search">Znajdź:</label>#}
+{#        <input type="text" id="search" class="form-control" placeholder="Wpisz adres, nazwę lub telefon...">#}
+{#    </div>#}
+{#    <br>#}
+{#    <div class="form-group">#}
+{#        <label for="checked">Numery:</label>#}
+{#        <input type="text" id="checked" class="form-control" placeholder="Numery telefonów...">#}
+{#        <a class="btn btn-outline-primary" href="{% url 'sms-nw-all' %}">SMS ZAZNACZENI&nbsp;<i class="fa fa-comment" aria-hidden="true"></i> </a>#}
+{#    </div>#}
+{#    <br>#}
+{#    <table class="table table-bordered" id="sample_data">#}
+{#        <thead class="table-light">#}
+{#            <tr>#}
+{#                <th scope="col">ID</th>#}
+{#                <th scope="col">Indeks</th>#}
+{#                <th scope="col">Nazwa</th>#}
+{#                <th scope="col">Adres</th>#}
+{#                <th scope="col">Klatka</th>#}
+{#                <th scope="col">Telefon</th>#}
+{#                <th scope="col">Zaznacz</th>#}
+{#                <th scope="col">SMS</th>#}
+{#            </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#            {% if my_record %}#}
+{#                {% for record in my_record %}#}
+{#                    <tr>#}
+{#                        <td>{{ record.id }}</td>#}
+{#                        <td>{{ record.indeks }}</td>#}
+{#                        <td>{{ record.nazwa }}</td>#}
+{#                        <td>{{ record.adres }}</td>#}
+{#                        <td>{{ record.klatka }}</td>#}
+{#                        <td>{{ record.telefon }}</td>#}
+{#                        <td><input type="checkbox" name="record_ids" value="{{ record.id }}" data-phone="{{ record.telefon }}"></td>#}
+{#                        <td><a class="btn btn-outline-primary btn-sm" href="{% url 'sms-view' record.id %}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>#}
+{#                    </tr>#}
+{#                {% endfor %}#}
+{#            {% endif %}#}
+{#        </tbody>#}
+{#    </table>#}
+{##}
+{#    <br>#}
+{#    {{ redirect_to_login_immediately }}#}
+{##}
+{#<script>#}
+{#document.addEventListener("DOMContentLoaded", function() {#}
+{#    const searchInput = document.getElementById('search');#}
+{#    const table = document.getElementById('sample_data');#}
+{#    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');#}
+{#    const checkedInput = document.getElementById('checked');#}
+{##}
+{#    searchInput.addEventListener('keyup', function() {#}
+{#        // Zamiana wpisanego tekstu na wielkie litery#}
+{#        searchInput.value = searchInput.value.toUpperCase();#}
+{#        const filter = searchInput.value.toLowerCase();#}
+{#        Array.from(rows).forEach(row => {#}
+{#            const nameCell = row.getElementsByTagName('td')[2];#}
+{#            const addressCell = row.getElementsByTagName('td')[3];#}
+{#            const phoneCell = row.getElementsByTagName('td')[5];#}
+{#            const name = nameCell ? nameCell.textContent.toLowerCase() : '';#}
+{#            const address = addressCell ? addressCell.textContent.toLowerCase() : '';#}
+{#            const phone = phoneCell ? phoneCell.textContent.toLowerCase() : '';#}
+{##}
+{#            if (name.includes(filter) || address.includes(filter) || phone.includes(filter)) {#}
+{#                row.style.display = '';#}
+{#            } else {#}
+{#                row.style.display = 'none';#}
+{#            }#}
+{#        });#}
+{#    });#}
+{##}
+{#    Array.from(rows).forEach(row => {#}
+{#        const checkbox = row.querySelector('input[type="checkbox"]');#}
+{#        checkbox.addEventListener('change', function() {#}
+{#            updateCheckedNumbers();#}
+{#        });#}
+{#    });#}
+{##}
+{#    function updateCheckedNumbers() {#}
+{#        const checkedPhones = [];#}
+{#        Array.from(rows).forEach(row => {#}
+{#            const checkbox = row.querySelector('input[type="checkbox"]');#}
+{#            if (checkbox.checked) {#}
+{#                const phoneCell = row.getElementsByTagName('td')[5];#}
+{#                const phone = phoneCell ? phoneCell.textContent : '';#}
+{#                checkedPhones.push(phone);#}
+{#            }#}
+{#        });#}
+{#        checkedInput.value = checkedPhones.join(',');#}
+{#    }#}
+{#});#}
+{#</script>#}
+{#{% endblock %}#}

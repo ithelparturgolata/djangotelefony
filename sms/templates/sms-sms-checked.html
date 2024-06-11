@@ -1,0 +1,193 @@
+{% extends 'base-sms.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-comment" aria-hidden="true"></i> &nbsp;
+                    <strong> Wyślij SMS </strong>
+                    <hr>
+                    <form method="POST" autocomplete="off" id="smsForm">
+                        {% csrf_token %}
+                        <p>Wyślij sms do zaznaczonych </p>
+                        <hr>
+
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telefony:</label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder=""
+                                   value="{{ checked_numbers|join:', ' }}" readonly>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="smsTemplate" class="form-label">Szablon SMS:</label>
+                            <select class="form-control" id="smsTemplate" onchange="fillContent()">
+                                <option value="">--Wybierz treść--</option>
+                                <option value="Informujemy, że dzisiaj dostarczylismy do Panstwa skrzynek pocztowych i na adresy mailowe, ankiety remontowe. Zachecamy do udzialu.">
+                                    Ankieta
+                                </option>
+                                <option value="Informujemy, ze (x-data) w godzinach (x) zostanie zamkniety doplyw wody.">
+                                    Awaria wodna
+                                </option>
+                                <option value="Informujemy, ze (x-data) w godzinach (x) zostanie wyłaczone centralne ogrzewanie.">
+                                    Awaria c.o.
+                                </option>
+                                <option value="Informujemy, ze przerwa w dostawie ciepla wynika z awarii sieci cieplowniczej KPEC.">
+                                    Awaria c.o. KPEC
+                                </option>
+                                <option value="Informujemy, ze przerwa w dostawie wody wynika z awarii sieci wodociagowej MWIK.">
+                                    Awaria wodna MWIK
+                                </option>
+                                <option value="W zwiazku z awaria zasilania (x-data), do godz. (x) mieszkancy pozbawieni beda pradu.">
+                                    Brak prądu
+                                </option>
+                                <option value="Informujemy, ze (x-data) w godzinach (x) nastapi planowane przez ENEA S.A. wylaczenie pradu.">
+                                    Planowane wyłączenie prądu ENEA
+                                </option>
+                                <option value="Informujemy, ze (x-data) Zaklad Gazowniczy zamknal doplyw gazu do mieszkan.">
+                                    Brak gazu
+                                </option>
+                                <option value="Informujemy, ze (x-data) w godz. (x) odbedzie sie przeglad instalacji gazowej oraz przewodow kominowych.">
+                                    Przegląd gaz
+                                </option>
+                                <option value="Informujemy, ze (x-data) w godz. (x) odbedzie sie przeglad instalacji elektrycznej.">
+                                    Przegląd elektryka
+                                </option>
+                                <option value="Informuje, ze od (x-data) rozpoczna sie prace remontowe (x).">
+                                    Remont
+                                </option>
+                                <option value="Informujemy, że od dzisiaj beda dostarczane do Panstwa skrzynek pocztowych i na adresy korespondencyjne, rozliczenie kosztow i karta oplat mieszkaniowych.">
+                                    Korespondencja
+                                </option>
+                                <option value="Informujemy, ze (x-data) PSG przeprowadzi akcje przewonienia gazu ziemnego. Prosimy o zglaszanie nieszczelnosci instalacji gazowej do Spoldzielni tel.52 3664400.">
+                                    Przewonienie gazu
+                                </option>
+                                <option value="Przypominamy, ze 20 (miesiac) mija termin platnosci oplat mieszkaniowych.">
+                                    Opłaty mieszkaniowe
+                                </option>
+                                <option value="Informujemy, ze dd.mm-dd.mm br. w Panstwa budynku beda wymieniane wodomierze. Szczegoly w komunikacie na klatce oraz na stronie SMB.">
+                                    Legalizacja
+                                </option>
+                                <option value="Informujemy, ze dd.mm-dd.mm br. w Panstwa budynku beda wymieniane baterie w podzielnikach. Szczegoly w komunikacie na klatce oraz na stronie SMB.">
+                                    Baterie
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="content" class="form-label">Treść:</label>
+                            <textarea class="form-control" id="content" name="content" maxlength="160" rows="3"></textarea>
+                        </div>
+
+                        <a href="{% url 'dashboard_sms' %}" class="btn btn-outline-primary">Powrót &nbsp;<i class="fa fa-arrow-left"></i></a>
+                        <button type="submit" class="btn btn-outline-primary">Wyślij</button>
+                    </form>
+
+                    {% if send_results %}
+                        <div class="alert alert-info mt-3">
+                            <h4>Wyniki wysyłki SMS:</h4>
+                            <ul>
+                                {% for result in send_results %}
+                                    <li>{{ result }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ redirect_to_login_immediately }}
+{% endblock %}
+
+
+{#{% extends 'base-sms.html' %}#}
+{#{% load crispy_forms_tags %}#}
+{#{% block content %}#}
+{#    <div class="row justify-content-center">#}
+{#        <div class="col-sm-6 mb-3 mb-sm-0">#}
+{#            <div class="card">#}
+{#                <div class="card-body">#}
+{#                    <i class="fa fa-comment" aria-hidden="true"></i> &nbsp;#}
+{#                    <strong> Wyślij SMS </strong>#}
+{#                    <hr>#}
+{#                    <form method="POST" autocomplete="off" id="smsForm">#}
+{#                        {% csrf_token %}#}
+{#                        <p>Wyślij sms do zaznaczonych </p>#}
+{#                        <hr>#}
+{##}
+{#                        <div class="mb-3">#}
+{#                            <label for="phone" class="form-label">Telefony:</label>#}
+{#                            <input type="text" class="form-control" id="phone" name="phone" placeholder=""#}
+{#                                   value="{{ checked_numbers|join:', ' }}" readonly>#}
+{#                        </div>#}
+{##}
+{#                        <div class="mb-3">#}
+{#                            <label for="smsTemplate" class="form-label">Szablon SMS:</label>#}
+{#                            <select class="form-control" id="smsTemplate" onchange="fillContent()">#}
+{#                                <option value="">--Wybierz treść--</option>#}
+{#                                <option value="Informujemy, że dzisiaj dostarczylismy do Panstwa skrzynek pocztowych i na adresy mailowe, ankiety remontowe. Zachecamy do udzialu.">#}
+{#                                    Ankieta#}
+{#                                </option>#}
+{#                                <option value="Informujemy, ze (x-data) w godzinach (x) zostanie zamkniety doplyw wody.">#}
+{#                                    Awaria wodna#}
+{#                                </option>#}
+{#                                <option value="Informujemy, ze (x-data) w godzinach (x) zostanie wyłaczone centralne ogrzewanie.">#}
+{#                                    Awaria c.o.#}
+{#                                </option>#}
+{#                                <option value="Informujemy, ze przerwa w dostawie ciepla wynika z awarii sieci cieplowniczej KPEC.">#}
+{#                                    Awaria c.o. KPEC#}
+{#                                </option>#}
+{#                                <option value="Informujemy, ze przerwa w dostawie wody wynika z awarii sieci wodociagowej MWIK.">#}
+{#                                    Awaria wodna MWIK#}
+{#                                </option>#}
+{#                                <option value="W zwiazku z awaria zasilania (x-data), do godz. (x) mieszkancy pozbawieni beda pradu.">#}
+{#                                    Brak prądu#}
+{#                                </option>#}
+{#                                <option value="Informujemy, ze (x-data) w godzinach (x) nastapi planowane przez ENEA S.A. wylaczenie pradu.">#}
+{#                                    Planowane wyłączenie prądu ENEA#}
+{#                                </option>#}
+{#                                <option value="Informujemy, ze (x-data) Zaklad Gazowniczy zamknal doplyw gazu do mieszkan.">#}
+{#                                    Brak gazu#}
+{#                                </option>#}
+{#                                <option value="Informujemy, ze (x-data) w godz. (x) odbedzie sie przeglad instalacji gazowej oraz przewodow kominowych.">#}
+{#                                    Przegląd gaz#}
+{#                                </option>#}
+{#                                <option value="Informujemy, ze (x-data) w godz. (x) odbedzie sie przeglad instalacji elektrycznej.">#}
+{#                                    Przegląd elektryka#}
+{#                                </option>#}
+{#                                <option value="Informuje, ze od (x-data) rozpoczna sie prace remontowe (x).">#}
+{#                                    Remont#}
+{#                                </option>#}
+{#                                <option value="Informujemy, że od dzisiaj beda dostarczane do Panstwa skrzynek pocztowych i na adresy korespondencyjne, rozliczenie kosztow i karta oplat mieszkaniowych.">#}
+{#                                    Korespondencja#}
+{#                                </option>#}
+{#                                <option value="Informujemy, ze (x-data) PSG przeprowadzi akcje przewonienia gazu ziemnego. Prosimy o zglaszanie nieszczelnosci instalacji gazowej do Spoldzielni tel.52 3664400.">#}
+{#                                    Przewonienie gazu#}
+{#                                </option>#}
+{#                                <option value="Przypominamy, ze 20 (miesiac) mija termin platnosci oplat mieszkaniowych.">#}
+{#                                    Opłaty mieszkaniowe#}
+{#                                </option>#}
+{#                                <option value="Informujemy, ze dd.mm-dd.mm br. w Panstwa budynku beda wymieniane wodomierze. Szczegoly w komunikacie na klatce oraz na stronie SMB.">#}
+{#                                    Legalizacja#}
+{#                                </option>#}
+{#                                <option value="Informujemy, ze dd.mm-dd.mm br. w Panstwa budynku beda wymieniane baterie w podzielnikach. Szczegoly w komunikacie na klatce oraz na stronie SMB.">#}
+{#                                    Baterie#}
+{#                                </option>#}
+{#                            </select>#}
+{#                        </div>#}
+{##}
+{#                        <div class="mb-3">#}
+{#                            <label for="content" class="form-label">Treść:</label>#}
+{#                            <textarea class="form-control" id="content" name="content" maxlength="160" rows="3"></textarea>#}
+{#                        </div>#}
+{##}
+{#                        <a href="{% url 'dashboard_sms' %}" class="btn btn-outline-primary">Powrót &nbsp;<i class="fa fa-arrow-left"></i></a>#}
+{#                        <button type="submit" class="btn btn-outline-primary">Wyślij</button>#}
+{#                    </form>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    {{ redirect_to_login_immediately }}#}
+{#{% endblock %}#}
